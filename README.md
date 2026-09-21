@@ -40,8 +40,12 @@ npm run watch   # durante o desenvolvimento
 ## Regerar a imagem de compartilhamento
 
 `build/og.html` é o cartão que vira `assets/img/og-soie-n02.jpg`. Abra a página
-em 1200x630, tire um print e converta para JPEG. Se o domínio mudar, ajuste as
-três URLs no `<head>` do `index.html`: `canonical`, `og:url` e o `@id` do JSON-LD.
+em 1200x630, tire um print e converta para JPEG.
+
+O site no ar é `https://illustrious-ganache-89e735.netlify.app/`, publicado pela
+Netlify a cada push na `main`. Se o domínio mudar, o endereço aparece 7 vezes no
+`<head>` do `index.html`: `canonical`, `og:url`, `og:image`, `twitter:image`, o
+`@id`, a `image` e a `url` da oferta no JSON-LD.
 
 ## Notas técnicas
 
