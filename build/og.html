@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Cartão de compartilhamento SOIE N°02</title>
+<!-- Página de build: renderizada a 1200x630 e exportada para assets/img/og-soie-n02.jpg -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B0B0C; --graphite:#55525A; --mist:#8E8A91; --hairline:#E7E5E8;
+    --pearl:#F7F6F5; --white:#FFFFFF; --champagne:#B89A7E; --po:#EAD7D1;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html,body{ width:1200px; height:630px; overflow:hidden; }
+  body{
+    position:relative; background:var(--white); color:var(--ink);
+    font-family:'Inter Tight', system-ui, sans-serif;
+  }
+  /* mesma aura da LP: brilho quente no canto superior direito */
+  .aura{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(60% 70% at 88% 6%, rgba(234,215,209,.75), transparent 62%),
+      radial-gradient(50% 60% at 8% 96%, rgba(184,154,126,.16), transparent 60%),
+      linear-gradient(180deg, var(--white) 0%, var(--pearl) 100%);
+  }
+  /* malha técnica discreta */
+  .grid{
+    position:absolute; inset:0; opacity:.5;
+    background-image:
+      linear-gradient(to right, rgba(11,11,12,.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11,11,12,.045) 1px, transparent 1px);
+    background-size:120px 120px;
+  }
+  .frame{ position:absolute; inset:28px; border:1px solid var(--hairline); border-radius:20px; }
+  .inner{ position:relative; height:100%; padding:74px 82px; display:flex; flex-direction:column; justify-content:space-between; }
+
+  .top{ display:flex; align-items:baseline; gap:16px; }
+  .mark{ font-weight:700; font-size:30px; letter-spacing:-.04em; }
+  .label{ font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--mist); }
+
+  h1{ font-size:104px; line-height:.9; letter-spacing:-.055em; font-weight:600; max-width:660px; }
+  h1 em{ font-family:'Instrument Serif', serif; font-style:italic; font-weight:400; letter-spacing:-.02em; }
+  .sub{ margin-top:22px; font-size:23px; line-height:1.45; color:var(--graphite); max-width:470px; }
+  .sub i{ font-family:'Instrument Serif', serif; font-style:italic; }
+
+  .specs{ display:flex; gap:44px; align-items:baseline; }
+  .spec b{ display:block; font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--mist); font-weight:400; margin-bottom:7px; }
+  .spec span{ font-size:20px; font-weight:500; }
+
+  /* o pincel entra deitado pela direita, como na quarta dobra */
+  .piece{
+    position:absolute; right:-118px; top:200px; width:730px; transform:rotate(-24deg);
+    filter:drop-shadow(0 46px 44px rgba(11,11,12,.26)) drop-shadow(0 8px 10px rgba(11,11,12,.14));
+  }
+  .piece img{ display:block; width:100%; height:auto; }
+</style>
+</head>
+<body>
+  <div class="aura"></div>
+  <div class="grid"></div>
+  <div class="piece"><img src="../assets/img/soie-n02-horizontal.webp" alt=""></div>
+  <div class="frame"></div>
+
+  <div class="inner">
+    <div class="top">
+      <span class="mark">SOIE</span>
+      <span class="label">Atelier · N°02</span>
+    </div>
+
+    <div>
+      <h1>Toque<br><em>de seda.</em></h1>
+      <p class="sub">Fibras de 0,02 mm montadas à mão. A base assenta em camada única, sem marcas.</p>
+    </div>
+
+    <div class="specs">
+      <div class="spec"><b>Fibra</b><span>0,02 mm · vegana</span></div>
+      <div class="spec"><b>Corte</b><span>Chanfro 12°</span></div>
+      <div class="spec"><b>Lote</b><span>02 · 200 peças</span></div>
+    </div>
+  </div>
+</body>
+</html>
