@@ -186,23 +186,8 @@ body{
 .text-stroke-light{ color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.16); }
 
 #hero-title{ font-size:clamp(3.25rem,8.2vw,7.5rem); }
-/* a varredura do pincel que "pinta" a headline */
+/* a linha que se preenche da esquerda para a direita */
 .paint-line{ position:relative; display:inline-block; }
-.brush-sweep{
-  position:absolute; top:58%; left:-6%; height:180px; width:auto;
-  opacity:0; pointer-events:none; z-index:5;
-  /* o deslocamento leva a PONTA das cerdas até a linha do texto */
-  transform:translate(calc(-50% - 46px), calc(-50% - 60px)) rotate(142deg);
-  transition:opacity .4s ease;
-}
-@media (max-width:640px){ .brush-sweep{ height:120px; transform:translate(calc(-50% - 31px), calc(-50% - 40px)) rotate(142deg); } }
-.is-sweeping .brush-sweep{ animation:brush-travel 2.1s var(--ease-veil) forwards; }
-@keyframes brush-travel{
-  0%{ opacity:0; left:-4%; }
-  8%{ opacity:1; }
-  85%{ opacity:1; }
-  100%{ opacity:0; left:104%; }
-}
 
 /* ---------- superfícies ---------- */
 .glass-panel{
@@ -418,6 +403,16 @@ body{
   border-right:1px solid rgba(11,11,12,.16);
 }
 
+/* balanço: o pincel respira em torno do próprio eixo, fora de fase com a levitação */
+.anat-sway{ animation:anat-sway 13s var(--ease-veil) infinite; }
+@keyframes anat-sway{
+  0%,100%{ transform:perspective(900px) rotateZ(-1.2deg) rotateY(-3.4deg); }
+  28%{ transform:perspective(900px) rotateZ(.5deg) rotateY(1.2deg); }
+  55%{ transform:perspective(900px) rotateZ(1.2deg) rotateY(3.4deg); }
+  78%{ transform:perspective(900px) rotateZ(-.4deg) rotateY(-.8deg); }
+}
+@media (prefers-reduced-motion:reduce){ .anat-sway{ animation:none; } }
+
 .anat-brush{ position:relative; height:88%; aspect-ratio:259/1259; transform:rotate(calc(-15deg + var(--p,.5) * 14deg)); will-change:transform; }
 .anat-brush > img{ display:block; width:100%; height:100%; filter:drop-shadow(0 38px 34px rgba(11,11,12,.28)) drop-shadow(0 6px 8px rgba(11,11,12,.18)); user-select:none; -webkit-user-drag:none; }
 
@@ -476,6 +471,105 @@ body{
   transition:stroke-dashoffset 1.3s var(--ease-veil), stroke .4s ease, stroke-width .4s ease; transition-delay:calc(.5s + var(--i,0) * 120ms), 0s, 0s; }
 .anat-grid.is-in .anat-line{ stroke-dashoffset:0; }
 .anat-line.is-active{ stroke:var(--ink); stroke-width:1.25; }
+
+/* ---- composição limpa: o pincel primeiro, as especificações em sequência ---- */
+
+/* a grade: uma coluna no celular, diagrama de três colunas no desktop */
+.anat-grid{ display:grid; grid-template-columns:1fr; gap:.625rem; }
+.anat-stage-cell{ order:-1; }
+.anat-grid .anat-note{ max-width:42rem; margin-inline:auto; }
+@media (min-width:1024px){
+  .anat-grid{ grid-template-columns:1fr minmax(300px,.86fr) 1fr; column-gap:1.75rem; row-gap:2.25rem; align-items:center; }
+  .anat-stage-cell{ grid-column:2; grid-row:1 / span 3; }
+  .anat-grid .anat-note{ max-width:none; margin-inline:0; }
+  .anat-note[data-hs="1"]{ grid-column:1; grid-row:1; }
+  .anat-note[data-hs="3"]{ grid-column:1; grid-row:2; }
+  .anat-note[data-hs="5"]{ grid-column:1; grid-row:3; }
+  .anat-note[data-hs="2"]{ grid-column:3; grid-row:1; }
+  .anat-note[data-hs="4"]{ grid-column:3; grid-row:2; }
+  .anat-note[data-hs="6"]{ grid-column:3; grid-row:3; }
+}
+
+/* no celular os cartões sobem retos: nada de deslocamento lateral */
+@media (max-width:1023px){
+  .anat-note.anx[data-anx="left"], .anat-note.anx[data-anx="right"]{ transform:translateY(30px); }
+  .anat-note.anx.is-in{ transform:none; }
+}
+
+/* palco mais contido no celular, com o pincel ocupando o centro */
+@media (max-width:1023px){
+  .anat-stage{ height:clamp(400px,74vw,560px); margin-bottom:.5rem; }
+  .anat-word{ font-size:34vw; transform:translate(-50%,-50%); opacity:.45; }
+  .anat-ring{ width:min(70%,360px); opacity:.4; }
+  .anat-orb{ width:min(72%,380px); }
+  .anat-brush{ height:84%; transform:rotate(calc(-9deg + var(--p,.5) * 8deg)); }
+  .hs, .anat-lens{ display:none; }
+}
+
+/* o reflexo que percorre o pincel: a máscara vem do próprio PNG, então só a peça acende */
+.anat-sheen{
+  position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; mix-blend-mode:screen;
+  background:linear-gradient(106deg, transparent 46%, rgba(255,255,255,.26) 48.6%, rgba(255,255,255,.5) 50%, rgba(255,255,255,.26) 51.4%, transparent 54%);
+  background-size:260% 260%; background-position:130% 0; background-repeat:no-repeat;
+  animation:brush-sheen 7s var(--ease-veil) infinite 1.2s;
+}
+@keyframes brush-sheen{
+  0%{ opacity:0; background-position:130% 0; }
+  10%{ opacity:1; }
+  46%{ opacity:1; }
+  58%{ opacity:0; background-position:-40% 0; }
+  100%{ opacity:0; background-position:-40% 0; }
+}
+@media (prefers-reduced-motion:reduce){ .anat-sheen{ animation:none; opacity:0; } }
+
+/* desktop: um ponto de cada vez, não seis */
+@media (min-width:1024px){
+  .hs::before{ inset:12px; box-shadow:0 0 0 1px rgba(11,11,12,.28); opacity:.5; }
+  .hs:not(.is-active)::after{ animation:none; opacity:0; }
+  .hs.is-active::before{ inset:9px; opacity:1; }
+  .anat-ruler{ opacity:.4; }
+}
+
+/* linhas: só a da nota ativa aparece */
+.anat-line{ opacity:0; transition:stroke-dashoffset 1s var(--ease-veil), opacity .45s ease; transition-delay:0s; }
+.anat-grid.is-in .anat-line:not(.is-active){ stroke-dashoffset:1; opacity:0; }
+.anat-line.is-active{ stroke-dashoffset:0; opacity:1; }
+
+/* o cartão de especificação: recorte do pincel + texto */
+.anat-note{ padding:1rem 1.125rem 1.125rem; }
+@media (max-width:1023px){
+  .anat-note{ background:rgba(255,255,255,.72); border-color:var(--hairline); box-shadow:0 18px 40px -34px rgba(11,11,12,.4); }
+  .anat-grid.has-active .anat-note.is-in:not(.is-active){ opacity:1; }
+  .anat-anchor{ display:none; }
+  .anat-grid{ gap:.75rem; }
+  .anat-hint .hint-hover{ display:none; }
+  .anat-hint .hint-touch{ display:inline; }
+}
+.anat-card{ display:flex; align-items:center; gap:.875rem; }
+.anat-thumb{
+  position:relative; flex:none; width:68px; height:68px; border-radius:1rem; overflow:hidden;
+  background-color:var(--pearl); background-repeat:no-repeat;
+  background-image:url("assets/img/soie-n02-anatomia.png");
+  background-size:var(--pz,140%) auto; background-position:var(--px,50%) var(--py,50%);
+  box-shadow:inset 0 0 0 1px var(--hairline);
+  transition:transform .7s var(--ease-silk), box-shadow var(--d-base) ease;
+}
+@supports (background-image:image-set(url("a.webp") type("image/webp"))){
+  .anat-thumb{ background-image:image-set(url("assets/img/soie-n02-anatomia.webp") type("image/webp"), url("assets/img/soie-n02-anatomia.png") type("image/png")); }
+}
+.anat-note:hover .anat-thumb, .anat-note.is-active .anat-thumb{ transform:scale(1.05); box-shadow:inset 0 0 0 1px rgba(11,11,12,.24); }
+.anat-heading{ min-width:0; }
+.anat-num{
+  display:inline; width:auto; height:auto; border:0; background:none; border-radius:0; place-items:unset;
+  font-family:var(--font-mono); font-size:.6875rem; letter-spacing:.2em; color:var(--mist);
+  transition:color var(--d-base) ease;
+}
+.anat-note.is-active .anat-num{ background:none; color:var(--ink); }
+@media (min-width:1024px){
+  .anat-thumb{ width:56px; height:56px; border-radius:.875rem; }
+  .anat-card{ gap:.75rem; }
+  .anat-anchor{ top:2.5rem; }
+}
 
 /* métricas */
 .anat-metrics{ display:grid; grid-template-columns:repeat(2,1fr); }
@@ -779,11 +873,9 @@ body{
         <span class="t-label text-mist hidden sm:inline">Atelier</span>
       </a>
       <nav class="hidden lg:flex items-center gap-8">
-        <a href="#colecao" class="link-ghost t-body-sm">Coleção</a>
         <a href="#anatomia" class="link-ghost t-body-sm">Anatomia</a>
         <a href="#ritual" class="link-ghost t-body-sm">Ritual</a>
-        <a href="#atelier" class="link-ghost t-body-sm">Atelier</a>
-        <a href="#cuidado" class="link-ghost t-body-sm">Cuidado</a>
+        <a href="#fecho" class="link-ghost t-body-sm">Reserva</a>
       </nav>
       <div class="flex items-center gap-3">
         <button class="beam-btn hidden sm:inline-block" onclick="openModal()">
@@ -810,11 +902,9 @@ body{
         <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><iconify-icon icon="solar:close-circle-linear" width="20"></iconify-icon></button>
       </div>
       <div class="flex flex-col gap-6">
-        <a href="#colecao" class="t-h4 drawer-link">Coleção</a>
         <a href="#anatomia" class="t-h4 drawer-link">Anatomia</a>
         <a href="#ritual" class="t-h4 drawer-link">Ritual</a>
-        <a href="#atelier" class="t-h4 drawer-link">Atelier</a>
-        <a href="#cuidado" class="t-h4 drawer-link">Cuidado</a>
+        <a href="#fecho" class="t-h4 drawer-link">Reserva</a>
       </div>
       <button class="btn-base btn-primary btn-fill w-full mt-10" onclick="openModal()"><span class="fill"></span>Reservar o seu</button>
     </nav>
@@ -843,7 +933,6 @@ body{
           <span class="block text-reveal-wrapper"><span class="text-reveal-content">Toque</span></span>
           <span class="block paint-line">
             <span id="paint-target" class="text-transparent-stroke" data-text="de seda.">de seda.</span>
-            <svg class="brush-sweep" viewBox="0 0 120 520" aria-hidden="true"><use href="#brush-slim"/></svg>
           </span>
         </h1>
 
@@ -995,59 +1084,20 @@ body{
         <p class="anx t-body-lg text-graphite mb-6" style="--i:2">
           Seis decisões de engenharia, milímetro a milímetro, para a base <span class="t-serif text-ink">desaparecer</span> na pele e não no pincel.
         </p>
-        <div class="anx flex items-center gap-3 t-helper" style="--i:3">
+        <div class="anat-hint anx flex items-center gap-3 t-helper" style="--i:3">
           <iconify-icon icon="solar:cursor-linear" width="16"></iconify-icon>
-          <span>Passe o cursor pelos pontos ou pelas notas.</span>
+          <span class="hint-hover">Passe o cursor pelos pontos ou pelas notas.</span>
+          <span class="hint-touch">Role para ver as seis especificações, da cúpula ao cabo.</span>
         </div>
       </div>
     </div>
 
-    <!-- diagrama: notas · pincel · notas -->
-    <div id="anat-grid" class="anat-grid relative wrap grid lg:grid-cols-12 gap-6 lg:gap-6 items-center" data-anx-group>
+    <!-- diagrama: o pincel e, em sequência, as seis especificações -->
+    <div id="anat-grid" class="anat-grid relative wrap" data-anx-group>
       <svg class="anat-lines hidden lg:block" aria-hidden="true"></svg>
 
-      <!-- notas da esquerda: 01 · 03 · 05 -->
-      <div class="lg:col-span-4 order-2 lg:order-none grid md:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-10">
-        <button type="button" class="anat-note anx" data-anx="left" data-hs="1" data-side="l" style="--i:1">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">01</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Cúpula</span>
-              <span class="t-h5 block mb-2">Chanfro de 12°</span>
-              <span class="t-body-sm text-graphite block mb-4">O ângulo acompanha a curva da maçã do rosto e alcança o canto do nariz e a linha da mandíbula sem trocar de pincel.</span>
-              <span class="badge">Contorno anatômico</span>
-            </span>
-          </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-        <button type="button" class="anat-note anx" data-anx="left" data-hs="3" data-side="l" style="--i:3">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">03</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Densidade</span>
-              <span class="t-h5 block mb-2">Arquitetura em dois tempos</span>
-              <span class="t-body-sm text-graphite block mb-4">Miolo compacto para cobrir, borda aérea para esfumar. Cobertura e difusão na mesma passada, com acabamento de <span class="t-serif text-ink">segunda pele</span>.</span>
-              <span class="badge">Blur óptico</span>
-            </span>
-          </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-        <button type="button" class="anat-note anx" data-anx="left" data-hs="5" data-side="l" style="--i:5">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">05</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Equilíbrio</span>
-              <span class="t-h5 block mb-2">Centro de massa na férula</span>
-              <span class="t-body-sm text-graphite block mb-4">O peso mora perto das cerdas, não na ponta do cabo. A mão relaxa e a pressão se distribui por igual em cada movimento.</span>
-              <span class="badge">Pegada de pluma</span>
-            </span>
-          </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-      </div>
-
-      <!-- palco -->
-      <div class="lg:col-span-4 order-1 lg:order-none">
+      <!-- palco: o pincel é o protagonista -->
+      <div class="anat-stage-cell">
         <div id="anat-stage" class="anat-stage">
           <span class="anat-word" aria-hidden="true">N°02</span>
           <div class="anat-orb" aria-hidden="true"></div>
@@ -1057,16 +1107,18 @@ body{
             <circle cx="200" cy="200" r="182" stroke="rgba(11,11,12,.28)" stroke-width="12" stroke-dasharray="1.2 94.1"/>
             <circle cx="200" cy="200" r="150" stroke="rgba(11,11,12,.06)" stroke-width="1" stroke-dasharray="3 6"/>
           </svg>
-          <div class="anat-ruler hidden md:block" aria-hidden="true"></div>
+          <div class="anat-ruler hidden lg:block" aria-hidden="true"></div>
           <div class="anat-floor" aria-hidden="true"></div>
 
           <div class="anx h-full w-full flex items-center justify-center" data-anx="brush">
             <div class="animate-levitate h-full w-full flex items-center justify-center" style="animation-duration:7s">
+              <div class="anat-sway h-full w-full flex items-center justify-center">
               <div id="anat-brush" class="anat-brush">
                 <picture>
                   <source srcset="assets/img/soie-n02-anatomia.webp" type="image/webp">
                   <img src="assets/img/soie-n02-anatomia.png" alt="Pincel SOIE N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com a gravação SOIE e cabo afunilado." draggable="false">
                 </picture>
+                <span class="anat-sheen" aria-hidden="true"></span>
                 <button type="button" class="hs" data-hs="1" style="--x:60%;--y:3.5%;--i:0" aria-label="01 · Chanfro de 12°"><span class="hs-num">01</span></button>
                 <button type="button" class="hs" data-hs="2" style="--x:30%;--y:8.5%;--i:1" aria-label="02 · Fibra taklon de 0,02 mm"><span class="hs-num">02</span></button>
                 <button type="button" class="hs" data-hs="3" style="--x:64%;--y:13%;--i:2" aria-label="03 · Densidade em dois tempos"><span class="hs-num">03</span></button>
@@ -1075,50 +1127,85 @@ body{
                 <button type="button" class="hs" data-hs="6" style="--x:50%;--y:76%;--i:5" aria-label="06 · Cabo em faia laqueada"><span class="hs-num">06</span></button>
                 <div id="anat-lens" class="anat-lens" aria-hidden="true"><span>MACRO ×3</span></div>
               </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- notas da direita: 02 · 04 · 06 -->
-      <div class="lg:col-span-4 order-3 lg:order-none grid md:grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-10">
-        <button type="button" class="anat-note anx" data-anx="right" data-hs="2" data-side="r" style="--i:2">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">02</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Fibra</span>
-              <span class="t-h5 block mb-2">Taklon de 0,02 mm</span>
-              <span class="t-body-sm text-graphite block mb-4">Fios sintéticos de ponta cônica, mais finos que um fio de cabelo. Não bebem produto, então a base fica na pele e não nas cerdas.</span>
-              <span class="badge">Até 30% menos base</span>
-            </span>
+      <!-- as seis especificações, cada uma com o seu recorte do pincel -->
+      <button type="button" class="anat-note anx" data-anx="left" data-hs="1" data-side="l" style="--i:1;--px:58%;--py:4%;--pz:135%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">01</span> <span class="t-label text-mist">Cúpula</span></span>
+            <span class="t-h5 block">Chanfro de 12°</span>
           </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-        <button type="button" class="anat-note anx" data-anx="right" data-hs="4" data-side="r" style="--i:4">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">04</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Férula</span>
-              <span class="t-h5 block mb-2">Latão com dupla crimpagem</span>
-              <span class="t-body-sm text-graphite block mb-4">Dois anéis de pressão travam os fios na raiz. A cúpula não abre e não perde fios, lavagem após lavagem.</span>
-              <span class="badge">Zero queda de fios</span>
-            </span>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">O ângulo acompanha a curva da maçã do rosto e alcança o canto do nariz e a linha da mandíbula sem trocar de pincel.</span>
+        <span class="badge">Contorno anatômico</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
+      <button type="button" class="anat-note anx" data-anx="right" data-hs="2" data-side="r" style="--i:2;--px:30%;--py:9%;--pz:300%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">02</span> <span class="t-label text-mist">Fibra</span></span>
+            <span class="t-h5 block">Taklon de 0,02 mm</span>
           </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-        <button type="button" class="anat-note anx" data-anx="right" data-hs="6" data-side="r" style="--i:6">
-          <span class="flex items-start gap-4">
-            <span class="anat-num">06</span>
-            <span class="block">
-              <span class="t-label text-mist block mb-2">Cabo</span>
-              <span class="t-h5 block mb-2">Faia FSC em sete camadas de laca</span>
-              <span class="t-body-sm text-graphite block mb-4">18 g de madeira certificada, com acabamento espelhado e selado. Não absorve água, não racha e não desbota.</span>
-              <span class="badge">Garantia vitalícia</span>
-            </span>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">Fios sintéticos de ponta cônica, mais finos que um fio de cabelo. Não bebem produto, então a base fica na pele e não nas cerdas.</span>
+        <span class="badge">Até 30% menos base</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
+      <button type="button" class="anat-note anx" data-anx="left" data-hs="3" data-side="l" style="--i:3;--px:60%;--py:16%;--pz:145%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">03</span> <span class="t-label text-mist">Densidade</span></span>
+            <span class="t-h5 block">Arquitetura em dois tempos</span>
           </span>
-          <span class="anat-anchor"></span><span class="anat-bar"></span>
-        </button>
-      </div>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">Miolo compacto para cobrir, borda aérea para esfumar. Cobertura e difusão na mesma passada, com acabamento de <span class="t-serif text-ink">segunda pele</span>.</span>
+        <span class="badge">Blur óptico</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
+      <button type="button" class="anat-note anx" data-anx="right" data-hs="4" data-side="r" style="--i:4;--px:48%;--py:29%;--pz:175%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">04</span> <span class="t-label text-mist">Férula</span></span>
+            <span class="t-h5 block">Latão com dupla crimpagem</span>
+          </span>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">Dois anéis de pressão travam os fios na raiz. A cúpula não abre e não perde fios, lavagem após lavagem.</span>
+        <span class="badge">Zero queda de fios</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
+      <button type="button" class="anat-note anx" data-anx="left" data-hs="5" data-side="l" style="--i:5;--px:49%;--py:45%;--pz:150%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">05</span> <span class="t-label text-mist">Equilíbrio</span></span>
+            <span class="t-h5 block">Centro de massa na férula</span>
+          </span>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">O peso mora perto das cerdas, não na ponta do cabo. A mão relaxa e a pressão se distribui por igual em cada movimento.</span>
+        <span class="badge">Pegada de pluma</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
+      <button type="button" class="anat-note anx" data-anx="right" data-hs="6" data-side="r" style="--i:6;--px:50%;--py:76%;--pz:190%">
+        <span class="anat-card">
+          <span class="anat-thumb" aria-hidden="true"></span>
+          <span class="anat-heading">
+            <span class="block mb-1"><span class="anat-num">06</span> <span class="t-label text-mist">Cabo</span></span>
+            <span class="t-h5 block">Faia FSC em sete camadas de laca</span>
+          </span>
+        </span>
+        <span class="t-body-sm text-graphite block mt-4 mb-4">18 g de madeira certificada, com acabamento espelhado e selado. Não absorve água, não racha e não desbota.</span>
+        <span class="badge">Garantia vitalícia</span>
+        <span class="anat-anchor"></span><span class="anat-bar"></span>
+      </button>
     </div>
 
     <!-- métricas -->
@@ -1344,7 +1431,7 @@ body{
     <!-- fecho -->
     <div class="relative wrap mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
       <p class="anx t-body text-graphite max-w-md">Cada peça sai do atelier com o cartão do ritual impresso em papel de algodão.</p>
-      <a href="#cuidado" class="anx link-ghost" style="--i:1">Ver o cuidado e a lavagem <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+      <a href="#fecho" class="anx link-ghost" style="--i:1">Ver a reserva <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
     </div>
   </section>
 
@@ -1884,7 +1971,7 @@ body{
     let tourTimer = null, userHold = false;
     function tourNext(){ setActive(active % 6 + 1); }
     function startTour(){
-      if (reduced || userHold || tourTimer) return;
+      if (reduced || userHold || tourTimer || !wide.matches) return;
       grid.classList.add('is-auto');
       grid.style.setProperty('--tour', TOUR + 'ms');
       tourNext();
