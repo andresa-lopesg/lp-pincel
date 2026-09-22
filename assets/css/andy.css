@@ -673,7 +673,7 @@ body{
   background:linear-gradient(90deg, var(--champagne-deep), var(--champagne)); transition:width 2s var(--ease-silk) .35s; }
 .fin-plate.is-lit .fin-meter i{ width:var(--w,73.5%); }
 
-/* o selo do atelier */
+/* o selo da marca */
 .fin-seal{ width:84px; height:84px; flex:none; }
 @media (min-width:768px){ .fin-seal{ width:96px; height:96px; } }
 .fin-seal .ring{ transform-box:view-box; transform-origin:50% 50%; animation:seal-spin 34s linear infinite; }

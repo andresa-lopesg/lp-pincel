@@ -1,4 +1,4 @@
-# Andy · Atelier de Pincéis
+# Andy · Pincéis feitos à mão
 
 Landing page do pincel Andy N°02. HTML estático: para ver, basta servir a pasta.
 O único passo de build é o Tailwind, e a folha gerada está versionada, então dá
