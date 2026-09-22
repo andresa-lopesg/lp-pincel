@@ -695,13 +695,6 @@ body{
 
 /* rodapé */
 .fin-foot{ background:var(--ink); color:var(--white); }
-.fin-word{ display:block; white-space:nowrap; font-family:var(--font-display); font-weight:600; line-height:.76;
-  /* a palavra ocupa a largura inteira do quadro: 1 em ≈ 1,92 do traço de "SOIE" */
-  font-size:calc((min(100vw, var(--wrap-max)) - 2 * var(--wrap-pad)) / 1.94);
-  letter-spacing:-.06em; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.2); user-select:none;
-  transition:-webkit-text-stroke-color 1.2s var(--ease-silk); }
-@media (min-width:768px){ .fin-word{ -webkit-text-stroke-width:1.5px; } }
-.fin-foot:hover .fin-word{ -webkit-text-stroke-color:rgba(184,154,126,.65); }
 
 @media (prefers-reduced-motion: reduce){
   .fin-seam{ transform:none !important; }
