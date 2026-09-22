@@ -30,7 +30,7 @@ O rodapé abre com Início porque já está no fim da página. O topo não preci
 
 1. A seção nasce primeiro, com `id` e conteúdo real. Só depois entra no menu.
 2. Entrou no menu, entra nos três: topo, gaveta e rodapé.
-3. Todo `id` de dobra precisa de `scroll-margin-top:90px` no `soie.css`, senão o header fixo de 73px cobre o título.
+3. Todo `id` de dobra precisa de `scroll-margin-top:90px` no `andy.css`, senão o header fixo de 73px cobre o título.
 4. Nenhum link pode apontar para uma âncora que não existe. Para conferir:
 
 ```bash

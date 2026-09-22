@@ -120,17 +120,46 @@
      3 · ações declaradas no HTML (data-action / data-ripple)
      Uma escuta delegada no documento substitui os onclick inline.
      ========================================================================== */
+  /* Camadas que tomam a tela (modal e drawer): quem abre guarda o elemento que
+     tinha o foco, o foco entra na camada, o Tab circula lá dentro e, ao fechar,
+     volta para onde estava. Sem isso o teclado continua andando pela página
+     atrás do scrim. */
+  const FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  let layerOpen = null;   // o elemento da camada aberta
+  let lastFocus = null;   // para onde o foco volta
+
+  function focusablesIn(el){
+    return Array.prototype.filter.call(el.querySelectorAll(FOCUSABLE), function(n){
+      return n.offsetWidth || n.offsetHeight || n.getClientRects().length;
+    });
+  }
+  function openLayer(el, first){
+    layerOpen = el;
+    lastFocus = document.activeElement;
+    document.body.style.overflow = 'hidden';
+    const target = first || focusablesIn(el)[0];
+    if (target) target.focus();
+  }
+  function closeLayer(el){
+    if (layerOpen !== el) return;
+    layerOpen = null;
+    document.body.style.overflow = '';
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
+  }
+
   function openModal(){
     const m = document.getElementById('modal');
     if (!m) return;
+    closeDrawer();            // o drawer também tem um botão que abre o modal
     m.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+    openLayer(m, document.getElementById('modal-card'));
   }
   function closeModal(){
     const m = document.getElementById('modal');
     if (!m) return;
     m.classList.remove('is-open');
-    document.body.style.overflow = '';
+    closeLayer(m);
   }
 
   let toastTimer;
@@ -173,9 +202,21 @@
   });
 
   document.addEventListener('keydown', function(e){
-    if (e.key !== 'Escape') return;
-    closeModal();
-    closeDrawer();
+    if (e.key === 'Escape'){
+      closeModal();
+      closeDrawer();
+      return;
+    }
+    if (e.key !== 'Tab' || !layerOpen) return;
+    const list = focusablesIn(layerOpen);
+    if (!list.length) return;
+    // -1 é o caso do #modal-card, que recebe o foco mas não entra na lista
+    const i = list.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0){
+      e.preventDefault(); list[list.length - 1].focus();
+    } else if (!e.shiftKey && i === list.length - 1){
+      e.preventDefault(); list[0].focus();
+    }
   });
 
   /* ==========================================================================
@@ -365,14 +406,18 @@
   const drawer = document.getElementById('drawer');
   const menuBtn = document.getElementById('menu-btn');
   function closeDrawer(){
-    if (!drawer) return;
+    if (!drawer || !drawer.classList.contains('is-open')) return;
     drawer.classList.remove('is-open');
+    drawer.setAttribute('inert', '');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+    closeLayer(drawer);
   }
   if (menuBtn && drawer){
     menuBtn.addEventListener('click', function(){
       drawer.classList.add('is-open');
+      drawer.removeAttribute('inert');
       menuBtn.setAttribute('aria-expanded', 'true');
+      openLayer(drawer, document.getElementById('drawer-close'));
     });
     const dClose = document.getElementById('drawer-close');
     const dScrim = document.getElementById('drawer-scrim');

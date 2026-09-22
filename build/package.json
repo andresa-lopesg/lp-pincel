@@ -1,5 +1,5 @@
 {
-  "name": "soie-lp-build",
+  "name": "andy-lp-build",
   "private": true,
   "scripts": {
     "css": "tailwindcss -c tailwind.config.js -i tailwind.in.css -o ../assets/css/tailwind.css --minify",

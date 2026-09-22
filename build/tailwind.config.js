@@ -1,6 +1,6 @@
 /** Extraído do <script> inline de index.html. */
 module.exports = {
-  content: ['../index.html', '../assets/js/soie.js'],
+  content: ['../index.html', '../assets/js/andy.js'],
     theme: {
       extend: {
         fontFamily: {

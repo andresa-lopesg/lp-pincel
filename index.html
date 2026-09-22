@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" class="scroll-smooth no-js">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SOIE · Atelier de Pincéis · Toque de seda</title>
+<!-- Quase tudo na página entra por animação, ou seja: nasce invisível. A classe
+     no-js deixa esse conteúdo à mostra; a linha abaixo a retira assim que o
+     JavaScript prova que roda, antes da primeira pintura. -->
+<script>document.documentElement.classList.remove('no-js');</script>
+<title>Andy · Atelier de Pincéis · Toque de seda</title>
 <meta name="description" content="Pincel de base líquida N°02. Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única, sem marcas.">
 <!-- Endereço canônico. Se o domínio mudar, troque aqui, no og:url e no JSON-LD. -->
 <link rel="canonical" href="https://illustrious-ganache-89e735.netlify.app/">
 
 <!-- Como o link se apresenta quando alguém compartilha -->
 <meta property="og:type" content="product">
-<meta property="og:site_name" content="SOIE Atelier">
+<meta property="og:site_name" content="Andy Atelier">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://illustrious-ganache-89e735.netlify.app/">
-<meta property="og:title" content="SOIE N°02 · o pincel que não deixa marca">
+<meta property="og:title" content="Andy N°02 · o pincel que não deixa marca">
 <meta property="og:description" content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
-<meta property="og:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-soie-n02.jpg">
+<meta property="og:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="O pincel SOIE N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
+<meta property="og:image:alt" content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SOIE N°02 · o pincel que não deixa marca">
+<meta name="twitter:title" content="Andy N°02 · o pincel que não deixa marca">
 <meta name="twitter:description" content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
-<meta name="twitter:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-soie-n02.jpg">
-<meta name="twitter:image:alt" content="O pincel SOIE N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
+<meta name="twitter:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
+<meta name="twitter:image:alt" content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
 
 <meta name="theme-color" content="#0B0B0C">
 
@@ -35,19 +39,19 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": "https://illustrious-ganache-89e735.netlify.app/#produto",
-  "name": "Pincel SOIE N°02",
-  "sku": "SOIE-N02-L02",
+  "name": "Pincel Andy N°02",
+  "sku": "ANDY-N02-L02",
   "category": "Pincel de base líquida",
   "description": "Pincel de base líquida com cúpula chanfrada a 12°, fibras sintéticas de 0,02 mm montadas à mão, férula em latão escovado e cabo em faia FSC. A base assenta em camada única, sem marcas.",
-  "image": "https://illustrious-ganache-89e735.netlify.app/assets/img/og-soie-n02.jpg",
+  "image": "https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg",
   "material": "Fibra sintética vegana, latão escovado e faia FSC",
   "brand": {
     "@type": "Brand",
-    "name": "SOIE"
+    "name": "Andy"
   },
   "manufacturer": {
     "@type": "Organization",
-    "name": "SOIE Atelier"
+    "name": "Andy Atelier"
   },
   "offers": {
     "@type": "Offer",
@@ -63,7 +67,7 @@
     },
     "seller": {
       "@type": "Organization",
-      "name": "SOIE Atelier"
+      "name": "Andy Atelier"
     },
     "hasMerchantReturnPolicy": {
       "@type": "MerchantReturnPolicy",
@@ -84,9 +88,10 @@
 <link rel="preload" href="assets/fonts/inter-tight-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 
-<link rel="stylesheet" href="assets/css/soie.css">
+<link rel="stylesheet" href="assets/css/andy.css">
 </head>
 <body class="antialiased">
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
 <!-- textura de grão sobre tudo -->
 <div class="noise"></div>
@@ -94,7 +99,7 @@
 <canvas id="dust-canvas" class="fixed inset-0 z-[9998] pointer-events-none"></canvas>
 
 <!-- ============================================================
-     Biblioteca de símbolos: o pincel SOIE, desenhado em SVG
+     Biblioteca de símbolos: o pincel Andy, desenhado em SVG
      ============================================================ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -126,7 +131,7 @@
       <rect x="36" y="246" width="48" height="2" fill="#0B0B0C" opacity=".18"/>
       <path d="M38 262 L82 262 L70 506 C69.5 512 65 516 60 516 C55 516 50.5 512 50 506 Z" fill="url(#g-handle)"/>
       <path d="M44 272 L50 272 L44 498 C43.8 502 42 504 41 504 Z" fill="#ffffff" opacity=".14"/>
-      <text x="60" y="340" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">SOIE</text>
+      <text x="60" y="340" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">Andy</text>
       <text x="60" y="356" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="2" opacity=".75">N°02</text>
     </g>
   </defs>
@@ -186,7 +191,7 @@
   <header id="navbar" class="sticky top-0 z-50 border-b hairline" style="background:rgba(255,255,255,.72); backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4);">
     <div class="wrap h-[72px] flex items-center justify-between">
       <a href="#hero" class="flex items-baseline gap-3 group">
-        <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">SOIE</span>
+        <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
         <span class="t-label text-mist hidden sm:inline">Atelier</span>
       </a>
       <nav class="hidden lg:flex items-center gap-8">
@@ -211,9 +216,9 @@
   </header>
 
   <!-- drawer mobile -->
-  <div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none" inert>
     <div id="drawer-scrim" class="absolute inset-0 opacity-0 transition-opacity duration-500" style="background:rgba(11,11,12,.35); backdrop-filter:blur(6px)"></div>
-    <nav id="drawer-panel" class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-white border-l hairline p-8 translate-x-full transition-transform duration-700" style="transition-timing-function:var(--ease-silk)">
+    <nav id="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu" class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-white border-l hairline p-8 translate-x-full transition-transform duration-700" style="transition-timing-function:var(--ease-silk)">
       <div class="flex items-center justify-between mb-10">
         <span class="t-label text-mist">Menu</span>
         <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
@@ -226,6 +231,8 @@
       <button class="btn-base btn-primary btn-fill w-full mt-10" data-action="modal-open"><span class="fill"></span>Reservar o seu</button>
     </nav>
   </div>
+
+  <main id="conteudo" tabindex="-1">
 
   <!-- ============================================================
        01 · HERO · primeira dobra
@@ -297,7 +304,7 @@
                 <video id="hero-video"
                        poster="assets/img/hero-poster.webp"
                        muted loop playsinline preload="none"
-                       aria-label="Pincel SOIE N°02 e a aplicação da base em camada única">
+                       aria-label="Pincel Andy N°02 e a aplicação da base em camada única">
                   <source src="assets/video/pincel.webm" type="video/webm">
                   <source src="assets/video/pincel.mp4" type="video/mp4">
                 </video>
@@ -433,7 +440,7 @@
             <div class="animate-levitate h-full w-full flex items-center justify-center" style="animation-duration:7s">
               <div class="anat-sway h-full w-full flex items-center justify-center">
               <div id="anat-brush" class="anat-brush">
-                <img src="assets/img/soie-n02-anatomia.webp" alt="Pincel SOIE N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com a gravação SOIE e cabo afunilado." width="259" height="1259" decoding="async" draggable="false">
+                <img src="assets/img/andy-n02-anatomia.webp" alt="Pincel Andy N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com Andy gravado e cabo afunilado." width="259" height="1259" decoding="async" draggable="false">
                 <span class="anat-sheen" aria-hidden="true"></span>
                 <button type="button" class="hs" data-hs="1" style="--x:60%;--y:3.5%;--i:0" aria-label="01 · Chanfro de 12°"><span class="hs-num">01</span></button>
                 <button type="button" class="hs" data-hs="2" style="--x:30%;--y:8.5%;--i:1" aria-label="02 · Fibra taklon de 0,02 mm"><span class="hs-num">02</span></button>
@@ -827,7 +834,7 @@
 
         <div class="anx mt-10 flex items-baseline gap-4" style="--i:2">
           <span class="t-serif text-2xl md:text-3xl" style="color:rgba(255,255,255,.9)">Um fio de cada vez.</span>
-          <span class="t-label" style="color:rgba(255,255,255,.35)">Atelier SOIE · São Paulo</span>
+          <span class="t-label" style="color:rgba(255,255,255,.35)">Atelier Andy · São Paulo</span>
         </div>
       </div>
 
@@ -848,7 +855,7 @@
                 <circle cx="50" cy="50" r="23" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="1 5"/>
                 <g class="ring">
                   <text fill="#B89A7E" font-family="'JetBrains Mono', monospace" font-size="7" letter-spacing="1.5">
-                    <textPath href="#fin-seal-path" startOffset="0">ATELIER SOIE · MONTADO À MÃO · LOTE 02 ·&#160;</textPath>
+                    <textPath href="#fin-seal-path" startOffset="0">ATELIER ANDY · MONTADO À MÃO · LOTE 02 ·&#160;</textPath>
                   </text>
                 </g>
                 <text x="50" y="54.5" text-anchor="middle" fill="rgba(255,255,255,.82)" font-family="'Inter Tight', sans-serif" font-size="14" font-weight="600" letter-spacing="-.6">N°02</text>
@@ -897,13 +904,15 @@
     <div class="relative wrap mt-20 md:mt-28">
       <div class="anx flex justify-center mb-12 md:mb-16" data-anx="scale">
         <div class="fin-piece">
-          <img src="assets/img/soie-n02-horizontal.webp" alt="O pincel SOIE N°02 deitado, com a gravação SOIE na férula e N°02 · base líquida no cabo." width="1262" height="272" loading="lazy" decoding="async" draggable="false">
+          <img src="assets/img/andy-n02-horizontal.webp" alt="O pincel Andy N°02 deitado, com Andy gravado na férula e N°02 · base líquida no cabo." width="1262" height="272" loading="lazy" decoding="async" draggable="false">
         </div>
       </div>
       <div class="h-px w-full mb-10" style="background:linear-gradient(90deg, transparent, rgba(184,154,126,.45), transparent)"></div>
       <p class="anx fin-close text-center" style="color:rgba(255,255,255,.92)">Duzentas peças.<br><span style="color:var(--champagne)">A sua tem número.</span></p>
     </div>
   </section>
+
+  </main>
 
   <!-- ============================================================
        RODAPÉ
@@ -912,7 +921,7 @@
     <div class="relative wrap flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12" style="border-top:1px solid rgba(255,255,255,.1)">
       <div class="pt-10">
         <div class="flex items-baseline gap-3 mb-3">
-          <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">SOIE</span>
+          <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
           <span class="t-label" style="color:rgba(255,255,255,.4)">Atelier</span>
         </div>
         <p class="t-body-sm" style="color:rgba(255,255,255,.5)">Pincéis para base líquida, montados à mão.<br>Rua Fidalga 452, Vila Madalena · São Paulo</p>
@@ -926,7 +935,7 @@
     </div>
 
     <div class="wrap py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" style="border-top:1px solid rgba(255,255,255,.08)">
-      <span class="t-label" style="color:rgba(255,255,255,.34)">© 2026 SOIE Atelier · peças numeradas</span>
+      <span class="t-label" style="color:rgba(255,255,255,.34)">© 2026 Andy Atelier · peças numeradas</span>
       <a href="#hero" class="link-ghost fin-link">Voltar ao topo <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
     </div>
   </footer>
@@ -938,7 +947,7 @@
      ============================================================ -->
 <div id="modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6">
   <div id="modal-scrim" class="absolute inset-0" style="background:rgba(11,11,12,.35);backdrop-filter:blur(8px)" data-action="modal-close"></div>
-  <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" tabindex="-1" style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <button class="btn-icon absolute top-5 right-5" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
     <span class="t-label text-mist block mb-5">Lote 02 · 200 peças</span>
     <h3 id="modal-title" class="t-h3 mb-4">Pincel N°02</h3>
@@ -958,6 +967,6 @@
   <span id="toast-msg" class="t-body-sm"></span>
 </div>
 
-<script src="assets/js/soie.js" defer></script>
+<script src="assets/js/andy.js" defer onerror="document.documentElement.classList.add('no-js')"></script>
 </body>
 </html>
