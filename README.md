@@ -10,11 +10,12 @@ para abrir a página sem rodar nada.
 index.html                  a página inteira
 MAPA-DE-SECOES.md           inventário das dobras e regra da navegação
 assets/css/tailwind.css     gerado por build/ (não editar à mão)
+assets/css/fonts.css        as @font-face das quatro famílias (não editar à mão)
 assets/css/soie.css         os estilos da marca
 assets/js/soie.js           todo o comportamento, em 15 blocos numerados
+assets/fonts/               os woff2 das quatro famílias, subsets latin e latin-ext
 assets/img/                 imagens servidas ao navegador (WebP)
 assets/video/               pincel.mp4 e pincel.webm, comprimidos
-assets/templates/           Iconify e a fonte Inter servidos localmente
 build/                      config do Tailwind e a página que gera a imagem de compartilhamento
 raw/                        material de trabalho: originais, frames, testes (fora do Git)
 ```
@@ -47,9 +48,18 @@ Netlify a cada push na `main`. Se o domínio mudar, o endereço aparece 7 vezes 
 `<head>` do `index.html`: `canonical`, `og:url`, `og:image`, `twitter:image`, o
 `@id`, a `image` e a `url` da oferta no JSON-LD.
 
+## Regerar as fontes
+
+`assets/css/fonts.css` e `assets/fonts/` saíram do `css2` do Google Fonts, filtrados
+para os subsets `latin` e `latin-ext`. Os arquivos `-var-` são variáveis e cobrem a
+faixa inteira de pesos da família. Para acrescentar um peso, pedir o css2 novamente
+com o peso novo, baixar os woff2 e refazer as `@font-face`.
+
 ## Notas técnicas
 
 - Tipografia: Inter Tight (display), Inter (texto), Instrument Serif (itálico), JetBrains Mono (labels)
+- Nada é buscado em servidor de terceiro: fontes e ícones saem daqui
+- Os ícones são um sprite de `<symbol>` no topo do `index.html`, usados por `<svg class="ico"><use href="#i-...">`
 - Um único `requestAnimationFrame` compartilhado move todas as animações
 - O vídeo só é baixado quando a dobra se aproxima, via IntersectionObserver
 - `prefers-reduced-motion` desliga as animações; abaixo de 1024px o efeito de lente não roda

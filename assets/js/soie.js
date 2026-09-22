@@ -319,7 +319,7 @@
   function paintToggle(){
     if (!vBtn || !vIcon) return;
     const playing = video && !video.paused;
-    vIcon.setAttribute('icon', playing ? 'solar:pause-linear' : 'solar:play-linear');
+    vIcon.querySelector('use').setAttribute('href', playing ? '#i-pause' : '#i-play');
     vBtn.setAttribute('data-tip', playing ? 'Pausar' : 'Tocar');
     vBtn.setAttribute('aria-label', playing ? 'Pausar o vídeo' : 'Tocar o vídeo');
   }

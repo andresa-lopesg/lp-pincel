@@ -79,16 +79,10 @@
 
 <!-- Tailwind: folha estática gerada em build/ (npm run css) -->
 <link rel="stylesheet" href="assets/css/tailwind.css">
-<!-- Iconify (build local do template) -->
-<script src="assets/templates/digital-architect.aura.build/assets/iconify-icon_d39ffc6e4c56.js"></script>
-<!-- Inter local (woff2 do template) -->
-<link rel="stylesheet" href="assets/templates/digital-architect.aura.build/assets/css2_19fd9cc6b396.css">
-
-<!-- Estratégia de fontes: preconnect + display=swap para não bloquear a primeira pintura -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<!-- Fontes: quatro famílias servidas daqui, com display=swap nas @font-face.
+     O que a primeira dobra escreve vem de Inter Tight, então esse arquivo é pedido antes. -->
+<link rel="preload" href="assets/fonts/inter-tight-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
 
 <link rel="stylesheet" href="assets/css/soie.css">
 </head>
@@ -163,6 +157,18 @@
     </g>
     <use href="#brush-body"/>
   </symbol>
+
+  <!-- ícones da interface: Solar, linear, desenhados aqui em vez de buscados numa API -->
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20L12 4M6 10L12 4L18 10"/></symbol>
+  <symbol id="i-check-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5"/></g></symbol>
+  <symbol id="i-close-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"/></g></symbol>
+  <symbol id="i-cursor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5744 19.1999L12.6361 15.2616L11.4334 16.4643C10.2022 17.6955 9.58656 18.3111 8.92489 18.1658C8.26322 18.0204 7.96225 17.2035 7.3603 15.5696L5.3527 10.1205C4.15187 6.86106 3.55146 5.23136 4.39141 4.39141C5.23136 3.55146 6.86106 4.15187 10.1205 5.35271L15.5696 7.3603C17.2035 7.96225 18.0204 8.26322 18.1658 8.92489C18.3111 9.58656 17.6955 10.2022 16.4643 11.4334L15.2616 12.6361L19.1999 16.5744C19.6077 16.9821 19.8116 17.186 19.9058 17.4135C20.0314 17.7168 20.0314 18.0575 19.9058 18.3608C19.8116 18.5882 19.6077 18.7921 19.1999 19.1999C18.7921 19.6077 18.5882 19.8116 18.3608 19.9058C18.0575 20.0314 17.7168 20.0314 17.4135 19.9058C17.186 19.8116 16.9821 19.6077 16.5744 19.1999Z"/></symbol>
+  <symbol id="i-hamburger-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 7L4 7"/><path d="M20 12L4 12"/><path d="M20 17L4 17"/></g></symbol>
+  <symbol id="i-pause" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2C7.88562 2 8.82843 2 9.41421 2.58579C10 3.17157 10 4.11438 10 6V18C10 19.8856 10 20.8284 9.41421 21.4142C8.82843 22 7.88562 22 6 22C4.11438 22 3.17157 22 2.58579 21.4142C2 20.8284 2 19.8856 2 18V6Z"/><path d="M14 6C14 4.11438 14 3.17157 14.5858 2.58579C15.1716 2 16.1144 2 18 2C19.8856 2 20.8284 2 21.4142 2.58579C22 3.17157 22 4.11438 22 6V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V6Z"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3.67981 13L3.67981 11.3333C3.67981 6.73096 7.4402 3 12.0789 3C15.1178 3 17.7799 4.60136 19.2545 7M2 11.3333L3.67981 13L5.35962 11.3333"/><path d="M20.3139 11V12.6667C20.3139 17.269 16.5391 21 11.8827 21C8.83213 21 6.15995 19.3986 4.67969 17M22.0001 12.6667L20.3139 11L18.6277 12.6667"/></g></symbol>
+  <symbol id="i-shield-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></symbol>
 </svg>
 
 <div class="shell">
@@ -194,7 +200,7 @@
           <span class="beam-btn-content">Reservar o seu</span>
         </button>
         <button id="menu-btn" class="btn-icon lg:hidden" aria-label="Abrir o menu" aria-expanded="false">
-          <iconify-icon icon="solar:hamburger-menu-linear" width="20"></iconify-icon>
+          <svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-hamburger-menu"></use></svg>
         </button>
       </div>
     </div>
@@ -210,7 +216,7 @@
     <nav id="drawer-panel" class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-white border-l hairline p-8 translate-x-full transition-transform duration-700" style="transition-timing-function:var(--ease-silk)">
       <div class="flex items-center justify-between mb-10">
         <span class="t-label text-mist">Menu</span>
-        <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><iconify-icon icon="solar:close-circle-linear" width="20"></iconify-icon></button>
+        <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
       </div>
       <div class="flex flex-col gap-6">
         <a href="#anatomia" class="t-h4 drawer-link">Anatomia</a>
@@ -255,7 +261,7 @@
           <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open">
             <span class="fill"></span>
             Reservar o seu
-            <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
           </button>
           <span class="btn-beam-wrapper magnetic">
             <span class="btn-beam-border"></span>
@@ -310,7 +316,7 @@
                 <div class="absolute bottom-6 right-6 flex items-center gap-3">
                   <span class="t-label text-mist">00:08 · loop</span>
                   <button id="video-toggle" class="btn-icon tip w-11 h-11" data-tip="Pausar" aria-label="Pausar o vídeo" data-ripple>
-                    <iconify-icon id="video-toggle-icon" icon="solar:pause-linear" width="18"></iconify-icon>
+                    <svg class="ico" id="video-toggle-icon" width="18" height="18" aria-hidden="true"><use href="#i-pause"></use></svg>
                   </button>
                 </div>
               </div>
@@ -398,7 +404,7 @@
           Seis decisões de engenharia, milímetro a milímetro, para a base <span class="t-serif text-ink">desaparecer</span> na pele e não no pincel.
         </p>
         <div class="anat-hint anx flex items-center gap-3 t-helper" style="--i:3">
-          <iconify-icon icon="solar:cursor-linear" width="16"></iconify-icon>
+          <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-cursor"></use></svg>
           <span class="hint-hover">Passe o cursor pelos pontos ou pelas notas.</span>
           <span class="hint-touch">Role para ver as seis especificações, da cúpula ao cabo.</span>
         </div>
@@ -554,7 +560,7 @@
     <div class="relative wrap py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
       <p class="anx t-body text-graphite max-w-md">Montado à mão no atelier, <span class="t-serif text-ink text-lg">um fio de cada vez</span>. Lote 02, com 200 peças numeradas.</p>
       <div class="anx flex items-center gap-5" style="--i:1">
-        <a href="#ritual" class="link-ghost">Ver o ritual <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+        <a href="#ritual" class="link-ghost">Ver o ritual <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
         <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open"><span class="fill"></span>Reservar o seu</button>
       </div>
     </div>
@@ -585,7 +591,7 @@
           Três minutos e dez segundos, o caminho que o atelier repetiu até a base parar de <span class="t-serif text-ink">aparecer</span>.
         </p>
         <div class="anx flex items-center gap-3 t-helper" style="--i:3">
-          <iconify-icon icon="solar:cursor-linear" width="16"></iconify-icon>
+          <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-cursor"></use></svg>
           <span class="hint-hover">Passe o cursor em cada quadro. A animação recomeça do início.</span>
           <span class="hint-touch">Toque no botão de repetição para rever cada gesto.</span>
         </div>
@@ -605,7 +611,7 @@
             <h3 class="t-h5 mb-1.5">A dose</h3>
             <p class="t-label text-mist">1 amêndoa · 10s · no dorso da mão</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da dose"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação da dose"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
       <article class="rit-card po-glow anx" data-step="2" style="--i:1">
@@ -619,7 +625,7 @@
             <h3 class="t-h5 mb-1.5">Os cinco pontos</h3>
             <p class="t-label text-mist">testa · maçãs · nariz · queixo · 15s</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação dos cinco pontos"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação dos cinco pontos"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
       <article class="rit-card po-glow anx" data-step="3" style="--i:2">
@@ -633,7 +639,7 @@
             <h3 class="t-h5 mb-1.5">A espiral</h3>
             <p class="t-label text-mist">cúpula · 60s · do centro para fora</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da espiral"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação da espiral"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
       <article class="rit-card po-glow anx" data-step="4" style="--i:3">
@@ -647,7 +653,7 @@
             <h3 class="t-h5 mb-1.5">A borda que ninguém vê</h3>
             <p class="t-label text-mist">borda aérea · 45s · até o maxilar</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da borda que ninguém vê"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação da borda que ninguém vê"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
       <article class="rit-card po-glow anx" data-step="5" style="--i:4">
@@ -661,7 +667,7 @@
             <h3 class="t-h5 mb-1.5">O canto</h3>
             <p class="t-label text-mist">chanfro de 12° · 30s · nariz e olhos</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação do canto"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação do canto"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
       <article class="rit-card po-glow anx" data-step="6" style="--i:5">
@@ -675,7 +681,7 @@
             <h3 class="t-h5 mb-1.5">O véu</h3>
             <p class="t-label text-mist">sem pincel · 30s · deixa assentar</p>
           </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação do véu"><iconify-icon icon="solar:refresh-linear" width="14"></iconify-icon></button>
+          <button type="button" class="rit-replay" aria-label="Repetir a animação do véu"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
         </div>
       </article>
     </div>
@@ -747,7 +753,7 @@
     <!-- fecho -->
     <div class="relative wrap mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
       <p class="anx t-body text-graphite max-w-md">Cada peça sai do atelier com o cartão do ritual impresso em papel de algodão.</p>
-      <a href="#fecho" class="anx link-ghost" style="--i:1">Ver a reserva <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></a>
+      <a href="#fecho" class="anx link-ghost" style="--i:1">Ver a reserva <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
     </div>
   </section>
 
@@ -778,7 +784,7 @@
           O Lote 02 tem 200 peças numeradas. Quando a última sair do atelier, o molde da cúpula é aposentado. O <span class="t-serif" style="color:#fff">N°02 não se repete</span>.
         </p>
         <div class="anx flex items-center gap-3 t-helper" style="--i:3; color:rgba(255,255,255,.5)">
-          <iconify-icon icon="solar:shield-check-linear" width="16" style="color:var(--champagne)"></iconify-icon>
+          <svg class="ico" style="color:var(--champagne)" width="16" height="16" aria-hidden="true"><use href="#i-shield-check"></use></svg>
           <span>Reserva sem cobrança. Você confirma quando a sua peça ficar pronta.</span>
         </div>
       </div>
@@ -880,7 +886,7 @@
           <button type="button" class="fin-cta" data-ripple data-action="modal-open">
             <span class="fill"></span>
             Reservar o meu
-            <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+            <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
           </button>
           <p class="t-label text-center mt-4" style="color:rgba(255,255,255,.34)">Sem cobrança agora</p>
         </div>
@@ -921,7 +927,7 @@
 
     <div class="wrap py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" style="border-top:1px solid rgba(255,255,255,.08)">
       <span class="t-label" style="color:rgba(255,255,255,.34)">© 2026 SOIE Atelier · peças numeradas</span>
-      <a href="#hero" class="link-ghost fin-link">Voltar ao topo <iconify-icon icon="solar:arrow-up-linear" width="14"></iconify-icon></a>
+      <a href="#hero" class="link-ghost fin-link">Voltar ao topo <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
     </div>
   </footer>
 
@@ -933,7 +939,7 @@
 <div id="modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6">
   <div id="modal-scrim" class="absolute inset-0" style="background:rgba(11,11,12,.35);backdrop-filter:blur(8px)" data-action="modal-close"></div>
   <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="btn-icon absolute top-5 right-5" data-action="modal-close" aria-label="Fechar"><iconify-icon icon="solar:close-circle-linear" width="20"></iconify-icon></button>
+    <button class="btn-icon absolute top-5 right-5" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
     <span class="t-label text-mist block mb-5">Lote 02 · 200 peças</span>
     <h3 id="modal-title" class="t-h3 mb-4">Pincel N°02</h3>
     <p class="t-body text-graphite mb-8">Cúpula chanfrada a 12°, férula em latão escovado e cabo em faia FSC. Pronta em até três dias úteis.</p>
@@ -948,7 +954,7 @@
   </div>
 </div>
 <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] hidden items-center gap-3 px-5 py-3 rounded-xl" style="background:var(--ink);color:var(--white)">
-  <iconify-icon icon="solar:check-circle-linear" width="18"></iconify-icon>
+  <svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check-circle"></use></svg>
   <span id="toast-msg" class="t-body-sm"></span>
 </div>
 

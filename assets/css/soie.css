@@ -215,8 +215,8 @@ body{
 .link-ghost{ position:relative; display:inline-flex; align-items:center; gap:.4rem; font-size:.8125rem; font-weight:500; color:var(--ink); padding-bottom:2px; }
 .link-ghost::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:currentColor; transition:width var(--d-base) var(--ease-silk); }
 .link-ghost:hover::after{ width:100%; }
-.link-ghost iconify-icon{ transition:transform var(--d-base) var(--ease-silk); }
-.link-ghost:hover iconify-icon{ transform:translateX(4px); }
+.link-ghost .ico{ transition:transform var(--d-base) var(--ease-silk); }
+.link-ghost:hover .ico{ transform:translateX(4px); }
 
 /* botão de ícone com ripple */
 .btn-icon{ position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; width:3rem; height:3rem; border-radius:9999px; border:1px solid var(--hairline); background:var(--white); transition:border-color var(--d-base) ease, transform var(--d-fast) var(--ease-bounce); }
@@ -569,8 +569,8 @@ body{
   transition:border-color var(--d-base) ease, color var(--d-base) ease, transform var(--d-fast) var(--ease-bounce); }
 .rit-replay:hover{ border-color:var(--ink); color:var(--ink); }
 .rit-replay:active{ transform:scale(.92); }
-.rit-replay iconify-icon{ transition:transform .6s var(--ease-silk); }
-.rit-card:hover .rit-replay iconify-icon{ transform:rotate(180deg); }
+.rit-replay .ico{ transition:transform .6s var(--ease-silk); }
+.rit-card:hover .rit-replay .ico{ transform:rotate(180deg); }
 
 /* --- palco: a foto do gesto --- */
 .rit-photo{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
@@ -678,8 +678,8 @@ body{
 .fin-cta:hover .fill{ transform:translateY(0); }
 .fin-cta:hover{ box-shadow:0 24px 54px -26px rgba(234,215,209,.6); }
 .fin-cta:active{ transform:scale(.985); }
-.fin-cta iconify-icon{ transition:transform var(--d-base) var(--ease-silk); }
-.fin-cta:hover iconify-icon{ transform:translateX(4px); }
+.fin-cta .ico{ transition:transform var(--d-base) var(--ease-silk); }
+.fin-cta:hover .ico{ transform:translateX(4px); }
 .fin-link{ color:rgba(255,255,255,.72); }
 .fin-link:hover{ color:var(--white); }
 
@@ -692,6 +692,10 @@ body{
 
 /* a última linha */
 .fin-close{ font-family:var(--font-serif); font-style:italic; font-size:clamp(1.75rem,4.4vw,3.25rem); line-height:1.15; letter-spacing:-.02em; }
+
+/* ícones: <svg class="ico"><use href="#i-...">. O tamanho vem do width/height
+   de cada svg; aqui só a linha de base, que o custom element dava de graça. */
+.ico{ display:inline-block; vertical-align:-.125em; flex:none; }
 
 /* rodapé */
 .fin-foot{ background:var(--ink); color:var(--white); }
