@@ -316,17 +316,73 @@
   /* ==========================================================================
      8 · tilt do palco do vídeo e botões magnéticos
      ========================================================================== */
+  /* o painel não persegue o cursor: ele é puxado por ele. O mousemove só move
+     o alvo, e um lerp no relógio da página aproxima o painel do alvo um pouco
+     a cada quadro — o mesmo efeito de um quickTo do GSAP, sem transição que
+     reinicia a cada evento.
+
+     O movimento é deslocamento, não rotação. Medido no Chrome: qualquer
+     rotateX/rotateY faz o compositor rasterizar a camada em resolução menor e
+     reamostrá-la, e o vídeo dentro dela perde 75% da definição enquanto o
+     cursor estiver no palco. O ângulo não muda nada — basta a rotação existir.
+     Deslocar não rasteriza, então a profundidade vem do paralaxe: o chip de
+     vidro anda mais que o painel, e é essa diferença que o olho lê como
+     relevo. */
   const stage = document.getElementById('stage');
   const stageInner = document.getElementById('stage-inner');
-  if (stage && stageInner){
+  const stageChip = stageInner && stageInner.querySelector('.chip');
+
+  if (stage && stageInner && !motion.reduced){
+    const PAINEL = 7;    // px no canto
+    const CHIP   = 17;   // px no canto: anda mais, por estar "à frente"
+    const PUXA   = .045; // quanto do caminho até o alvo ele anda por quadro
+    let alvoX = 0, alvoY = 0, atualX = 0, atualY = 0, parado = true;
+
+    /* o deslocamento encosta na grade de pixels da tela. Um valor quebrado
+       (3,15px) cai entre dois pixels e o compositor interpola o painel inteiro,
+       o que embaça o vídeo quase tanto quanto a rotação embaçava. */
+    const grade = window.devicePixelRatio || 1;
+    function trava(v){ return Math.round(v * grade) / grade; }
+
+    function tiltFrame(){
+      atualX += (alvoX - atualX) * PUXA;
+      atualY += (alvoY - atualY) * PUXA;
+
+      if (Math.abs(alvoX - atualX) < .004 && Math.abs(alvoY - atualY) < .004){
+        atualX = alvoX; atualY = alvoY;
+        ticker.remove(tiltFrame);
+        parado = true;
+      }
+
+      // em repouso a transform sai de cena: sem camada promovida, sem custo
+      if (parado && atualX === 0 && atualY === 0){
+        stageInner.style.transform = '';
+        stageInner.style.willChange = '';
+        if (stageChip) stageChip.style.transform = '';
+        return;
+      }
+
+      stageInner.style.transform =
+        'translate3d(' + trava(atualX * PAINEL) + 'px,' + trava(atualY * PAINEL) + 'px,0)';
+      if (stageChip) stageChip.style.transform =
+        'translate3d(' + trava(atualX * CHIP) + 'px,' + trava(atualY * CHIP) + 'px,0)';
+    }
+
+    function acorda(){
+      if (!parado) return;
+      parado = false;
+      stageInner.style.willChange = 'transform';
+      ticker.add(tiltFrame);
+    }
+
     stage.addEventListener('mousemove', function(e){
-      if (motion.reduced) return;
       const r = stage.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width - .5;
-      const py = (e.clientY - r.top) / r.height - .5;
-      stageInner.style.transform = 'rotateY(' + (px * 7) + 'deg) rotateX(' + (-py * 7) + 'deg)';
+      alvoX = (e.clientX - r.left) / r.width - .5;
+      alvoY = (e.clientY - r.top) / r.height - .5;
+      acorda();
     }, { passive:true });
-    stage.addEventListener('mouseleave', function(){ stageInner.style.transform = ''; });
+
+    stage.addEventListener('mouseleave', function(){ alvoX = 0; alvoY = 0; acorda(); });
   }
 
   document.querySelectorAll('.magnetic').forEach(function(btn){
@@ -336,17 +392,6 @@
       btn.style.transform = 'translate(' + ((e.clientX - r.left - r.width/2) * .18) + 'px,' + ((e.clientY - r.top - r.height/2) * .28) + 'px)';
     }, { passive:true });
     btn.addEventListener('mouseleave', function(){ btn.style.transform = ''; });
-  });
-
-  /* ==========================================================================
-     9 · acabamento: troca o glow da página
-     ========================================================================== */
-  document.querySelectorAll('.finish-dot').forEach(function(dot){
-    dot.addEventListener('click', function(){
-      document.querySelectorAll('.finish-dot').forEach(function(d){ d.classList.remove('is-active'); });
-      dot.classList.add('is-active');
-      document.documentElement.style.setProperty('--glow', dot.dataset.glow);
-    });
   });
 
   /* ==========================================================================
@@ -658,6 +703,36 @@
         }, { passive:true });
       }
     }
+
+    /* a peça exposta: a luz corre por ela uma vez, e depois a cada passada do
+       cursor. O deslocamento vertical é pequeno de propósito — parallax em
+       cima de uma foto de produto vende profundidade até uns 12 px; mais que
+       isso e a peça descola da sombra. */
+    const peca  = fin.querySelector('.fin-piece');
+    const gloss = peca && peca.querySelector('.fin-gloss');
+
+    if (peca && !motion.reduced){
+      function acende(){
+        peca.classList.remove('is-lit');
+        void peca.offsetWidth;
+        peca.classList.add('is-lit');
+      }
+      onEnterOnce(peca, acende, { threshold:.4 });
+      if (!motion.touch) peca.addEventListener('mouseenter', acende);
+
+      // o parallax só roda enquanto a cena está na tela
+      function pecaFrame(){
+        const r = peca.getBoundingClientRect();
+        const k = 1 - (r.top + r.height / 2) / window.innerHeight;  // -1 embaixo, 1 em cima
+        peca.style.setProperty('--fy', (k * 12).toFixed(1) + 'px');
+      }
+      onView(peca,
+        function(){ ticker.add(pecaFrame); },
+        function(){ ticker.remove(pecaFrame); },
+        { threshold:0, rootMargin:'20% 0px 20% 0px' });
+    } else if (gloss){
+      gloss.remove();
+    }
   }
 
   /* ==========================================================================
@@ -703,5 +778,47 @@
       if (document.visibilityState === 'visible') ticker.add(dustFrame);
       else ticker.remove(dustFrame);
     });
+  }
+
+  /* ==========================================================================
+     16 · o tom da dobra e o indicador do menu
+     Uma fita fina no meio da tela decide qual dobra está sendo lida. O JS só
+     escreve data-dobra no <html> e move o indicador: as cores moram no CSS.
+     ========================================================================== */
+  const dobras = Array.from(document.querySelectorAll('.shell section[id]'));
+  const ind    = document.getElementById('nav-ind');
+  const elos   = Array.from(document.querySelectorAll('.nav-rail .link-ghost'));
+  let dobraAtual = '';
+
+  function moveIndicador(alvo){
+    if (!ind) return;
+    if (!alvo || !alvo.offsetWidth){ ind.classList.remove('is-on'); return; }
+    ind.style.left  = alvo.offsetLeft + 'px';
+    ind.style.width = alvo.offsetWidth + 'px';
+    ind.classList.add('is-on');
+  }
+
+  function marcaDobra(id){
+    if (id === dobraAtual) return;
+    dobraAtual = id;
+    document.documentElement.dataset.dobra = id;
+    let alvo = null;
+    elos.forEach(function(a){
+      const meu = a.getAttribute('href') === '#' + id;
+      a.classList.toggle('is-current', meu);
+      if (meu) alvo = a;
+    });
+    moveIndicador(alvo);
+  }
+
+  if (dobras.length){
+    marcaDobra(dobras[0].id);
+    const tomObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) marcaDobra(en.target.id); });
+    }, { rootMargin:'-45% 0px -45% 0px' });
+    dobras.forEach(function(sec){ tomObs.observe(sec); });
+    window.addEventListener('resize', function(){
+      moveIndicador(elos.filter(function(a){ return a.classList.contains('is-current'); })[0]);
+    }, { passive:true });
   }
 })();

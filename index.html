@@ -193,10 +193,11 @@
       <a href="#hero" class="flex items-baseline gap-3 group">
         <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
       </a>
-      <nav class="hidden lg:flex items-center gap-8">
+      <nav class="nav-rail hidden lg:flex items-center gap-8">
         <a href="#anatomia" class="link-ghost t-body-sm">Anatomia</a>
         <a href="#ritual" class="link-ghost t-body-sm">Ritual</a>
         <a href="#fecho" class="link-ghost t-body-sm">Reserva</a>
+        <i id="nav-ind" class="nav-ind" aria-hidden="true"></i>
       </nav>
       <div class="flex items-center gap-3">
         <button class="beam-btn hidden sm:inline-block" data-action="modal-open">
@@ -210,7 +211,7 @@
     </div>
     <!-- progresso de leitura -->
     <div class="absolute bottom-0 left-0 h-[2px] w-full" style="background:transparent">
-      <div id="scroll-progress" class="h-full w-0" style="background:linear-gradient(90deg,var(--po),var(--ink))"></div>
+      <div id="scroll-progress" class="h-full w-0" style="background:linear-gradient(90deg,var(--accent),var(--accent-deep))"></div>
     </div>
   </header>
 
@@ -239,8 +240,8 @@
   <section id="hero" class="section-aura relative min-h-[92vh] flex items-center pt-16 pb-24 md:pt-20">
     <!-- fundo -->
     <div class="absolute inset-0 bg-grid opacity-60 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%)"></div>
-    <div class="aura-blob animate-float" style="width:520px;height:520px;top:-8%;right:4%;background:rgba(var(--glow),.55)"></div>
-    <div class="aura-blob animate-float" style="width:420px;height:420px;bottom:-10%;left:-6%;background:rgba(247,246,245,.9);animation-duration:14s"></div>
+    <div class="aura-blob animate-float" style="width:760px;height:760px;top:-26%;right:-12%;background:rgba(var(--glow),.62)"></div>
+    <div class="aura-blob animate-float" style="width:660px;height:660px;bottom:-30%;left:-16%;background:rgba(var(--glow),.42);animation-duration:14s"></div>
     <div class="dust"></div>
 
     <div class="relative w-full wrap grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
@@ -248,8 +249,8 @@
       <!-- coluna esquerda -->
       <div class="lg:col-span-6">
         <div class="reveal flex items-center gap-3 mb-8">
-          <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--ink)"></span>
-          <span class="t-label text-graphite">N°02 · Pincel de base líquida</span>
+          <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--accent-deep)"></span>
+          <span class="t-label text-graphite"><b class="t-accent font-medium">N°02</b> · Pincel de base líquida</span>
         </div>
 
         <h1 id="hero-title" class="t-display group cursor-default select-none mb-8">
@@ -275,16 +276,6 @@
           </span>
         </div>
 
-        <!-- seletor de acabamento: troca a cor do glow em toda a página -->
-        <div class="reveal delay-700">
-          <span class="t-label text-mist block mb-4">Acabamento</span>
-          <div class="flex items-center gap-4">
-            <button class="finish-dot tip is-active" data-tip="Pérola" data-glow="234,215,209" style="--c:#EAD7D1" aria-label="Acabamento pérola"></button>
-            <button class="finish-dot tip" data-tip="Nude" data-glow="184,154,126" style="--c:#B89A7E" aria-label="Acabamento nude"></button>
-            <button class="finish-dot tip" data-tip="Grafite" data-glow="142,138,145" style="--c:#8E8A91" aria-label="Acabamento grafite"></button>
-            <button class="finish-dot tip" data-tip="Tinta" data-glow="85,82,90" style="--c:#0B0B0C" aria-label="Acabamento tinta"></button>
-          </div>
-        </div>
       </div>
 
       <!-- palco à direita: o vídeo -->
@@ -295,7 +286,7 @@
           <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-breathe pointer-events-none"
                style="width:86%;aspect-ratio:1;background:radial-gradient(circle, rgba(var(--glow),.9) 0%, rgba(var(--glow),.3) 45%, transparent 70%); filter:blur(22px)"></div>
 
-          <div id="stage-inner" class="relative transition-transform duration-500" style="transform-style:preserve-3d; transition-timing-function:var(--ease-silk)">
+          <div id="stage-inner" class="relative" style="transform-style:preserve-3d">
 
             <!-- o painel de vídeo -->
             <figure class="video-frame clip-enter">
@@ -364,21 +355,21 @@
   </section>
 
   <!-- marquee da base da hero -->
-  <div class="border-y hairline overflow-hidden py-4" style="background:var(--pearl)">
+  <div class="border-y hairline overflow-hidden py-4" style="background:color-mix(in srgb, var(--accent) 22%, var(--white))">
     <div class="flex whitespace-nowrap animate-marquee">
       <span class="flex items-center">
-        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-serif text-2xl mx-6">cruelty free</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-serif text-2xl mx-6">édition limitée</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--champagne)">✦</span>
+        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
       </span>
       <span class="flex items-center" aria-hidden="true">
-        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-serif text-2xl mx-6">cruelty free</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-serif text-2xl mx-6">édition limitée</span><span style="color:var(--champagne)">✦</span>
-        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--champagne)">✦</span>
+        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span style="color:var(--accent-deep)">✦</span>
+        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
       </span>
     </div>
   </div>
@@ -386,17 +377,17 @@
   <!-- ============================================================
        02 · ANATOMIA · segunda dobra
        ============================================================ -->
-  <section id="anatomia" class="section-aura relative pt-24 pb-10 md:pt-32" style="background:linear-gradient(180deg,var(--white) 0%,var(--pearl) 55%,var(--white) 100%)">
+  <section id="anatomia" class="section-aura relative pt-24 pb-10 md:pt-32" style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 16%, var(--white)) 55%,transparent 100%)">
     <!-- fundo -->
     <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%); -webkit-mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%)"></div>
-    <div class="aura-blob animate-float" style="width:460px;height:460px;top:18%;left:-8%;background:rgba(var(--glow),.45);animation-duration:16s"></div>
-    <div class="aura-blob animate-float" style="width:380px;height:380px;bottom:12%;right:-6%;background:rgba(var(--glow),.35);animation-duration:12s"></div>
+    <div class="aura-blob animate-float" style="width:680px;height:680px;top:6%;left:-20%;background:rgba(var(--glow),.5);animation-duration:16s"></div>
+    <div class="aura-blob animate-float" style="width:600px;height:600px;bottom:2%;right:-18%;background:rgba(var(--glow),.42);animation-duration:12s"></div>
 
     <!-- cabeçalho da dobra -->
     <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12 lg:mb-4">
       <div class="lg:col-span-7">
         <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label text-mist">02</span>
+          <span class="t-label t-accent">02</span>
           <span class="block w-10 h-px" style="background:var(--hairline)"></span>
           <span class="t-label text-graphite">Anatomia do N°02</span>
         </div>
@@ -575,15 +566,15 @@
   <!-- ============================================================
        03 · RITUAL · terceira dobra
        ============================================================ -->
-  <section id="ritual" class="section-aura relative pt-24 pb-24 md:pt-32" style="background:linear-gradient(180deg,var(--white) 0%,var(--pearl) 40%,var(--white) 100%)">
+  <section id="ritual" class="section-aura relative pt-24 pb-24 md:pt-32" style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 18%, var(--white)) 45%,transparent 100%)">
     <div class="absolute inset-0 bg-grid opacity-40 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%)"></div>
-    <div class="aura-blob animate-float" style="width:420px;height:420px;top:6%;right:-6%;background:rgba(var(--glow),.4);animation-duration:14s"></div>
+    <div class="aura-blob animate-float" style="width:700px;height:700px;top:-6%;right:-20%;background:rgba(var(--glow),.45);animation-duration:14s"></div>
 
     <!-- cabeçalho -->
     <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12">
       <div class="lg:col-span-7">
         <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label text-mist">03</span>
+          <span class="t-label t-accent">03</span>
           <span class="block w-10 h-px" style="background:var(--hairline)"></span>
           <span class="t-label text-graphite">O ritual</span>
         </div>
@@ -769,20 +760,20 @@
   <section id="fecho" class="section-aura relative pt-24 pb-20 md:pt-32">
     <span class="fin-seam" aria-hidden="true"></span>
     <div class="absolute inset-0 fin-grid opacity-60 pointer-events-none" style="mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%); -webkit-mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%)"></div>
-    <div class="aura-blob animate-float" style="width:560px;height:560px;top:-14%;right:-10%;background:rgba(184,154,126,.16);animation-duration:18s"></div>
-    <div class="aura-blob animate-breathe" style="width:420px;height:420px;bottom:-12%;left:-8%;background:rgba(234,215,209,.10);animation-duration:16s"></div>
+    <div class="aura-blob animate-float" style="width:760px;height:760px;top:-20%;right:-14%;background:rgba(var(--glow),.3);animation-duration:18s"></div>
+    <div class="aura-blob animate-breathe" style="width:600px;height:600px;bottom:-18%;left:-12%;background:rgba(var(--glow),.2);animation-duration:16s"></div>
 
     <!-- cabeçalho -->
     <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-14 md:mb-16">
       <div class="lg:col-span-7">
         <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label" style="color:rgba(255,255,255,.42)">04</span>
+          <span class="t-label t-accent">04</span>
           <span class="block w-10 h-px" style="background:rgba(255,255,255,.2)"></span>
           <span class="t-label" style="color:var(--champagne)">O fecho</span>
         </div>
         <h2 class="anx-mask t-display-2">
           <span class="anx-line"><span>Falta um gesto.</span></span>
-          <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal" style="letter-spacing:-.02em; color:var(--champagne)">O seu.</span></span></span>
+          <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal" style="letter-spacing:-.02em; color:var(--accent-deep)">O seu.</span></span></span>
         </h2>
       </div>
       <div class="lg:col-span-5 lg:pb-3">
@@ -850,10 +841,10 @@
               <svg viewBox="0 0 100 100">
                 <defs><path id="fin-seal-path" fill="none" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs>
                 <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
-                <circle cx="50" cy="50" r="26" fill="none" stroke="rgba(184,154,126,.4)" stroke-width="1"/>
+                <circle cx="50" cy="50" r="26" fill="none" stroke="color-mix(in srgb, var(--accent) 55%, transparent)" stroke-width="1"/>
                 <circle cx="50" cy="50" r="23" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="1 5"/>
                 <g class="ring">
-                  <text fill="#B89A7E" font-family="'JetBrains Mono', monospace" font-size="7" letter-spacing="1.5">
+                  <text fill="var(--accent-deep)" font-family="'JetBrains Mono', monospace" font-size="7" letter-spacing="1.5">
                     <textPath href="#fin-seal-path" startOffset="0">ANDY · MONTADO À MÃO · LOTE 02 · 2026 ·&#160;</textPath>
                   </text>
                 </g>
@@ -899,15 +890,23 @@
       </div>
     </div>
 
-    <!-- a última linha -->
+    <!-- a última linha: a peça exposta, como numa vitrine -->
     <div class="relative wrap mt-20 md:mt-28">
-      <div class="anx flex justify-center mb-12 md:mb-16" data-anx="scale">
-        <div class="fin-piece">
-          <img src="assets/img/andy-n02-horizontal.webp" alt="O pincel Andy N°02 deitado, com Andy gravado na férula e N°02 · base líquida no cabo." width="1262" height="272" loading="lazy" decoding="async" draggable="false">
+      <figure class="fin-scene anx mb-12 md:mb-16" data-anx="scale">
+        <div class="fin-case">
+          <span class="fin-marks" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <div class="fin-piece">
+            <span class="fin-pedestal" aria-hidden="true"></span>
+            <img src="assets/img/andy-n02-horizontal.webp" alt="O pincel Andy N°02 deitado, com Andy gravado na férula e N°02 · base líquida no cabo." width="1259" height="259" loading="lazy" decoding="async" draggable="false">
+            <span class="fin-gloss" aria-hidden="true"></span>
+          </div>
         </div>
-      </div>
-      <div class="h-px w-full mb-10" style="background:linear-gradient(90deg, transparent, rgba(184,154,126,.45), transparent)"></div>
-      <p class="anx fin-close text-center" style="color:rgba(255,255,255,.92)">Duzentas peças.<br><span style="color:var(--champagne)">A sua tem número.</span></p>
+        <figcaption class="fin-plaque t-label">
+          <span>Andy</span><i aria-hidden="true"></i><span>N°02</span><i aria-hidden="true"></i><span>Lote 02</span>
+        </figcaption>
+      </figure>
+      <div class="h-px w-full mb-10" style="background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 60%, transparent), transparent)"></div>
+      <p class="anx fin-close text-center" style="color:rgba(255,255,255,.92)">Duzentas peças.<br><span class="t-accent">A sua tem número.</span></p>
     </div>
   </section>
 
