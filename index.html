@@ -82,13 +82,15 @@
 </script>
 
 <!-- Tailwind: folha estática gerada em build/ (npm run css) -->
-<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/tailwind.css?v=20260925">
 <!-- Fontes: quatro famílias servidas daqui, com display=swap nas @font-face.
      O que a primeira dobra escreve vem de Inter Tight, então esse arquivo é pedido antes. -->
-<link rel="preload" href="assets/fonts/inter-tight-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/fonts.css">
+<!-- pré-carga da fonte dos títulos só por http(s): aberto como arquivo (file://) o CORS barra o
+     preload e o Safari reaproveita a falha, deixando os títulos na fonte do sistema -->
+<script>if(location.protocol!=='file:'){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href='assets/fonts/inter-tight-var-latin.woff2';document.head.appendChild(l);}</script>
+<link rel="stylesheet" href="assets/css/fonts.css?v=20260925">
 
-<link rel="stylesheet" href="assets/css/andy.css">
+<link rel="stylesheet" href="assets/css/andy.css?v=20260925">
 </head>
 <body class="antialiased">
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -250,7 +252,7 @@
       <div class="lg:col-span-6">
         <div class="reveal flex items-center gap-3 mb-8">
           <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--accent-deep)"></span>
-          <span class="t-label text-graphite"><b class="t-accent font-medium">N°02</b> · Pincel de base líquida</span>
+          <span class="t-label text-graphite"><b class="t-accent font-medium">N°02</b> · Segunda edição<span class="hidden sm:inline"> · Pincel de base líquida</span></span>
         </div>
 
         <h1 id="hero-title" class="t-display group cursor-default select-none mb-8">
@@ -295,8 +297,9 @@
                        poster="assets/img/hero-poster.webp"
                        muted loop playsinline preload="none"
                        aria-label="Pincel Andy N°02 e a aplicação da base em camada única">
-                  <source src="assets/video/pincel.webm" type="video/webm">
+                  <!-- H.264 primeiro: o Safari decodifica no hardware; o VP9 ia para a CPU -->
                   <source src="assets/video/pincel.mp4" type="video/mp4">
+                  <source src="assets/video/pincel.webm" type="video/webm">
                 </video>
 
                 <!-- marcas de canto -->
@@ -778,7 +781,7 @@
       </div>
       <div class="lg:col-span-5 lg:pb-3">
         <p class="anx t-body-lg mb-6" style="--i:2; color:rgba(255,255,255,.62)">
-          O Lote 02 tem 200 peças numeradas. Quando a última sair, o molde da cúpula é aposentado. O <span class="t-serif" style="color:#fff">N°02 não se repete</span>.
+          O N°02 é a segunda edição do pincel Andy: 200 peças numeradas. Quando a última sair, o molde da cúpula é aposentado. O <span class="t-serif" style="color:#fff">N°02 não se repete</span>.
         </p>
         <div class="anx flex items-center gap-3 t-helper" style="--i:3; color:rgba(255,255,255,.5)">
           <svg class="ico" style="color:var(--champagne)" width="16" height="16" aria-hidden="true"><use href="#i-shield-check"></use></svg>
@@ -941,7 +944,7 @@
 <div id="modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6">
   <div id="modal-scrim" class="absolute inset-0" style="background:rgba(11,11,12,.35);backdrop-filter:blur(8px)" data-action="modal-close"></div>
   <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" tabindex="-1" style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="btn-icon absolute top-5 right-5" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
+    <button class="btn-icon modal-x" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
     <span class="t-label text-mist block mb-5">Lote 02 · 200 peças</span>
     <h3 id="modal-title" class="t-h3 mb-4">Pincel N°02</h3>
     <p class="t-body text-graphite mb-8">Cúpula chanfrada a 12°, férula em latão escovado e cabo em faia FSC. Pronta em até três dias úteis.</p>
@@ -960,6 +963,6 @@
   <span id="toast-msg" class="t-body-sm"></span>
 </div>
 
-<script src="assets/js/andy.js" defer onerror="document.documentElement.classList.add('no-js')"></script>
+<script src="assets/js/andy.js?v=20260925" defer onerror="document.documentElement.classList.add('no-js')"></script>
 </body>
 </html>

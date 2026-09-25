@@ -97,6 +97,8 @@ body{
 /* ---------- textura e grid de fundo ---------- */
 .noise{
   position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.035;
+  /* camada própria: o Safari deixava de repintar o ruído SVG por cima da página a cada quadro de rolagem */
+  transform:translateZ(0); will-change:transform; contain:strict;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 .bg-grid{
@@ -158,7 +160,10 @@ body{
 .animate-in.active{ opacity:1; transform:none; }
 .clip-enter{ clip-path:inset(0 100% 0 0); }
 .clip-enter.active{ animation:clipReveal 1.7s var(--ease-silk) forwards; }
-.text-reveal-wrapper{ overflow:hidden; display:inline-block; vertical-align:bottom; }
+.text-reveal-wrapper{ overflow:hidden; display:inline-block; vertical-align:bottom;
+  /* o letter-spacing negativo recolhe a caixa para dentro da última letra e o overflow cortava
+     a ponta do "e": a folga devolve o traço sem mexer no layout */
+  padding-inline-end:.12em; margin-inline-end:-.12em; }
 .text-reveal-content{ display:inline-block; transform:translateY(110%); transition:transform 1.1s var(--ease-silk); }
 .reveal-active .text-reveal-content,
 .text-reveal-wrapper.reveal-active .text-reveal-content{ transform:translateY(0); }
@@ -815,6 +820,9 @@ body{
 
 /* modal e toast */
 #modal.is-open{ display:flex; }
+/* o X flutua no canto do card; .btn-icon (position:relative) vencia o absolute do tailwind
+   e empurrava o botão para uma linha própria, em cima de "Lote 02 · 200 peças" */
+#modal-card .modal-x{ position:absolute; top:1.25rem; right:1.25rem; }
 #modal.is-open #modal-card{ animation:modal-in .5s var(--ease-silk) forwards; }
 #modal-scrim{ opacity:0; transition:opacity var(--d-base) ease; }
 #modal.is-open #modal-scrim{ opacity:1; }
