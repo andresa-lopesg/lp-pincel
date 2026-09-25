@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth no-js">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Quase tudo na página entra por animação, ou seja: nasce invisível. A classe
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Quase tudo na página entra por animação, ou seja: nasce invisível. A classe
      no-js deixa esse conteúdo à mostra; a linha abaixo a retira assim que o
      JavaScript prova que roda, antes da primeira pintura. -->
-<script>document.documentElement.classList.remove('no-js');</script>
-<title>Andy · Pincéis feitos à mão · Toque de seda</title>
-<meta name="description" content="Pincel de base líquida N°02. Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única, sem marcas.">
-<!-- Endereço canônico. Se o domínio mudar, troque aqui, no og:url e no JSON-LD. -->
-<link rel="canonical" href="https://illustrious-ganache-89e735.netlify.app/">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <title>Andy · Pincéis feitos à mão · Toque de seda</title>
+  <meta name="description"
+    content="Pincel de base líquida N°02. Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única, sem marcas.">
+  <!-- Endereço canônico. Se o domínio mudar, troque aqui, no og:url e no JSON-LD. -->
+  <link rel="canonical" href="https://illustrious-ganache-89e735.netlify.app/">
 
-<!-- Como o link se apresenta quando alguém compartilha -->
-<meta property="og:type" content="product">
-<meta property="og:site_name" content="Andy">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:url" content="https://illustrious-ganache-89e735.netlify.app/">
-<meta property="og:title" content="Andy N°02 · o pincel que não deixa marca">
-<meta property="og:description" content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
-<meta property="og:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
+  <!-- Como o link se apresenta quando alguém compartilha -->
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Andy">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://illustrious-ganache-89e735.netlify.app/">
+  <meta property="og:title" content="Andy N°02 · o pincel que não deixa marca">
+  <meta property="og:description"
+    content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
+  <meta property="og:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt"
+    content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Andy N°02 · o pincel que não deixa marca">
-<meta name="twitter:description" content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
-<meta name="twitter:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
-<meta name="twitter:image:alt" content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Andy N°02 · o pincel que não deixa marca">
+  <meta name="twitter:description"
+    content="Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única. Lote 02, 200 peças numeradas.">
+  <meta name="twitter:image" content="https://illustrious-ganache-89e735.netlify.app/assets/img/og-andy-n02.jpg">
+  <meta name="twitter:image:alt"
+    content="O pincel Andy N°02 deitado sobre fundo claro, ao lado do título Toque de seda.">
 
-<meta name="theme-color" content="#0B0B0C">
+  <meta name="theme-color" content="#0B0B0C">
 
-<!-- Produto e oferta em dados estruturados: preço, estoque e troca que já estão na página -->
-<script type="application/ld+json">
+  <!-- Produto e oferta em dados estruturados: preço, estoque e troca que já estão na página -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -81,888 +87,1111 @@
 }
 </script>
 
-<!-- Tailwind: folha estática gerada em build/ (npm run css) -->
-<link rel="stylesheet" href="assets/css/tailwind.css?v=20260925">
-<!-- Fontes: quatro famílias servidas daqui, com display=swap nas @font-face.
+  <!-- Tailwind: folha estática gerada em build/ (npm run css) -->
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=20260925f">
+  <!-- Fontes: quatro famílias servidas daqui, com display=swap nas @font-face.
      O que a primeira dobra escreve vem de Inter Tight, então esse arquivo é pedido antes. -->
-<!-- pré-carga da fonte dos títulos só por http(s): aberto como arquivo (file://) o CORS barra o
+  <!-- pré-carga da fonte dos títulos só por http(s): aberto como arquivo (file://) o CORS barra o
      preload e o Safari reaproveita a falha, deixando os títulos na fonte do sistema -->
-<script>if(location.protocol!=='file:'){var l=document.createElement('link');l.rel='preload';l.as='font';l.type='font/woff2';l.crossOrigin='anonymous';l.href='assets/fonts/inter-tight-var-latin.woff2';document.head.appendChild(l);}</script>
-<link rel="stylesheet" href="assets/css/fonts.css?v=20260925">
+  <script>if (location.protocol !== 'file:') { var l = document.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = 'assets/fonts/inter-tight-var-latin.woff2'; document.head.appendChild(l); }</script>
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260925f">
 
-<link rel="stylesheet" href="assets/css/andy.css?v=20260925">
+  <link rel="stylesheet" href="assets/css/andy.css?v=20260925f">
 </head>
+
 <body class="antialiased">
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-<!-- textura de grão sobre tudo -->
-<div class="noise"></div>
-<!-- trilha de pó do cursor -->
-<canvas id="dust-canvas" class="fixed inset-0 z-[9998] pointer-events-none"></canvas>
+  <!-- textura de grão sobre tudo -->
+  <div class="noise"></div>
+  <!-- trilha de pó do cursor -->
+  <canvas id="dust-canvas" class="fixed inset-0 z-[9998] pointer-events-none"></canvas>
 
-<!-- ============================================================
+  <!-- ============================================================
      Biblioteca de símbolos: o pincel Andy, desenhado em SVG
      ============================================================ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="g-bristle" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"  stop-color="#FBF4F1"/>
-      <stop offset="35%" stop-color="#EAD7D1"/>
-      <stop offset="70%" stop-color="#9C8A86"/>
-      <stop offset="100%" stop-color="#1E1C1F"/>
-    </linearGradient>
-    <linearGradient id="g-ferrule" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#6f6b72"/>
-      <stop offset="18%"  stop-color="#d9d7dc"/>
-      <stop offset="38%"  stop-color="#ffffff"/>
-      <stop offset="62%"  stop-color="#bdbac0"/>
-      <stop offset="82%"  stop-color="#7b777e"/>
-      <stop offset="100%" stop-color="#cfccd2"/>
-    </linearGradient>
-    <linearGradient id="g-handle" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%"   stop-color="#0B0B0C"/>
-      <stop offset="30%"  stop-color="#3a373d"/>
-      <stop offset="46%"  stop-color="#68646c"/>
-      <stop offset="60%"  stop-color="#26242a"/>
-      <stop offset="100%" stop-color="#0B0B0C"/>
-    </linearGradient>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="g-bristle" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FBF4F1" />
+        <stop offset="35%" stop-color="#EAD7D1" />
+        <stop offset="70%" stop-color="#9C8A86" />
+        <stop offset="100%" stop-color="#1E1C1F" />
+      </linearGradient>
+      <linearGradient id="g-ferrule" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#6f6b72" />
+        <stop offset="18%" stop-color="#d9d7dc" />
+        <stop offset="38%" stop-color="#ffffff" />
+        <stop offset="62%" stop-color="#bdbac0" />
+        <stop offset="82%" stop-color="#7b777e" />
+        <stop offset="100%" stop-color="#cfccd2" />
+      </linearGradient>
+      <linearGradient id="g-handle" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#0B0B0C" />
+        <stop offset="30%" stop-color="#3a373d" />
+        <stop offset="46%" stop-color="#68646c" />
+        <stop offset="60%" stop-color="#26242a" />
+        <stop offset="100%" stop-color="#0B0B0C" />
+      </linearGradient>
 
-    <g id="brush-body">
-      <rect x="36" y="168" width="48" height="96" rx="5" fill="url(#g-ferrule)"/>
-      <rect x="36" y="186" width="48" height="2" fill="#0B0B0C" opacity=".18"/>
-      <rect x="36" y="246" width="48" height="2" fill="#0B0B0C" opacity=".18"/>
-      <path d="M38 262 L82 262 L70 506 C69.5 512 65 516 60 516 C55 516 50.5 512 50 506 Z" fill="url(#g-handle)"/>
-      <path d="M44 272 L50 272 L44 498 C43.8 502 42 504 41 504 Z" fill="#ffffff" opacity=".14"/>
-      <text x="60" y="340" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2">Andy</text>
-      <text x="60" y="356" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="7" letter-spacing="2" opacity=".75">N°02</text>
-    </g>
-  </defs>
+      <g id="brush-body">
+        <rect x="36" y="168" width="48" height="96" rx="5" fill="url(#g-ferrule)" />
+        <rect x="36" y="186" width="48" height="2" fill="#0B0B0C" opacity=".18" />
+        <rect x="36" y="246" width="48" height="2" fill="#0B0B0C" opacity=".18" />
+        <path d="M38 262 L82 262 L70 506 C69.5 512 65 516 60 516 C55 516 50.5 512 50 506 Z" fill="url(#g-handle)" />
+        <path d="M44 272 L50 272 L44 498 C43.8 502 42 504 41 504 Z" fill="#ffffff" opacity=".14" />
+        <text x="60" y="340" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="9"
+          letter-spacing="2">Andy</text>
+        <text x="60" y="356" text-anchor="middle" fill="#B89A7E" font-family="JetBrains Mono, monospace" font-size="7"
+          letter-spacing="2" opacity=".75">N°02</text>
+      </g>
+    </defs>
 
-  <symbol id="brush-kabuki" viewBox="0 0 120 520">
-    <path d="M60 6 C95 6 110 62 104 120 C101 146 90 164 82 172 L38 172 C30 164 19 146 16 120 C10 62 25 6 60 6Z" fill="url(#g-bristle)"/>
-    <g stroke="#ffffff" stroke-width=".7" opacity=".28">
-      <path d="M46 14 C38 60 36 120 42 170" fill="none"/>
-      <path d="M60 8 C58 60 58 120 60 172" fill="none"/>
-      <path d="M74 14 C82 60 84 120 78 170" fill="none"/>
-    </g>
-    <path d="M60 6 C76 6 88 22 94 46 C84 26 72 16 60 16 Z" fill="#ffffff" opacity=".35"/>
-    <use href="#brush-body"/>
-  </symbol>
+    <symbol id="brush-kabuki" viewBox="0 0 120 520">
+      <path d="M60 6 C95 6 110 62 104 120 C101 146 90 164 82 172 L38 172 C30 164 19 146 16 120 C10 62 25 6 60 6Z"
+        fill="url(#g-bristle)" />
+      <g stroke="#ffffff" stroke-width=".7" opacity=".28">
+        <path d="M46 14 C38 60 36 120 42 170" fill="none" />
+        <path d="M60 8 C58 60 58 120 60 172" fill="none" />
+        <path d="M74 14 C82 60 84 120 78 170" fill="none" />
+      </g>
+      <path d="M60 6 C76 6 88 22 94 46 C84 26 72 16 60 16 Z" fill="#ffffff" opacity=".35" />
+      <use href="#brush-body" />
+    </symbol>
 
-  <symbol id="brush-slim" viewBox="0 0 120 520">
-    <path d="M60 40 C74 40 80 90 78 140 C77 156 72 166 70 172 L50 172 C48 166 43 156 42 140 C40 90 46 40 60 40Z" fill="url(#g-bristle)"/>
-    <path d="M60 40 C67 40 72 62 74 86 C69 62 64 50 60 48 Z" fill="#ffffff" opacity=".35"/>
-    <use href="#brush-body"/>
-  </symbol>
+    <symbol id="brush-slim" viewBox="0 0 120 520">
+      <path d="M60 40 C74 40 80 90 78 140 C77 156 72 166 70 172 L50 172 C48 166 43 156 42 140 C40 90 46 40 60 40Z"
+        fill="url(#g-bristle)" />
+      <path d="M60 40 C67 40 72 62 74 86 C69 62 64 50 60 48 Z" fill="#ffffff" opacity=".35" />
+      <use href="#brush-body" />
+    </symbol>
 
-  <symbol id="brush-fan" viewBox="0 0 120 520">
-    <path d="M60 60 C100 60 116 110 104 150 C98 164 88 170 82 172 L38 172 C32 170 22 164 16 150 C4 110 20 60 60 60Z" fill="url(#g-bristle)"/>
-    <g stroke="#ffffff" stroke-width=".7" opacity=".3">
-      <path d="M30 78 C26 110 30 150 38 170" fill="none"/>
-      <path d="M60 62 C58 110 58 150 60 172" fill="none"/>
-      <path d="M90 78 C94 110 90 150 82 170" fill="none"/>
-    </g>
-    <use href="#brush-body"/>
-  </symbol>
+    <symbol id="brush-fan" viewBox="0 0 120 520">
+      <path d="M60 60 C100 60 116 110 104 150 C98 164 88 170 82 172 L38 172 C32 170 22 164 16 150 C4 110 20 60 60 60Z"
+        fill="url(#g-bristle)" />
+      <g stroke="#ffffff" stroke-width=".7" opacity=".3">
+        <path d="M30 78 C26 110 30 150 38 170" fill="none" />
+        <path d="M60 62 C58 110 58 150 60 172" fill="none" />
+        <path d="M90 78 C94 110 90 150 82 170" fill="none" />
+      </g>
+      <use href="#brush-body" />
+    </symbol>
 
-  <!-- ícones da interface: Solar, linear, desenhados aqui em vez de buscados numa API -->
-  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></symbol>
-  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20L12 4M6 10L12 4L18 10"/></symbol>
-  <symbol id="i-check-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5"/></g></symbol>
-  <symbol id="i-close-circle" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"/></g></symbol>
-  <symbol id="i-cursor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.5744 19.1999L12.6361 15.2616L11.4334 16.4643C10.2022 17.6955 9.58656 18.3111 8.92489 18.1658C8.26322 18.0204 7.96225 17.2035 7.3603 15.5696L5.3527 10.1205C4.15187 6.86106 3.55146 5.23136 4.39141 4.39141C5.23136 3.55146 6.86106 4.15187 10.1205 5.35271L15.5696 7.3603C17.2035 7.96225 18.0204 8.26322 18.1658 8.92489C18.3111 9.58656 17.6955 10.2022 16.4643 11.4334L15.2616 12.6361L19.1999 16.5744C19.6077 16.9821 19.8116 17.186 19.9058 17.4135C20.0314 17.7168 20.0314 18.0575 19.9058 18.3608C19.8116 18.5882 19.6077 18.7921 19.1999 19.1999C18.7921 19.6077 18.5882 19.8116 18.3608 19.9058C18.0575 20.0314 17.7168 20.0314 17.4135 19.9058C17.186 19.8116 16.9821 19.6077 16.5744 19.1999Z"/></symbol>
-  <symbol id="i-hamburger-menu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 7L4 7"/><path d="M20 12L4 12"/><path d="M20 17L4 17"/></g></symbol>
-  <symbol id="i-pause" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2C7.88562 2 8.82843 2 9.41421 2.58579C10 3.17157 10 4.11438 10 6V18C10 19.8856 10 20.8284 9.41421 21.4142C8.82843 22 7.88562 22 6 22C4.11438 22 3.17157 22 2.58579 21.4142C2 20.8284 2 19.8856 2 18V6Z"/><path d="M14 6C14 4.11438 14 3.17157 14.5858 2.58579C15.1716 2 16.1144 2 18 2C19.8856 2 20.8284 2 21.4142 2.58579C22 3.17157 22 4.11438 22 6V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V6Z"/></g></symbol>
-  <symbol id="i-play" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z"/></symbol>
-  <symbol id="i-refresh" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M3.67981 13L3.67981 11.3333C3.67981 6.73096 7.4402 3 12.0789 3C15.1178 3 17.7799 4.60136 19.2545 7M2 11.3333L3.67981 13L5.35962 11.3333"/><path d="M20.3139 11V12.6667C20.3139 17.269 16.5391 21 11.8827 21C8.83213 21 6.15995 19.3986 4.67969 17M22.0001 12.6667L20.3139 11L18.6277 12.6667"/></g></symbol>
-  <symbol id="i-shield-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></symbol>
-</svg>
+    <!-- ícones da interface: Solar, linear, desenhados aqui em vez de buscados numa API -->
+    <symbol id="i-arrow-right" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+        d="M4 12H20M14 18L20 12L14 6" />
+    </symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+        d="M12 20L12 4M6 10L12 4L18 10" />
+    </symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10" />
+        <path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5" />
+      </g>
+    </symbol>
+    <symbol id="i-close-circle" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5" />
+      </g>
+    </symbol>
+    <symbol id="i-cursor" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+        d="M16.5744 19.1999L12.6361 15.2616L11.4334 16.4643C10.2022 17.6955 9.58656 18.3111 8.92489 18.1658C8.26322 18.0204 7.96225 17.2035 7.3603 15.5696L5.3527 10.1205C4.15187 6.86106 3.55146 5.23136 4.39141 4.39141C5.23136 3.55146 6.86106 4.15187 10.1205 5.35271L15.5696 7.3603C17.2035 7.96225 18.0204 8.26322 18.1658 8.92489C18.3111 9.58656 17.6955 10.2022 16.4643 11.4334L15.2616 12.6361L19.1999 16.5744C19.6077 16.9821 19.8116 17.186 19.9058 17.4135C20.0314 17.7168 20.0314 18.0575 19.9058 18.3608C19.8116 18.5882 19.6077 18.7921 19.1999 19.1999C18.7921 19.6077 18.5882 19.8116 18.3608 19.9058C18.0575 20.0314 17.7168 20.0314 17.4135 19.9058C17.186 19.8116 16.9821 19.6077 16.5744 19.1999Z" />
+    </symbol>
+    <symbol id="i-hamburger-menu" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <path d="M20 7L4 7" />
+        <path d="M20 12L4 12" />
+        <path d="M20 17L4 17" />
+      </g>
+    </symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <path
+          d="M2 6C2 4.11438 2 3.17157 2.58579 2.58579C3.17157 2 4.11438 2 6 2C7.88562 2 8.82843 2 9.41421 2.58579C10 3.17157 10 4.11438 10 6V18C10 19.8856 10 20.8284 9.41421 21.4142C8.82843 22 7.88562 22 6 22C4.11438 22 3.17157 22 2.58579 21.4142C2 20.8284 2 19.8856 2 18V6Z" />
+        <path
+          d="M14 6C14 4.11438 14 3.17157 14.5858 2.58579C15.1716 2 16.1144 2 18 2C19.8856 2 20.8284 2 21.4142 2.58579C22 3.17157 22 4.11438 22 6V18C22 19.8856 22 20.8284 21.4142 21.4142C20.8284 22 19.8856 22 18 22C16.1144 22 15.1716 22 14.5858 21.4142C14 20.8284 14 19.8856 14 18V6Z" />
+      </g>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+        d="M20.4086 9.35258C22.5305 10.5065 22.5305 13.4935 20.4086 14.6474L7.59662 21.6145C5.53435 22.736 3 21.2763 3 18.9671L3 5.0329C3 2.72368 5.53435 1.26402 7.59661 2.38548L20.4086 9.35258Z" />
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+        <path
+          d="M3.67981 13L3.67981 11.3333C3.67981 6.73096 7.4402 3 12.0789 3C15.1178 3 17.7799 4.60136 19.2545 7M2 11.3333L3.67981 13L5.35962 11.3333" />
+        <path
+          d="M20.3139 11V12.6667C20.3139 17.269 16.5391 21 11.8827 21C8.83213 21 6.15995 19.3986 4.67969 17M22.0001 12.6667L20.3139 11L18.6277 12.6667" />
+      </g>
+    </symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+        <path
+          d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z" />
+        <path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10" />
+      </g>
+    </symbol>
+  </svg>
 
-<div class="shell">
-  <!-- linhas de grid do wrapper -->
-  <div class="grid-guide hidden md:grid" aria-hidden="true">
-    <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
-    <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
-    <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
-    <div class="grid-line"></div><div class="grid-line"></div><div class="grid-line"></div>
-  </div>
+  <div class="shell">
+    <!-- linhas de grid do wrapper -->
+    <div class="grid-guide hidden md:grid" aria-hidden="true">
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+      <div class="grid-line"></div>
+    </div>
 
-  <!-- ============================================================
+    <!-- ============================================================
        NAVBAR
        ============================================================ -->
-  <header id="navbar" class="sticky top-0 z-50 border-b hairline" style="background:rgba(255,255,255,.72); backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4);">
-    <div class="wrap h-[72px] flex items-center justify-between">
-      <a href="#hero" class="flex items-baseline gap-3 group">
-        <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
-      </a>
-      <nav class="nav-rail hidden lg:flex items-center gap-8">
-        <a href="#anatomia" class="link-ghost t-body-sm">Anatomia</a>
-        <a href="#ritual" class="link-ghost t-body-sm">Ritual</a>
-        <a href="#fecho" class="link-ghost t-body-sm">Reserva</a>
-        <i id="nav-ind" class="nav-ind" aria-hidden="true"></i>
+    <header id="navbar" class="sticky top-0 z-50 border-b hairline"
+      style="background:rgba(255,255,255,.72); backdrop-filter:blur(18px) saturate(1.4); -webkit-backdrop-filter:blur(18px) saturate(1.4);">
+      <div class="wrap h-[72px] flex items-center justify-between">
+        <a href="#hero" class="flex items-baseline gap-3 group">
+          <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
+        </a>
+        <nav class="nav-rail hidden lg:flex items-center gap-8">
+          <a href="#anatomia" class="link-ghost t-body-sm">Anatomia</a>
+          <a href="#ritual" class="link-ghost t-body-sm">Ritual</a>
+          <a href="#fecho" class="link-ghost t-body-sm">Reserva</a>
+          <i id="nav-ind" class="nav-ind" aria-hidden="true"></i>
+        </nav>
+        <div class="flex items-center gap-3">
+          <button class="beam-btn hidden sm:inline-block" data-action="modal-open">
+            <span class="beam-spinner"></span>
+            <span class="beam-btn-content">Reservar o seu</span>
+          </button>
+          <button id="menu-btn" class="btn-icon lg:hidden" aria-label="Abrir o menu" aria-expanded="false">
+            <svg class="ico" width="20" height="20" aria-hidden="true">
+              <use href="#i-hamburger-menu"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- progresso de leitura -->
+      <div class="absolute bottom-0 left-0 h-[2px] w-full" style="background:transparent">
+        <div id="scroll-progress" class="h-full w-full"
+          style="background:linear-gradient(90deg,var(--accent),var(--accent-deep)); transform:scaleX(0); transform-origin:0 50%">
+        </div>
+      </div>
+    </header>
+
+    <!-- drawer mobile -->
+    <div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none" inert>
+      <div id="drawer-scrim" class="absolute inset-0 opacity-0 transition-opacity duration-500"
+        style="background:rgba(11,11,12,.35); backdrop-filter:blur(6px)"></div>
+      <nav id="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu"
+        class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-white border-l hairline p-8 translate-x-full transition-transform duration-700"
+        style="transition-timing-function:var(--ease-silk)">
+        <div class="flex items-center justify-between mb-10">
+          <span class="t-label text-mist">Menu</span>
+          <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><svg class="ico" width="20" height="20"
+              aria-hidden="true">
+              <use href="#i-close-circle"></use>
+            </svg></button>
+        </div>
+        <div class="flex flex-col gap-6">
+          <a href="#anatomia" class="t-h4 drawer-link">Anatomia</a>
+          <a href="#ritual" class="t-h4 drawer-link">Ritual</a>
+          <a href="#fecho" class="t-h4 drawer-link">Reserva</a>
+        </div>
+        <button class="btn-base btn-primary btn-fill w-full mt-10" data-action="modal-open"><span
+            class="fill"></span>Reservar o seu</button>
       </nav>
-      <div class="flex items-center gap-3">
-        <button class="beam-btn hidden sm:inline-block" data-action="modal-open">
-          <span class="beam-spinner"></span>
-          <span class="beam-btn-content">Reservar o seu</span>
-        </button>
-        <button id="menu-btn" class="btn-icon lg:hidden" aria-label="Abrir o menu" aria-expanded="false">
-          <svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-hamburger-menu"></use></svg>
-        </button>
-      </div>
     </div>
-    <!-- progresso de leitura -->
-    <div class="absolute bottom-0 left-0 h-[2px] w-full" style="background:transparent">
-      <div id="scroll-progress" class="h-full w-full" style="background:linear-gradient(90deg,var(--accent),var(--accent-deep)); transform:scaleX(0); transform-origin:0 50%"></div>
-    </div>
-  </header>
 
-  <!-- drawer mobile -->
-  <div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none" inert>
-    <div id="drawer-scrim" class="absolute inset-0 opacity-0 transition-opacity duration-500" style="background:rgba(11,11,12,.35); backdrop-filter:blur(6px)"></div>
-    <nav id="drawer-panel" role="dialog" aria-modal="true" aria-label="Menu" class="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-white border-l hairline p-8 translate-x-full transition-transform duration-700" style="transition-timing-function:var(--ease-silk)">
-      <div class="flex items-center justify-between mb-10">
-        <span class="t-label text-mist">Menu</span>
-        <button id="drawer-close" class="btn-icon" aria-label="Fechar o menu"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
-      </div>
-      <div class="flex flex-col gap-6">
-        <a href="#anatomia" class="t-h4 drawer-link">Anatomia</a>
-        <a href="#ritual" class="t-h4 drawer-link">Ritual</a>
-        <a href="#fecho" class="t-h4 drawer-link">Reserva</a>
-      </div>
-      <button class="btn-base btn-primary btn-fill w-full mt-10" data-action="modal-open"><span class="fill"></span>Reservar o seu</button>
-    </nav>
-  </div>
+    <main id="conteudo" tabindex="-1">
 
-  <main id="conteudo" tabindex="-1">
-
-  <!-- ============================================================
+      <!-- ============================================================
        01 · HERO · primeira dobra
        ============================================================ -->
-  <section id="hero" class="section-aura relative min-h-[92vh] flex items-center pt-16 pb-24 md:pt-20">
-    <!-- fundo -->
-    <div class="absolute inset-0 bg-grid opacity-60 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%)"></div>
-    <div class="aura-blob animate-float" style="width:760px;height:760px;top:-26%;right:-12%;background:rgba(var(--glow),.62)"></div>
-    <div class="aura-blob animate-float" style="width:660px;height:660px;bottom:-30%;left:-16%;background:rgba(var(--glow),.42);animation-duration:14s"></div>
-    <div class="dust"></div>
-
-    <div class="relative w-full wrap grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-
-      <!-- coluna esquerda -->
-      <div class="lg:col-span-6">
-        <div class="reveal flex items-center gap-3 mb-8">
-          <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--accent-deep)"></span>
-          <span class="t-label text-graphite"><b class="t-accent font-medium">N°02</b> · Segunda edição<span class="hidden sm:inline"> · Pincel de base líquida</span></span>
+      <section id="hero" class="section-aura relative min-h-[92vh] flex items-center pt-16 pb-24 md:pt-20">
+        <!-- fundo -->
+        <div class="absolute inset-0 bg-grid opacity-60 pointer-events-none"
+          style="mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 5%, transparent 65%)">
         </div>
-
-        <h1 id="hero-title" class="t-display group cursor-default select-none mb-8">
-          <span class="block text-reveal-wrapper"><span class="text-reveal-content">Toque</span></span>
-          <span class="block paint-line">
-            <span id="paint-target" class="text-transparent-stroke" data-text="de seda.">de seda.</span>
-          </span>
-        </h1>
-
-        <p class="reveal delay-300 t-body-lg text-graphite max-w-md mb-10">
-          Fibras de <span class="t-serif text-ink">0,02&nbsp;mm</span> montadas à mão, uma por vez. O pincel deposita a base em camada única, sem marcas e sem excesso.
-        </p>
-
-        <div class="reveal delay-500 flex flex-wrap items-center gap-4 mb-12">
-          <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open">
-            <span class="fill"></span>
-            Reservar o seu
-            <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-          </button>
-          <span class="btn-beam-wrapper magnetic">
-            <span class="btn-beam-border"></span>
-            <a href="#anatomia" class="btn-beam-inner">Ver a anatomia</a>
-          </span>
+        <div class="aura-blob animate-float"
+          style="width:760px;height:760px;top:-26%;right:-12%;background:rgba(var(--glow),.62)"></div>
+        <div class="aura-blob animate-float"
+          style="width:660px;height:660px;bottom:-30%;left:-16%;background:rgba(var(--glow),.42);animation-duration:14s">
         </div>
+        <div class="dust"></div>
 
-      </div>
+        <div class="relative w-full wrap grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
 
-      <!-- palco à direita: o vídeo -->
-      <div class="lg:col-span-6 relative">
-        <div id="stage" class="relative w-full max-w-[680px] mx-auto" style="perspective:1400px">
+          <!-- coluna esquerda -->
+          <div class="lg:col-span-6">
+            <div class="reveal flex items-center gap-3 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--accent-deep)"></span>
+              <span class="t-label text-graphite"><b class="t-accent font-medium">N°02</b> · Segunda edição<span
+                  class="hidden sm:inline"> · Pincel de base líquida</span></span>
+            </div>
 
-          <!-- orbe que respira atrás do painel -->
-          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-breathe pointer-events-none"
-               style="width:86%;aspect-ratio:1;background:radial-gradient(circle, rgba(var(--glow),.9) 0%, rgba(var(--glow),.3) 45%, rgba(var(--glow),.08) 62%, transparent 76%)"></div>
+            <h1 id="hero-title" class="t-display group cursor-default select-none mb-8">
+              <span class="block text-reveal-wrapper"><span class="text-reveal-content">Toque</span></span>
+              <span class="block paint-line">
+                <span id="paint-target" class="text-transparent-stroke" data-text="de seda.">de seda.</span>
+              </span>
+            </h1>
 
-          <div id="stage-inner" class="relative" style="transform-style:preserve-3d">
+            <p class="reveal delay-300 t-body-lg text-graphite max-w-md mb-10">
+              Fibras de <span class="t-serif text-ink">0,02&nbsp;mm</span> montadas à mão, uma por vez. O pincel
+              deposita a base em camada única, sem marcas e sem excesso.
+            </p>
 
-            <!-- o painel de vídeo -->
-            <figure class="video-frame clip-enter">
-              <div class="video-stage">
-                <video id="hero-video"
-                       poster="assets/img/hero-poster.webp"
-                       muted loop playsinline preload="none"
-                       aria-label="Pincel Andy N°02 e a aplicação da base em camada única">
-                  <!-- H.264 primeiro: o Safari decodifica no hardware; o VP9 ia para a CPU -->
-                  <source src="assets/video/pincel.mp4" type="video/mp4">
-                  <source src="assets/video/pincel.webm" type="video/webm">
-                </video>
+            <div class="reveal delay-500 flex flex-wrap items-center gap-4 mb-12">
+              <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open">
+                <span class="fill"></span>
+                Reservar o seu
+                <svg class="ico" width="16" height="16" aria-hidden="true">
+                  <use href="#i-arrow-right"></use>
+                </svg>
+              </button>
+              <span class="btn-beam-wrapper magnetic">
+                <span class="btn-beam-border"></span>
+                <a href="#anatomia" class="btn-beam-inner">Ver a anatomia</a>
+              </span>
+            </div>
 
-                <!-- marcas de canto -->
-                <div class="video-marks" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          </div>
 
-                <!-- etiqueta superior -->
-                <div class="absolute top-6 left-6 flex items-center gap-2.5">
-                  <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--error)"></span>
-                  <span class="t-label text-graphite">N°02 · base líquida</span>
-                </div>
-                <span class="absolute top-6 right-6 badge badge-shimmer">Lote 02</span>
+          <!-- palco à direita: o vídeo -->
+          <div class="lg:col-span-6 relative">
+            <div id="stage" class="relative w-full max-w-[680px] mx-auto" style="perspective:1400px">
 
-                <!-- controles -->
-                <div class="absolute bottom-6 right-6 flex items-center gap-3">
-                  <span class="t-label text-mist">00:08 · loop</span>
-                  <button id="video-toggle" class="btn-icon tip w-11 h-11" data-tip="Pausar" aria-label="Pausar o vídeo" data-ripple>
-                    <svg class="ico" id="video-toggle-icon" width="18" height="18" aria-hidden="true"><use href="#i-pause"></use></svg>
-                  </button>
-                </div>
+              <!-- orbe que respira atrás do painel -->
+              <div
+                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-breathe pointer-events-none"
+                style="width:86%;aspect-ratio:1;background:radial-gradient(circle, rgba(var(--glow),.9) 0%, rgba(var(--glow),.3) 45%, rgba(var(--glow),.08) 62%, transparent 76%)">
               </div>
 
-              <!-- faixa de especificação -->
-              <figcaption class="video-specs border-t hairline">
-                <div>
-                  <span class="t-label text-mist block mb-1.5">Fibra</span>
-                  <span class="t-body-sm">0,02 mm · vegana</span>
-                </div>
-                <div>
-                  <span class="t-label text-mist block mb-1.5">Corte</span>
-                  <span class="t-body-sm">Chanfro 12°</span>
-                </div>
-                <div>
-                  <span class="t-label text-mist block mb-1.5">Cabo</span>
-                  <span class="t-body-sm">Faia FSC · 18 g</span>
-                </div>
-              </figcaption>
-            </figure>
+              <div id="stage-inner" class="relative" style="transform-style:preserve-3d">
 
-            <!-- chip de vidro sobre a borda do painel -->
-            <div class="chip glass-panel flashlight-card absolute left-[-7%] top-[14%] hidden md:block px-4 py-3 rounded-xl reveal delay-700">
-              <span class="t-label text-mist block mb-1">Montagem</span>
-              <span class="t-body-sm">18 peças por dia</span>
+                <!-- o painel de vídeo -->
+                <figure class="video-frame clip-enter">
+                  <div class="video-stage">
+                    <video id="hero-video" poster="assets/img/hero-poster.webp" muted loop playsinline preload="none"
+                      aria-label="Pincel Andy N°02 e a aplicação da base em camada única">
+                      <!-- H.264 primeiro: o Safari decodifica no hardware; o VP9 ia para a CPU -->
+                      <source src="assets/video/pincel.mp4" type="video/mp4">
+                      <source src="assets/video/pincel.webm" type="video/webm">
+                    </video>
+
+                    <!-- marcas de canto -->
+                    <div class="video-marks" aria-hidden="true"><span></span><span></span><span></span><span></span>
+                    </div>
+
+                    <!-- etiqueta superior -->
+                    <div class="absolute top-6 left-6 flex items-center gap-2.5">
+                      <span class="w-1.5 h-1.5 rounded-full animate-pulse-dot" style="background:var(--error)"></span>
+                      <span class="t-label text-graphite">N°02 · base líquida</span>
+                    </div>
+                    <span class="absolute top-6 right-6 badge badge-shimmer">Lote 02</span>
+
+                    <!-- controles -->
+                    <div class="absolute bottom-6 right-6 flex items-center gap-3">
+                      <span class="t-label text-mist">00:08 · loop</span>
+                      <button id="video-toggle" class="btn-icon tip w-11 h-11" data-tip="Pausar"
+                        aria-label="Pausar o vídeo" data-ripple>
+                        <svg class="ico" id="video-toggle-icon" width="18" height="18" aria-hidden="true">
+                          <use href="#i-pause"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- faixa de especificação -->
+                  <figcaption class="video-specs border-t hairline">
+                    <div>
+                      <span class="t-label text-mist block mb-1.5">Fibra</span>
+                      <span class="t-body-sm">0,02 mm · vegana</span>
+                    </div>
+                    <div>
+                      <span class="t-label text-mist block mb-1.5">Corte</span>
+                      <span class="t-body-sm">Chanfro 12°</span>
+                    </div>
+                    <div>
+                      <span class="t-label text-mist block mb-1.5">Cabo</span>
+                      <span class="t-body-sm">Faia FSC · 18 g</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- indicador de scroll -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span class="t-label text-mist">Role</span>
+          <span class="block w-px h-8 bg-hairline relative overflow-hidden">
+            <span class="absolute inset-x-0 top-0 h-3"
+              style="background:var(--ink); animation:scroll-hint 2s var(--ease-veil) infinite"></span>
+          </span>
+        </div>
+      </section>
+
+      <!-- marquee da base da hero -->
+      <div class="border-y hairline overflow-hidden py-4"
+        style="background:color-mix(in srgb, var(--accent) 22%, var(--white))">
+        <div class="flex whitespace-nowrap animate-marquee">
+          <span class="flex items-center">
+            <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
+            <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span
+              style="color:var(--accent-deep)">✦</span>
+            <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
+            <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span
+              style="color:var(--accent-deep)">✦</span>
+            <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
+          </span>
+          <span class="flex items-center" aria-hidden="true">
+            <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
+            <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span
+              style="color:var(--accent-deep)">✦</span>
+            <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
+            <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span
+              style="color:var(--accent-deep)">✦</span>
+            <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
+          </span>
+        </div>
       </div>
-    </div>
 
-    <!-- indicador de scroll -->
-    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-      <span class="t-label text-mist">Role</span>
-      <span class="block w-px h-8 bg-hairline relative overflow-hidden">
-        <span class="absolute inset-x-0 top-0 h-3" style="background:var(--ink); animation:scroll-hint 2s var(--ease-veil) infinite"></span>
-      </span>
-    </div>
-  </section>
-
-  <!-- marquee da base da hero -->
-  <div class="border-y hairline overflow-hidden py-4" style="background:color-mix(in srgb, var(--accent) 22%, var(--white))">
-    <div class="flex whitespace-nowrap animate-marquee">
-      <span class="flex items-center">
-        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
-      </span>
-      <span class="flex items-center" aria-hidden="true">
-        <span class="t-label mx-6">Montado à mão</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-serif text-2xl mx-6 t-accent">cruelty free</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-label mx-6">Lotes de 200 peças</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-serif text-2xl mx-6 t-accent">édition limitée</span><span style="color:var(--accent-deep)">✦</span>
-        <span class="t-label mx-6">Garantia vitalícia</span><span style="color:var(--accent-deep)">✦</span>
-      </span>
-    </div>
-  </div>
-
-  <!-- ============================================================
+      <!-- ============================================================
        02 · ANATOMIA · segunda dobra
        ============================================================ -->
-  <section id="anatomia" class="section-aura relative pt-24 pb-10 md:pt-32" style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 16%, var(--white)) 55%,transparent 100%)">
-    <!-- fundo -->
-    <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%); -webkit-mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%)"></div>
-    <div class="aura-blob animate-float" style="width:680px;height:680px;top:6%;left:-20%;background:rgba(var(--glow),.5);animation-duration:16s"></div>
-    <div class="aura-blob animate-float" style="width:600px;height:600px;bottom:2%;right:-18%;background:rgba(var(--glow),.42);animation-duration:12s"></div>
-
-    <!-- cabeçalho da dobra -->
-    <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12 lg:mb-4">
-      <div class="lg:col-span-7">
-        <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label t-accent">02</span>
-          <span class="block w-10 h-px" style="background:var(--hairline)"></span>
-          <span class="t-label text-graphite">Anatomia do N°02</span>
+      <section id="anatomia" class="section-aura relative pt-24 pb-10 md:pt-32"
+        style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 16%, var(--white)) 55%,transparent 100%)">
+        <!-- fundo -->
+        <div class="absolute inset-0 bg-grid opacity-50 pointer-events-none"
+          style="mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%); -webkit-mask-image:radial-gradient(ellipse at 50% 55%, #000 10%, transparent 70%)">
         </div>
-        <h2 class="anx-mask t-display-2">
-          <span class="anx-line"><span>Anatomia de um</span></span>
-          <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal" style="letter-spacing:-.02em">gesto</span> invisível.</span></span>
-        </h2>
-      </div>
-      <div class="lg:col-span-5 lg:pb-3">
-        <p class="anx t-body-lg text-graphite mb-6" style="--i:2">
-          Seis decisões de engenharia, milímetro a milímetro, para a base <span class="t-serif text-ink">desaparecer</span> na pele e não no pincel.
-        </p>
-        <div class="anat-hint anx flex items-center gap-3 t-helper" style="--i:3">
-          <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-cursor"></use></svg>
-          <span class="hint-hover">Passe o cursor pelos pontos ou pelas notas.</span>
-          <span class="hint-touch">Role para ver as seis especificações, da cúpula ao cabo.</span>
+        <div class="aura-blob animate-float"
+          style="width:680px;height:680px;top:6%;left:-20%;background:rgba(var(--glow),.5);animation-duration:16s">
         </div>
-      </div>
-    </div>
+        <div class="aura-blob animate-float"
+          style="width:600px;height:600px;bottom:2%;right:-18%;background:rgba(var(--glow),.42);animation-duration:12s">
+        </div>
 
-    <!-- diagrama: o pincel e, em sequência, as seis especificações -->
-    <div id="anat-grid" class="anat-grid relative wrap" data-anx-group>
-      <svg class="anat-lines hidden lg:block" aria-hidden="true"></svg>
-
-      <!-- palco: o pincel é o protagonista -->
-      <div class="anat-stage-cell">
-        <div id="anat-stage" class="anat-stage">
-          <span class="anat-word" aria-hidden="true">N°02</span>
-          <div class="anat-orb" aria-hidden="true"></div>
-          <svg class="anat-ring" viewBox="0 0 400 400" aria-hidden="true">
-            <circle cx="200" cy="200" r="190" stroke="rgba(11,11,12,.10)" stroke-width="1"/>
-            <circle cx="200" cy="200" r="182" stroke="rgba(11,11,12,.16)" stroke-width="6" stroke-dasharray="1 9.48"/>
-            <circle cx="200" cy="200" r="182" stroke="rgba(11,11,12,.28)" stroke-width="12" stroke-dasharray="1.2 94.1"/>
-            <circle cx="200" cy="200" r="150" stroke="rgba(11,11,12,.06)" stroke-width="1" stroke-dasharray="3 6"/>
-          </svg>
-          <div class="anat-ruler hidden lg:block" aria-hidden="true"></div>
-          <div class="anat-floor" aria-hidden="true"></div>
-
-          <div class="anx h-full w-full flex items-center justify-center" data-anx="brush">
-            <div class="animate-levitate h-full w-full flex items-center justify-center" style="animation-duration:7s">
-              <div class="anat-sway h-full w-full flex items-center justify-center">
-              <div id="anat-brush" class="anat-brush">
-                <img src="assets/img/andy-n02-anatomia.webp" alt="Pincel Andy N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com Andy gravado e cabo afunilado com Liquid foundation." width="259" height="1259" decoding="async" draggable="false">
-                <span class="anat-sheen" aria-hidden="true"></span>
-                <button type="button" class="hs" data-hs="1" style="--x:60%;--y:3.5%;--i:0" aria-label="01 · Chanfro de 12°"><span class="hs-num">01</span></button>
-                <button type="button" class="hs" data-hs="2" style="--x:30%;--y:8.5%;--i:1" aria-label="02 · Fibra taklon de 0,02 mm"><span class="hs-num">02</span></button>
-                <button type="button" class="hs" data-hs="3" style="--x:64%;--y:13%;--i:2" aria-label="03 · Densidade em dois tempos"><span class="hs-num">03</span></button>
-                <button type="button" class="hs" data-hs="4" style="--x:48%;--y:27%;--i:3" aria-label="04 · Férula com dupla crimpagem"><span class="hs-num">04</span></button>
-                <button type="button" class="hs" data-hs="5" style="--x:49%;--y:46.5%;--i:4" aria-label="05 · Centro de massa na férula"><span class="hs-num">05</span></button>
-                <button type="button" class="hs" data-hs="6" style="--x:50%;--y:76%;--i:5" aria-label="06 · Cabo em faia laqueada"><span class="hs-num">06</span></button>
-                <div id="anat-lens" class="anat-lens" aria-hidden="true"><span>MACRO ×3</span></div>
-              </div>
-              </div>
+        <!-- cabeçalho da dobra -->
+        <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12 lg:mb-4">
+          <div class="lg:col-span-7">
+            <div class="anx flex items-center gap-3 mb-8">
+              <span class="t-label t-accent">02</span>
+              <span class="block w-10 h-px" style="background:var(--hairline)"></span>
+              <span class="t-label text-graphite">Anatomia do N°02</span>
+            </div>
+            <h2 class="anx-mask t-display-2">
+              <span class="anx-line"><span>Anatomia de um</span></span>
+              <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal"
+                    style="letter-spacing:-.02em">gesto</span> invisível.</span></span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 lg:pb-3">
+            <p class="anx t-body-lg text-graphite mb-6" style="--i:2">
+              Seis decisões de engenharia, milímetro a milímetro, para a base <span
+                class="t-serif text-ink">desaparecer</span> na pele e não no pincel.
+            </p>
+            <div class="anat-hint anx flex items-center gap-3 t-helper" style="--i:3">
+              <svg class="ico" width="16" height="16" aria-hidden="true">
+                <use href="#i-cursor"></use>
+              </svg>
+              <span class="hint-hover">Passe o cursor pelos pontos ou pelas notas.</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- as seis especificações, cada uma com o seu recorte do pincel -->
-      <div class="anat-note anx" data-anx="left" data-hs="1" data-side="l" style="--i:1;--px:58%;--py:4%;--pz:135%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">01</span> <span class="t-label text-mist">Cúpula</span></div>
-            <h3 class="t-h5">Chanfro de 12°</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">O ângulo acompanha a curva da maçã do rosto e alcança o canto do nariz e a linha da mandíbula sem trocar de pincel.</p>
-        <span class="badge">Contorno anatômico</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 01 · Cúpula no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-      <div class="anat-note anx" data-anx="right" data-hs="2" data-side="r" style="--i:2;--px:30%;--py:9%;--pz:300%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">02</span> <span class="t-label text-mist">Fibra</span></div>
-            <h3 class="t-h5">Taklon de 0,02 mm</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">Fios sintéticos de ponta cônica, mais finos que um fio de cabelo. Não bebem produto, então a base fica na pele e não nas cerdas.</p>
-        <span class="badge">Até 30% menos base</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 02 · Fibra no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-      <div class="anat-note anx" data-anx="left" data-hs="3" data-side="l" style="--i:3;--px:60%;--py:16%;--pz:145%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">03</span> <span class="t-label text-mist">Densidade</span></div>
-            <h3 class="t-h5">Arquitetura em dois tempos</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">Miolo compacto para cobrir, borda aérea para esfumar. Cobertura e difusão na mesma passada, com acabamento de <span class="t-serif text-ink">segunda pele</span>.</p>
-        <span class="badge">Blur óptico</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 03 · Densidade no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-      <div class="anat-note anx" data-anx="right" data-hs="4" data-side="r" style="--i:4;--px:48%;--py:29%;--pz:175%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">04</span> <span class="t-label text-mist">Férula</span></div>
-            <h3 class="t-h5">Latão com dupla crimpagem</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">Dois anéis de pressão travam os fios na raiz. A cúpula não abre e não perde fios, lavagem após lavagem.</p>
-        <span class="badge">Zero queda de fios</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 04 · Férula no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-      <div class="anat-note anx" data-anx="left" data-hs="5" data-side="l" style="--i:5;--px:49%;--py:45%;--pz:150%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">05</span> <span class="t-label text-mist">Equilíbrio</span></div>
-            <h3 class="t-h5">Centro de massa na férula</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">O peso mora perto das cerdas, não na ponta do cabo. A mão relaxa e a pressão se distribui por igual em cada movimento.</p>
-        <span class="badge">Pegada de pluma</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 05 · Equilíbrio no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-      <div class="anat-note anx" data-anx="right" data-hs="6" data-side="r" style="--i:6;--px:50%;--py:76%;--pz:190%">
-        <div class="anat-card">
-          <span class="anat-thumb" aria-hidden="true"></span>
-          <div class="anat-heading">
-            <div class="mb-1"><span class="anat-num">06</span> <span class="t-label text-mist">Cabo</span></div>
-            <h3 class="t-h5">Faia FSC em sete camadas de laca</h3>
-          </div>
-        </div>
-        <p class="t-body-sm text-graphite mt-4 mb-4">18 g de madeira certificada, com acabamento espelhado e selado. Não absorve água, não racha e não desbota.</p>
-        <span class="badge">Garantia vitalícia</span>
-        <button type="button" class="anat-trigger" aria-label="Destacar 06 · Cabo no diagrama do pincel"></button>
-        <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
-      </div>
-    </div>
+        <!-- diagrama: o pincel e, em sequência, as seis especificações -->
+        <div id="anat-grid" class="anat-grid relative wrap" data-anx-group>
+          <svg class="anat-lines hidden lg:block" aria-hidden="true"></svg>
 
-    <!-- métricas -->
-    <div class="wrap mt-16 lg:mt-20">
-      <div class="relative anat-metrics border-b hairline">
-      <div class="anat-metric anx" style="--i:0">
-        <span class="t-label text-mist block mb-4">Fio</span>
-        <span class="v block mb-3"><span data-count="0.02" data-decimals="2">0,02</span><span class="t-serif text-[.55em] ml-1" style="letter-spacing:0">mm</span></span>
-        <span class="t-body-sm text-graphite">Fibra taklon de ponta cônica.</span>
-      </div>
-      <div class="anat-metric anx" style="--i:1">
-        <span class="t-label text-mist block mb-4">Chanfro</span>
-        <span class="v block mb-3"><span data-count="12">12</span>°</span>
-        <span class="t-body-sm text-graphite">Contorno sem trocar de pincel.</span>
-      </div>
-      <div class="anat-metric anx" style="--i:2">
-        <span class="t-label text-mist block mb-4">Rendimento</span>
-        <span class="v block mb-3">−<span data-count="30">30</span>%</span>
-        <span class="t-body-sm text-graphite">Menos base retida nas cerdas.</span>
-      </div>
-      <div class="anat-metric anx" style="--i:3">
-        <span class="t-label text-mist block mb-4">Acabamento</span>
-        <span class="v block mb-3"><span data-count="1">1</span><span class="t-serif text-[.55em] ml-2" style="letter-spacing:0">passada</span></span>
-        <span class="t-body-sm text-graphite">Do líquido à segunda pele.</span>
-      </div>
-      </div>
-    </div>
+          <!-- palco: o pincel é o protagonista -->
+          <div class="anat-stage-cell">
+            <div id="anat-stage" class="anat-stage">
+              <span class="anat-word" aria-hidden="true">N°02</span>
+              <div class="anat-orb" aria-hidden="true"></div>
+              <svg class="anat-ring" viewBox="0 0 400 400" aria-hidden="true">
+                <circle cx="200" cy="200" r="190" stroke="rgba(11,11,12,.10)" stroke-width="1" />
+                <circle cx="200" cy="200" r="182" stroke="rgba(11,11,12,.16)" stroke-width="6"
+                  stroke-dasharray="1 9.48" />
+                <circle cx="200" cy="200" r="182" stroke="rgba(11,11,12,.28)" stroke-width="12"
+                  stroke-dasharray="1.2 94.1" />
+                <circle cx="200" cy="200" r="150" stroke="rgba(11,11,12,.06)" stroke-width="1" stroke-dasharray="3 6" />
+              </svg>
+              <div class="anat-ruler hidden lg:block" aria-hidden="true"></div>
+              <div class="anat-floor" aria-hidden="true"></div>
 
-    <!-- fecho da dobra -->
-    <div class="relative wrap py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-      <p class="anx t-body text-graphite max-w-md">Montado à mão, <span class="t-serif text-ink text-lg">um fio de cada vez</span>. Lote 02, com 200 peças numeradas.</p>
-      <div class="anx flex items-center gap-5" style="--i:1">
-        <a href="#ritual" class="link-ghost">Ver o ritual <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
-        <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open"><span class="fill"></span>Reservar o seu</button>
-      </div>
-    </div>
-  </section>
+              <div class="anx h-full w-full flex items-center justify-center" data-anx="brush">
+                <div class="animate-levitate h-full w-full flex items-center justify-center"
+                  style="animation-duration:7s">
+                  <div class="anat-sway h-full w-full flex items-center justify-center">
+                    <div id="anat-brush" class="anat-brush">
+                      <img src="assets/img/andy-n02-anatomia.webp"
+                        alt="Pincel Andy N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com Andy gravado e cabo afunilado com Liquid foundation."
+                        width="259" height="1259" decoding="async" draggable="false">
+                      <span class="anat-sheen" aria-hidden="true"></span>
+                      <button type="button" class="hs" data-hs="1" style="--x:60%;--y:3.5%;--i:0"
+                        aria-label="01 · Chanfro de 12°"><span class="hs-num">01</span></button>
+                      <button type="button" class="hs" data-hs="2" style="--x:30%;--y:8.5%;--i:1"
+                        aria-label="02 · Fibra taklon de 0,02 mm"><span class="hs-num">02</span></button>
+                      <button type="button" class="hs" data-hs="3" style="--x:64%;--y:13%;--i:2"
+                        aria-label="03 · Densidade em dois tempos"><span class="hs-num">03</span></button>
+                      <button type="button" class="hs" data-hs="4" style="--x:48%;--y:27%;--i:3"
+                        aria-label="04 · Férula com dupla crimpagem"><span class="hs-num">04</span></button>
+                      <button type="button" class="hs" data-hs="5" style="--x:49%;--y:46.5%;--i:4"
+                        aria-label="05 · Centro de massa na férula"><span class="hs-num">05</span></button>
+                      <button type="button" class="hs" data-hs="6" style="--x:50%;--y:76%;--i:5"
+                        aria-label="06 · Cabo em faia laqueada"><span class="hs-num">06</span></button>
+                      <div id="anat-lens" class="anat-lens" aria-hidden="true"><span>MACRO ×3</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <!-- ============================================================
+          <!-- as seis especificações, cada uma com o seu recorte do pincel -->
+          <div class="anat-note anx" data-anx="left" data-hs="1" data-side="l" style="--i:1;--px:58%;--py:4%;--pz:135%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">01</span> <span class="t-label text-mist">Cúpula</span></div>
+                <h3 class="t-h5">Chanfro de 12°</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">O ângulo acompanha a curva da maçã do rosto e alcança o canto
+              do nariz e a linha da mandíbula sem trocar de pincel.</p>
+            <span class="badge">Contorno anatômico</span>
+            <button type="button" class="anat-trigger" aria-label="Destacar 01 · Cúpula no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+          <div class="anat-note anx" data-anx="right" data-hs="2" data-side="r"
+            style="--i:2;--px:30%;--py:9%;--pz:300%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">02</span> <span class="t-label text-mist">Fibra</span></div>
+                <h3 class="t-h5">Taklon de 0,02 mm</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">Fios sintéticos de ponta cônica, mais finos que um fio de
+              cabelo. Não bebem produto, então a base fica na pele e não nas cerdas.</p>
+            <span class="badge">Até 30% menos base</span>
+            <button type="button" class="anat-trigger" aria-label="Destacar 02 · Fibra no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+          <div class="anat-note anx" data-anx="left" data-hs="3" data-side="l"
+            style="--i:3;--px:60%;--py:16%;--pz:145%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">03</span> <span class="t-label text-mist">Densidade</span>
+                </div>
+                <h3 class="t-h5">Arquitetura em dois tempos</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">Miolo compacto para cobrir, borda aérea para esfumar. Cobertura
+              e difusão na mesma passada, com acabamento de <span class="t-serif text-ink">segunda pele</span>.</p>
+            <span class="badge">Blur óptico</span>
+            <button type="button" class="anat-trigger"
+              aria-label="Destacar 03 · Densidade no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+          <div class="anat-note anx" data-anx="right" data-hs="4" data-side="r"
+            style="--i:4;--px:48%;--py:29%;--pz:175%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">04</span> <span class="t-label text-mist">Férula</span></div>
+                <h3 class="t-h5">Latão com dupla crimpagem</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">Dois anéis de pressão travam os fios na raiz. A cúpula não abre
+              e não perde fios, lavagem após lavagem.</p>
+            <span class="badge">Zero queda de fios</span>
+            <button type="button" class="anat-trigger" aria-label="Destacar 04 · Férula no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+          <div class="anat-note anx" data-anx="left" data-hs="5" data-side="l"
+            style="--i:5;--px:49%;--py:45%;--pz:150%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">05</span> <span class="t-label text-mist">Equilíbrio</span>
+                </div>
+                <h3 class="t-h5">Centro de massa na férula</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">O peso mora perto das cerdas, não na ponta do cabo. A mão
+              relaxa e a pressão se distribui por igual em cada movimento.</p>
+            <span class="badge">Pegada de pluma</span>
+            <button type="button" class="anat-trigger"
+              aria-label="Destacar 05 · Equilíbrio no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+          <div class="anat-note anx" data-anx="right" data-hs="6" data-side="r"
+            style="--i:6;--px:50%;--py:76%;--pz:190%">
+            <div class="anat-card">
+              <span class="anat-thumb" aria-hidden="true"></span>
+              <div class="anat-heading">
+                <div class="mb-1"><span class="anat-num">06</span> <span class="t-label text-mist">Cabo</span></div>
+                <h3 class="t-h5">Faia FSC em sete camadas de laca</h3>
+              </div>
+            </div>
+            <p class="t-body-sm text-graphite mt-4 mb-4">18 g de madeira certificada, com acabamento espelhado e selado.
+              Não absorve água, não racha e não desbota.</p>
+            <span class="badge">Garantia vitalícia</span>
+            <button type="button" class="anat-trigger" aria-label="Destacar 06 · Cabo no diagrama do pincel"></button>
+            <span class="anat-anchor" aria-hidden="true"></span><span class="anat-bar" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <!-- métricas -->
+        <div class="wrap mt-16 lg:mt-20">
+          <div class="relative anat-metrics border-b hairline">
+            <div class="anat-metric anx" style="--i:0">
+              <span class="t-label text-mist block mb-4">Fio</span>
+              <span class="v block mb-3"><span data-count="0.02" data-decimals="2">0,02</span><span
+                  class="t-serif text-[.55em] ml-1" style="letter-spacing:0">mm</span></span>
+              <span class="t-body-sm text-graphite">Fibra taklon de ponta cônica.</span>
+            </div>
+            <div class="anat-metric anx" style="--i:1">
+              <span class="t-label text-mist block mb-4">Chanfro</span>
+              <span class="v block mb-3"><span data-count="12">12</span>°</span>
+              <span class="t-body-sm text-graphite">Contorno sem trocar de pincel.</span>
+            </div>
+            <div class="anat-metric anx" style="--i:2">
+              <span class="t-label text-mist block mb-4">Rendimento</span>
+              <span class="v block mb-3">−<span data-count="30">30</span>%</span>
+              <span class="t-body-sm text-graphite">Menos base retida nas cerdas.</span>
+            </div>
+            <div class="anat-metric anx" style="--i:3">
+              <span class="t-label text-mist block mb-4">Acabamento</span>
+              <span class="v block mb-3"><span data-count="1">1</span><span class="t-serif text-[.55em] ml-2"
+                  style="letter-spacing:0">passada</span></span>
+              <span class="t-body-sm text-graphite">Do líquido à segunda pele.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- fecho da dobra -->
+        <div class="relative wrap py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <p class="anx t-body text-graphite max-w-md">Montado à mão, <span class="t-serif text-ink text-lg">um fio de
+              cada vez</span>. Lote 02, com 200 peças numeradas.</p>
+          <div class="anx flex items-center gap-5" style="--i:1">
+            <a href="#ritual" class="link-ghost">Ver o ritual <svg class="ico" width="14" height="14"
+                aria-hidden="true">
+                <use href="#i-arrow-right"></use>
+              </svg></a>
+            <button class="btn-base btn-primary btn-fill magnetic" data-action="modal-open"><span
+                class="fill"></span>Reservar o seu</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
        03 · RITUAL · terceira dobra
        ============================================================ -->
-  <section id="ritual" class="section-aura relative pt-24 pb-24 md:pt-32" style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 18%, var(--white)) 45%,transparent 100%)">
-    <div class="absolute inset-0 bg-grid opacity-40 pointer-events-none" style="mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%)"></div>
-    <div class="aura-blob animate-float" style="width:700px;height:700px;top:-6%;right:-20%;background:rgba(var(--glow),.45);animation-duration:14s"></div>
+      <section id="ritual" class="section-aura relative pt-24 pb-24 md:pt-32"
+        style="background:linear-gradient(180deg,transparent 0%,color-mix(in srgb, var(--accent) 18%, var(--white)) 45%,transparent 100%)">
+        <div class="absolute inset-0 bg-grid opacity-40 pointer-events-none"
+          style="mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%); -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 8%, transparent 68%)">
+        </div>
+        <div class="aura-blob animate-float"
+          style="width:700px;height:700px;top:-6%;right:-20%;background:rgba(var(--glow),.45);animation-duration:14s">
+        </div>
 
-    <!-- cabeçalho -->
-    <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12">
-      <div class="lg:col-span-7">
-        <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label t-accent">03</span>
-          <span class="block w-10 h-px" style="background:var(--hairline)"></span>
-          <span class="t-label text-graphite">O ritual</span>
+        <!-- cabeçalho -->
+        <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-12">
+          <div class="lg:col-span-7">
+            <div class="anx flex items-center gap-3 mb-8">
+              <span class="t-label t-accent">03</span>
+              <span class="block w-10 h-px" style="background:var(--hairline)"></span>
+              <span class="t-label text-graphite">O ritual</span>
+            </div>
+            <h2 class="anx-mask t-display-2">
+              <span class="anx-line"><span>Seis gestos.</span></span>
+              <span class="anx-line" style="--i:1"><span>Uma <span class="t-serif font-normal"
+                    style="letter-spacing:-.02em">segunda</span> pele.</span></span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 lg:pb-3">
+            <p class="anx t-body-lg text-graphite mb-6" style="--i:2">
+              Três minutos e dez segundos, o caminho repetido até a base parar de <span
+                class="t-serif text-ink">aparecer</span>.
+            </p>
+            <div class="anx flex items-center gap-3 t-helper" style="--i:3">
+              <svg class="ico" width="16" height="16" aria-hidden="true">
+                <use href="#i-cursor"></use>
+              </svg>
+              <span class="hint-hover">Passe o cursor em cada quadro. A animação recomeça do início.</span>
+              <span class="hint-touch">Toque no botão de repetição para rever cada gesto.</span>
+            </div>
+          </div>
         </div>
-        <h2 class="anx-mask t-display-2">
-          <span class="anx-line"><span>Seis gestos.</span></span>
-          <span class="anx-line" style="--i:1"><span>Uma <span class="t-serif font-normal" style="letter-spacing:-.02em">segunda</span> pele.</span></span>
-        </h2>
-      </div>
-      <div class="lg:col-span-5 lg:pb-3">
-        <p class="anx t-body-lg text-graphite mb-6" style="--i:2">
-          Três minutos e dez segundos, o caminho repetido até a base parar de <span class="t-serif text-ink">aparecer</span>.
-        </p>
-        <div class="anx flex items-center gap-3 t-helper" style="--i:3">
-          <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-cursor"></use></svg>
-          <span class="hint-hover">Passe o cursor em cada quadro. A animação recomeça do início.</span>
-          <span class="hint-touch">Toque no botão de repetição para rever cada gesto.</span>
-        </div>
-      </div>
-    </div>
 
-    <!-- os seis gestos -->
-    <div id="rit-grid" class="relative wrap rit-grid">
-      <article class="rit-card po-glow anx" data-step="1" style="--i:0">
-        <div class="rit-stage">
-          <span class="rit-step t-label">01</span>
-          <img class="rit-photo" src="assets/img/ritual-01-dose.webp" alt="A cúpula do pincel mergulhada numa poça de base líquida" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
+        <!-- os seis gestos -->
+        <div id="rit-grid" class="relative wrap rit-grid">
+          <article class="rit-card po-glow anx" data-step="1" style="--i:0">
+            <div class="rit-stage">
+              <span class="rit-step t-label">01</span>
+              <img class="rit-photo" src="assets/img/ritual-01-dose.webp"
+                alt="A cúpula do pincel mergulhada numa poça de base líquida" width="1200" height="632" loading="lazy"
+                decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">A dose</h3>
+                <p class="t-label text-mist">1 amêndoa · 10s · no dorso da mão</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação da dose"><svg class="ico"
+                  width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
+          <article class="rit-card po-glow anx" data-step="2" style="--i:1">
+            <div class="rit-stage">
+              <span class="rit-step t-label">02</span>
+              <img class="rit-photo" src="assets/img/ritual-02-pontos.webp"
+                alt="Rosto com pontos de base na testa, nas maçãs, no nariz e no queixo" width="1200" height="632"
+                loading="lazy" decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">Os cinco pontos</h3>
+                <p class="t-label text-mist">testa · maçãs · nariz · queixo · 15s</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação dos cinco pontos"><svg class="ico"
+                  width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
+          <article class="rit-card po-glow anx" data-step="3" style="--i:2">
+            <div class="rit-stage">
+              <span class="rit-step t-label">03</span>
+              <img class="rit-photo" src="assets/img/ritual-03-espiral.webp" alt="A cúpula do pincel vista de frente"
+                width="1200" height="632" loading="lazy" decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">A espiral</h3>
+                <p class="t-label text-mist">cúpula · 60s · do centro para fora</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação da espiral"><svg class="ico"
+                  width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
+          <article class="rit-card po-glow anx" data-step="4" style="--i:3">
+            <div class="rit-stage">
+              <span class="rit-step t-label">04</span>
+              <img class="rit-photo" src="assets/img/ritual-04-borda.webp"
+                alt="O pincel esfumando a base na linha do maxilar" width="1200" height="632" loading="lazy"
+                decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">A borda que ninguém vê</h3>
+                <p class="t-label text-mist">borda aérea · 45s · até o maxilar</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação da borda que ninguém vê"><svg
+                  class="ico" width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
+          <article class="rit-card po-glow anx" data-step="5" style="--i:4">
+            <div class="rit-stage">
+              <span class="rit-step t-label">05</span>
+              <img class="rit-photo" src="assets/img/ritual-05-canto.webp" alt="O pincel apoiado no canto do nariz"
+                width="1200" height="632" loading="lazy" decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">O canto</h3>
+                <p class="t-label text-mist">chanfro de 12° · 30s · nariz e olhos</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação do canto"><svg class="ico"
+                  width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
+          <article class="rit-card po-glow anx" data-step="6" style="--i:5">
+            <div class="rit-stage">
+              <span class="rit-step t-label">06</span>
+              <img class="rit-photo" src="assets/img/ritual-06-veu.webp" alt="Close das cerdas da cúpula" width="1200"
+                height="632" loading="lazy" decoding="async">
+              <i class="rit-sweep"></i>
+            </div>
+            <div class="rit-meta">
+              <div>
+                <h3 class="t-h5 mb-1.5">O véu</h3>
+                <p class="t-label text-mist">sem pincel · 30s · deixa assentar</p>
+              </div>
+              <button type="button" class="rit-replay" aria-label="Repetir a animação do véu"><svg class="ico"
+                  width="14" height="14" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></button>
+            </div>
+          </article>
         </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">A dose</h3>
-            <p class="t-label text-mist">1 amêndoa · 10s · no dorso da mão</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da dose"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-      <article class="rit-card po-glow anx" data-step="2" style="--i:1">
-        <div class="rit-stage">
-          <span class="rit-step t-label">02</span>
-          <img class="rit-photo" src="assets/img/ritual-02-pontos.webp" alt="Rosto com pontos de base na testa, nas maçãs, no nariz e no queixo" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
-        </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">Os cinco pontos</h3>
-            <p class="t-label text-mist">testa · maçãs · nariz · queixo · 15s</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação dos cinco pontos"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-      <article class="rit-card po-glow anx" data-step="3" style="--i:2">
-        <div class="rit-stage">
-          <span class="rit-step t-label">03</span>
-          <img class="rit-photo" src="assets/img/ritual-03-espiral.webp" alt="A cúpula do pincel vista de frente" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
-        </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">A espiral</h3>
-            <p class="t-label text-mist">cúpula · 60s · do centro para fora</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da espiral"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-      <article class="rit-card po-glow anx" data-step="4" style="--i:3">
-        <div class="rit-stage">
-          <span class="rit-step t-label">04</span>
-          <img class="rit-photo" src="assets/img/ritual-04-borda.webp" alt="O pincel esfumando a base na linha do maxilar" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
-        </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">A borda que ninguém vê</h3>
-            <p class="t-label text-mist">borda aérea · 45s · até o maxilar</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação da borda que ninguém vê"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-      <article class="rit-card po-glow anx" data-step="5" style="--i:4">
-        <div class="rit-stage">
-          <span class="rit-step t-label">05</span>
-          <img class="rit-photo" src="assets/img/ritual-05-canto.webp" alt="O pincel apoiado no canto do nariz" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
-        </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">O canto</h3>
-            <p class="t-label text-mist">chanfro de 12° · 30s · nariz e olhos</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação do canto"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-      <article class="rit-card po-glow anx" data-step="6" style="--i:5">
-        <div class="rit-stage">
-          <span class="rit-step t-label">06</span>
-          <img class="rit-photo" src="assets/img/ritual-06-veu.webp" alt="Close das cerdas da cúpula" width="1200" height="632" loading="lazy" decoding="async">
-          <i class="rit-sweep"></i>
-        </div>
-        <div class="rit-meta">
-          <div>
-            <h3 class="t-h5 mb-1.5">O véu</h3>
-            <p class="t-label text-mist">sem pincel · 30s · deixa assentar</p>
-          </div>
-          <button type="button" class="rit-replay" aria-label="Repetir a animação do véu"><svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-refresh"></use></svg></button>
-        </div>
-      </article>
-    </div>
 
-    <!-- tempos e regras -->
-    <div class="relative wrap mt-14 grid lg:grid-cols-12 gap-6">
-      <div class="anx lg:col-span-7 rounded-2xl border hairline bg-white/70">
-        <div class="flex items-center justify-between px-5 pt-5 pb-3">
-          <span class="t-label text-mist">Linha do tempo</span>
-          <span class="t-label text-mist">Face do pincel · tempo</span>
+        <!-- tempos e regras -->
+        <div class="relative wrap mt-14 grid lg:grid-cols-12 gap-6">
+          <div class="anx lg:col-span-7 rounded-2xl border hairline bg-white/70">
+            <div class="flex items-center justify-between px-5 pt-5 pb-3">
+              <span class="t-label text-mist">Linha do tempo</span>
+              <span class="t-label text-mist">Face do pincel · tempo</span>
+            </div>
+            <div id="rit-rows" class="border-t hairline">
+              <div class="rit-row" data-step="1">
+                <span class="t-body-sm">A dose</span>
+                <span class="t-body-sm text-graphite">dorso da mão</span>
+                <span class="t-label text-ink">10s</span>
+              </div>
+              <div class="rit-row" data-step="2">
+                <span class="t-body-sm">Os cinco pontos</span>
+                <span class="t-body-sm text-graphite">cúpula, de leve</span>
+                <span class="t-label text-ink">15s</span>
+              </div>
+              <div class="rit-row" data-step="3">
+                <span class="t-body-sm">A espiral</span>
+                <span class="t-body-sm text-graphite">cúpula cheia</span>
+                <span class="t-label text-ink">60s</span>
+              </div>
+              <div class="rit-row" data-step="4">
+                <span class="t-body-sm">A borda</span>
+                <span class="t-body-sm text-graphite">borda aérea</span>
+                <span class="t-label text-ink">45s</span>
+              </div>
+              <div class="rit-row" data-step="5">
+                <span class="t-body-sm">O canto</span>
+                <span class="t-body-sm text-graphite">chanfro de 12°</span>
+                <span class="t-label text-ink">30s</span>
+              </div>
+              <div class="rit-row" data-step="6">
+                <span class="t-body-sm">O véu</span>
+                <span class="t-body-sm text-graphite">sem pincel</span>
+                <span class="t-label text-ink">30s</span>
+              </div>
+            </div>
+            <div class="rit-total">
+              <span class="t-h5">Total</span>
+              <span class="t-label text-graphite">3 min 10 s · com um só pincel</span>
+            </div>
+          </div>
+          <div class="anx lg:col-span-5 rounded-2xl border hairline bg-white/70 px-5 py-4" style="--i:1">
+            <span class="t-label text-mist block mb-1">Regras da casa</span>
+            <div class="rit-rule">
+              <p class="t-body-sm"><b>Pouco produto, mais passadas.</b> <span class="text-graphite">Uma camada fina
+                  assenta na pele. Duas grossas marcam a linha do queixo.</span></p>
+            </div>
+            <div class="rit-rule">
+              <p class="t-body-sm"><b>Pele antes do pincel.</b> <span class="text-graphite">Hidratante absorvido,
+                  sempre. O pincel espalha a base, não empurra creme.</span></p>
+            </div>
+            <div class="rit-rule">
+              <p class="t-body-sm"><b>Espiral, nunca vaivém.</b> <span class="text-graphite">O movimento de ida e volta
+                  tira a base que você acabou de depositar.</span></p>
+            </div>
+            <div class="rit-rule">
+              <p class="t-body-sm"><b>Seco cobre, úmido funde.</b> <span class="text-graphite">Um borrifo de água muda o
+                  acabamento sem trocar de pincel.</span></p>
+            </div>
+            <div class="rit-rule">
+              <p class="t-body-sm"><b>Lave a cada três usos.</b> <span class="text-graphite">Sabão neutro, água morna,
+                  secagem com as cerdas para baixo. Fibra limpa devolve o toque de seda.</span></p>
+            </div>
+          </div>
         </div>
-        <div id="rit-rows" class="border-t hairline">
-          <div class="rit-row" data-step="1">
-            <span class="t-body-sm">A dose</span>
-            <span class="t-body-sm text-graphite">dorso da mão</span>
-            <span class="t-label text-ink">10s</span>
-          </div>
-          <div class="rit-row" data-step="2">
-            <span class="t-body-sm">Os cinco pontos</span>
-            <span class="t-body-sm text-graphite">cúpula, de leve</span>
-            <span class="t-label text-ink">15s</span>
-          </div>
-          <div class="rit-row" data-step="3">
-            <span class="t-body-sm">A espiral</span>
-            <span class="t-body-sm text-graphite">cúpula cheia</span>
-            <span class="t-label text-ink">60s</span>
-          </div>
-          <div class="rit-row" data-step="4">
-            <span class="t-body-sm">A borda</span>
-            <span class="t-body-sm text-graphite">borda aérea</span>
-            <span class="t-label text-ink">45s</span>
-          </div>
-          <div class="rit-row" data-step="5">
-            <span class="t-body-sm">O canto</span>
-            <span class="t-body-sm text-graphite">chanfro de 12°</span>
-            <span class="t-label text-ink">30s</span>
-          </div>
-          <div class="rit-row" data-step="6">
-            <span class="t-body-sm">O véu</span>
-            <span class="t-body-sm text-graphite">sem pincel</span>
-            <span class="t-label text-ink">30s</span>
-          </div>
-        </div>
-        <div class="rit-total">
-          <span class="t-h5">Total</span>
-          <span class="t-label text-graphite">3 min 10 s · com um só pincel</span>
-        </div>
-      </div>
-      <div class="anx lg:col-span-5 rounded-2xl border hairline bg-white/70 px-5 py-4" style="--i:1">
-        <span class="t-label text-mist block mb-1">Regras da casa</span>
-          <div class="rit-rule">
-            <p class="t-body-sm"><b>Pouco produto, mais passadas.</b> <span class="text-graphite">Uma camada fina assenta na pele. Duas grossas marcam a linha do queixo.</span></p>
-          </div>
-          <div class="rit-rule">
-            <p class="t-body-sm"><b>Pele antes do pincel.</b> <span class="text-graphite">Hidratante absorvido, sempre. O pincel espalha a base, não empurra creme.</span></p>
-          </div>
-          <div class="rit-rule">
-            <p class="t-body-sm"><b>Espiral, nunca vaivém.</b> <span class="text-graphite">O movimento de ida e volta tira a base que você acabou de depositar.</span></p>
-          </div>
-          <div class="rit-rule">
-            <p class="t-body-sm"><b>Seco cobre, úmido funde.</b> <span class="text-graphite">Um borrifo de água muda o acabamento sem trocar de pincel.</span></p>
-          </div>
-          <div class="rit-rule">
-            <p class="t-body-sm"><b>Lave a cada três usos.</b> <span class="text-graphite">Sabão neutro, água morna, secagem com as cerdas para baixo. Fibra limpa devolve o toque de seda.</span></p>
-          </div>
-      </div>
-    </div>
 
-    <!-- fecho -->
-    <div class="relative wrap mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
-      <p class="anx t-body text-graphite max-w-md">Cada peça sai com o cartão do ritual impresso em papel de algodão.</p>
-      <a href="#fecho" class="anx link-ghost" style="--i:1">Ver a reserva <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
-    </div>
-  </section>
+        <!-- fecho -->
+        <div class="relative wrap mt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
+          <p class="anx t-body text-graphite max-w-md">Cada peça sai com o cartão do ritual impresso em papel de
+            algodão.</p>
+          <a href="#fecho" class="anx link-ghost" style="--i:1">Ver a reserva <svg class="ico" width="14" height="14"
+              aria-hidden="true">
+              <use href="#i-arrow-right"></use>
+            </svg></a>
+        </div>
+      </section>
 
-  <!-- ============================================================
+      <!-- ============================================================
        04 · O FECHO · quarta dobra
        ============================================================ -->
-  <section id="fecho" class="section-aura relative pt-24 pb-20 md:pt-32">
-    <span class="fin-seam" aria-hidden="true"></span>
-    <div class="absolute inset-0 fin-grid opacity-60 pointer-events-none" style="mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%); -webkit-mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%)"></div>
-    <div class="aura-blob animate-float" style="width:760px;height:760px;top:-20%;right:-14%;background:rgba(var(--glow),.3);animation-duration:18s"></div>
-    <div class="aura-blob animate-breathe" style="width:600px;height:600px;bottom:-18%;left:-12%;background:rgba(var(--glow),.2);animation-duration:16s"></div>
-
-    <!-- cabeçalho -->
-    <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-14 md:mb-16">
-      <div class="lg:col-span-7">
-        <div class="anx flex items-center gap-3 mb-8">
-          <span class="t-label t-accent">04</span>
-          <span class="block w-10 h-px" style="background:rgba(255,255,255,.2)"></span>
-          <span class="t-label" style="color:var(--champagne)">O fecho</span>
+      <section id="fecho" class="section-aura relative pt-24 pb-20 md:pt-32">
+        <span class="fin-seam" aria-hidden="true"></span>
+        <div class="absolute inset-0 fin-grid opacity-60 pointer-events-none"
+          style="mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%); -webkit-mask-image:radial-gradient(ellipse at 70% 20%, #000 4%, transparent 62%)">
         </div>
-        <h2 class="anx-mask t-display-2">
-          <span class="anx-line"><span>Falta um gesto.</span></span>
-          <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal" style="letter-spacing:-.02em; color:var(--accent-deep)">O seu.</span></span></span>
-        </h2>
-      </div>
-      <div class="lg:col-span-5 lg:pb-3">
-        <p class="anx t-body-lg mb-6" style="--i:2; color:rgba(255,255,255,.62)">
-          O N°02 é a segunda edição do pincel Andy: 200 peças numeradas. Quando a última sair, o molde da cúpula é aposentado. O <span class="t-serif" style="color:#fff">N°02 não se repete</span>.
-        </p>
-        <div class="anx flex items-center gap-3 t-helper" style="--i:3; color:rgba(255,255,255,.5)">
-          <svg class="ico" style="color:var(--champagne)" width="16" height="16" aria-hidden="true"><use href="#i-shield-check"></use></svg>
-          <span>Reserva sem cobrança. Você confirma quando a sua peça ficar pronta.</span>
+        <div class="aura-blob animate-float"
+          style="width:760px;height:760px;top:-20%;right:-14%;background:rgba(var(--glow),.3);animation-duration:18s">
         </div>
-      </div>
-    </div>
-
-    <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-      <!-- o que chega até você -->
-      <div class="lg:col-span-6">
-        <span class="anx t-label block mb-2" style="color:rgba(255,255,255,.42)">O que chega até você</span>
-        <div class="anx" style="--i:1">
-          <div class="fin-item">
-            <span class="k t-label">N°02</span>
-            <div>
-              <h3 class="t-h5 mb-1">O pincel</h3>
-              <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Cúpula chanfrada a 12°, férula em latão escovado com dupla crimpagem, cabo em faia FSC laqueada.</p>
-            </div>
-          </div>
-          <div class="fin-item">
-            <span class="k t-label">Grav.</span>
-            <div>
-              <h3 class="t-h5 mb-1">A sua numeração</h3>
-              <p class="t-body-sm" style="color:rgba(255,255,255,.56)">O número da peça gravado a laser na férula, com duas iniciais se você quiser, sem custo.</p>
-            </div>
-          </div>
-          <div class="fin-item">
-            <span class="k t-label">Rit.</span>
-            <div>
-              <h3 class="t-h5 mb-1">O cartão do ritual</h3>
-              <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Os seis gestos impressos em papel de algodão 600 g, do tamanho da palma da mão.</p>
-            </div>
-          </div>
-          <div class="fin-item">
-            <span class="k t-label">Est.</span>
-            <div>
-              <h3 class="t-h5 mb-1">O estojo de linho</h3>
-              <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Costurado à mão, com trava magnética. O pincel viaja sem perder a forma da cúpula.</p>
-            </div>
-          </div>
+        <div class="aura-blob animate-breathe"
+          style="width:600px;height:600px;bottom:-18%;left:-12%;background:rgba(var(--glow),.2);animation-duration:16s">
         </div>
 
-        <div class="anx mt-10 flex items-baseline gap-4" style="--i:2">
-          <span class="t-serif text-2xl md:text-3xl" style="color:rgba(255,255,255,.9)">Um fio de cada vez.</span>
-          <span class="t-label" style="color:rgba(255,255,255,.35)">Andy · Brusque, SC</span>
-        </div>
-      </div>
-
-      <!-- a placa numerada -->
-      <div class="lg:col-span-6 lg:pl-6">
-        <div class="fin-plate anx" style="--i:1">
-          <div class="flex items-start justify-between gap-6 mb-7">
-            <div>
-              <span class="t-label block mb-4" style="color:rgba(255,255,255,.42)">A próxima peça</span>
-              <span class="fin-num"><span class="pre">R$</span><span id="fin-count">99,90</span></span>
-              <span class="t-label block mt-4" style="color:rgba(255,255,255,.38)">de 200 · lote 02</span>
+        <!-- cabeçalho -->
+        <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-14 md:mb-16">
+          <div class="lg:col-span-7">
+            <div class="anx flex items-center gap-3 mb-8">
+              <span class="t-label t-accent">04</span>
+              <span class="block w-10 h-px" style="background:rgba(255,255,255,.2)"></span>
+              <span class="t-label" style="color:var(--champagne)">O fecho</span>
             </div>
-            <div class="fin-seal" aria-hidden="true">
-              <svg viewBox="0 0 100 100">
-                <defs><path id="fin-seal-path" fill="none" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0"/></defs>
-                <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1"/>
-                <circle cx="50" cy="50" r="26" fill="none" stroke="color-mix(in srgb, var(--accent) 55%, transparent)" stroke-width="1"/>
-                <circle cx="50" cy="50" r="23" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1" stroke-dasharray="1 5"/>
-                <g class="ring">
-                  <text fill="var(--accent-deep)" font-family="'JetBrains Mono', monospace" font-size="7" letter-spacing="1.5">
-                    <textPath href="#fin-seal-path" startOffset="0">ANDY · MONTADO À MÃO · LOTE 02 · 2026 ·&#160;</textPath>
-                  </text>
-                </g>
-                <text x="50" y="54.5" text-anchor="middle" fill="rgba(255,255,255,.82)" font-family="'Inter Tight', sans-serif" font-size="14" font-weight="600" letter-spacing="-.6">N°02</text>
+            <h2 class="anx-mask t-display-2">
+              <span class="anx-line"><span>Falta um gesto.</span></span>
+              <span class="anx-line" style="--i:1"><span><span class="t-serif font-normal"
+                    style="letter-spacing:-.02em; color:var(--accent-deep)">O seu.</span></span></span>
+            </h2>
+          </div>
+          <div class="lg:col-span-5 lg:pb-3">
+            <p class="anx t-body-lg mb-6" style="--i:2; color:rgba(255,255,255,.62)">
+              O N°02 é a segunda edição do pincel Andy: 200 peças numeradas. Quando a última sair, o molde da cúpula é
+              aposentado. O <span class="t-serif" style="color:#fff">N°02 não se repete</span>.
+            </p>
+            <div class="anx flex items-center gap-3 t-helper" style="--i:3; color:rgba(255,255,255,.5)">
+              <svg class="ico" style="color:var(--champagne)" width="16" height="16" aria-hidden="true">
+                <use href="#i-shield-check"></use>
               </svg>
+              <span>Reserva sem cobrança. Você confirma quando a sua peça ficar pronta.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative wrap grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          <!-- o que chega até você -->
+          <div class="lg:col-span-6">
+            <span class="anx t-label block mb-2" style="color:rgba(255,255,255,.42)">O que chega até você</span>
+            <div class="anx" style="--i:1">
+              <div class="fin-item">
+                <span class="k t-label">N°02</span>
+                <div>
+                  <h3 class="t-h5 mb-1">O pincel</h3>
+                  <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Cúpula chanfrada a 12°, férula em latão
+                    escovado com dupla crimpagem, cabo em faia FSC laqueada.</p>
+                </div>
+              </div>
+              <div class="fin-item">
+                <span class="k t-label">Grav.</span>
+                <div>
+                  <h3 class="t-h5 mb-1">A sua numeração</h3>
+                  <p class="t-body-sm" style="color:rgba(255,255,255,.56)">O número da peça gravado a laser na férula,
+                    com duas iniciais se você quiser, sem custo.</p>
+                </div>
+              </div>
+              <div class="fin-item">
+                <span class="k t-label">Rit.</span>
+                <div>
+                  <h3 class="t-h5 mb-1">O cartão do ritual</h3>
+                  <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Os seis gestos impressos em papel de algodão
+                    600 g, do tamanho da palma da mão.</p>
+                </div>
+              </div>
+              <div class="fin-item">
+                <span class="k t-label">Est.</span>
+                <div>
+                  <h3 class="t-h5 mb-1">O estojo de linho</h3>
+                  <p class="t-body-sm" style="color:rgba(255,255,255,.56)">Costurado à mão, com trava magnética. O
+                    pincel viaja sem perder a forma da cúpula.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="anx mt-10 flex items-baseline gap-4" style="--i:2">
+              <span class="t-serif text-2xl md:text-3xl" style="color:rgba(255,255,255,.9)">Um fio de cada vez.</span>
+              <span class="t-label" style="color:rgba(255,255,255,.35)">Andy · Brusque, SC</span>
             </div>
           </div>
 
-          <div class="fin-meter mb-3" style="--w:73.5%"><i></i></div>
-          <div class="flex items-baseline justify-between gap-4 mb-7">
-            <span class="t-label" style="color:rgba(255,255,255,.42)">147 reservadas</span>
-            <span class="t-label" style="color:var(--champagne)">53 restantes</span>
-          </div>
+          <!-- a placa numerada -->
+          <div class="lg:col-span-6 lg:pl-6">
+            <div class="fin-plate anx" style="--i:1">
+              <div class="flex items-start justify-between gap-6 mb-7">
+                <div>
+                  <span class="t-label block mb-4" style="color:rgba(255,255,255,.42)">A próxima peça</span>
+                  <span class="fin-num"><span class="pre">R$</span><span id="fin-count">99,90</span></span>
+                  <span class="t-label block mt-4" style="color:rgba(255,255,255,.38)">de 200 · lote 02</span>
+                </div>
+                <div class="fin-seal" aria-hidden="true">
+                  <svg viewBox="0 0 100 100">
+                    <defs>
+                      <path id="fin-seal-path" fill="none" d="M50 50 m-36 0 a36 36 0 1 1 72 0 a36 36 0 1 1 -72 0" />
+                    </defs>
+                    <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1" />
+                    <circle cx="50" cy="50" r="26" fill="none"
+                      stroke="color-mix(in srgb, var(--accent) 55%, transparent)" stroke-width="1" />
+                    <circle cx="50" cy="50" r="23" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1"
+                      stroke-dasharray="1 5" />
+                    <g class="ring">
+                      <text fill="var(--accent-deep)" font-family="'JetBrains Mono', monospace" font-size="7"
+                        letter-spacing="1.5">
+                        <textPath href="#fin-seal-path" startOffset="0">ANDY · MONTADO À MÃO · LOTE 02 · 2026 ·&#160;
+                        </textPath>
+                      </text>
+                    </g>
+                    <text x="50" y="54.5" text-anchor="middle" fill="rgba(255,255,255,.82)"
+                      font-family="'Inter Tight', sans-serif" font-size="14" font-weight="600"
+                      letter-spacing="-.6">N°02</text>
+                  </svg>
+                </div>
+              </div>
 
-          <div class="fin-spec">
-            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Pronta em</span>
-            <span class="t-body-sm">3 dias úteis</span>
-          </div>
-          <div class="fin-spec">
-            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Troca</span>
-            <span class="t-body-sm">30 dias, sem perguntas</span>
-          </div>
-          <div class="fin-spec">
-            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Garantia</span>
-            <span class="t-body-sm">vitalícia na fibra</span>
-          </div>
+              <div class="fin-meter mb-3" style="--w:73.5%"><i></i></div>
+              <div class="flex items-baseline justify-between gap-4 mb-7">
+                <span class="t-label" style="color:rgba(255,255,255,.42)">147 reservadas</span>
+                <span class="t-label" style="color:var(--champagne)">53 restantes</span>
+              </div>
 
-          <div class="fin-spec items-end mt-2 mb-7" style="border-top-color:rgba(255,255,255,.22)">
-            <div>
-              <span class="t-label block mb-2" style="color:rgba(255,255,255,.42)">À vista</span>
-              <span class="t-h3">R$ 120</span>
+              <div class="fin-spec">
+                <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Pronta em</span>
+                <span class="t-body-sm">3 dias úteis</span>
+              </div>
+              <div class="fin-spec">
+                <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Troca</span>
+                <span class="t-body-sm">30 dias, sem perguntas</span>
+              </div>
+              <div class="fin-spec">
+                <span class="t-body-sm" style="color:rgba(255,255,255,.56)">Garantia</span>
+                <span class="t-body-sm">vitalícia na fibra</span>
+              </div>
+
+              <div class="fin-spec items-end mt-2 mb-7" style="border-top-color:rgba(255,255,255,.22)">
+                <div>
+                  <span class="t-label block mb-2" style="color:rgba(255,255,255,.42)">À vista</span>
+                  <span class="t-h3">R$ 120</span>
+                </div>
+                <span class="t-body-sm" style="color:rgba(255,255,255,.56)">ou 6× de R$ 20</span>
+              </div>
+
+              <button type="button" class="fin-cta" data-ripple data-action="modal-open">
+                <span class="fill"></span>
+                Reservar o meu
+                <svg class="ico" width="16" height="16" aria-hidden="true">
+                  <use href="#i-arrow-right"></use>
+                </svg>
+              </button>
+              <p class="t-label text-center mt-4" style="color:rgba(255,255,255,.34)">Sem cobrança agora</p>
             </div>
-            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">ou 6× de R$ 20</span>
           </div>
-
-          <button type="button" class="fin-cta" data-ripple data-action="modal-open">
-            <span class="fill"></span>
-            Reservar o meu
-            <svg class="ico" width="16" height="16" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-          </button>
-          <p class="t-label text-center mt-4" style="color:rgba(255,255,255,.34)">Sem cobrança agora</p>
         </div>
-      </div>
-    </div>
 
-    <!-- a última linha: a peça pousada na própria página, sem vitrine -->
-    <div class="relative wrap mt-20 md:mt-28">
-      <figure class="fin-scene anx mb-12 md:mb-16" data-anx="scale">
-        <div class="fin-piece">
-          <span class="fin-pedestal" aria-hidden="true"></span>
-          <img src="assets/img/andy-n02-fecho.webp" alt="O pincel Andy N°02 deitado na penumbra, com Andy gravado na férula e Liquid foundation no cabo." width="1460" height="520" loading="lazy" decoding="async" draggable="false">
+        <!-- a última linha: a peça pousada na própria página, sem vitrine -->
+        <div class="relative wrap mt-20 md:mt-28">
+          <figure class="fin-scene anx mb-12 md:mb-16" data-anx="scale">
+            <div class="fin-piece">
+              <span class="fin-pedestal" aria-hidden="true"></span>
+              <img src="assets/img/andy-n02-fecho.webp"
+                alt="O pincel Andy N°02 deitado na penumbra, com Andy gravado na férula e Liquid foundation no cabo."
+                width="1460" height="520" loading="lazy" decoding="async" draggable="false">
+            </div>
+            <figcaption class="fin-plaque t-label">
+              <span>Andy</span><i aria-hidden="true"></i><span>N°02</span><i aria-hidden="true"></i><span>Lote 02</span>
+            </figcaption>
+          </figure>
+          <div class="h-px w-full mb-10"
+            style="background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 60%, transparent), transparent)">
+          </div>
+          <p class="anx fin-close text-center" style="color:rgba(255,255,255,.92)">Duzentas peças.<br><span
+              class="t-accent">A sua tem número.</span></p>
         </div>
-        <figcaption class="fin-plaque t-label">
-          <span>Andy</span><i aria-hidden="true"></i><span>N°02</span><i aria-hidden="true"></i><span>Lote 02</span>
-        </figcaption>
-      </figure>
-      <div class="h-px w-full mb-10" style="background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 60%, transparent), transparent)"></div>
-      <p class="anx fin-close text-center" style="color:rgba(255,255,255,.92)">Duzentas peças.<br><span class="t-accent">A sua tem número.</span></p>
-    </div>
-  </section>
+      </section>
 
-  </main>
+    </main>
 
-  <!-- ============================================================
+    <!-- ============================================================
        RODAPÉ
        ============================================================ -->
-  <footer class="fin-foot relative overflow-hidden pt-8">
-    <div class="relative wrap flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12" style="border-top:1px solid rgba(255,255,255,.1)">
-      <div class="pt-10">
-        <div class="flex items-baseline gap-3 mb-3">
-          <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
+    <footer class="fin-foot relative overflow-hidden pt-8">
+      <div class="relative wrap flex flex-col md:flex-row md:items-end justify-between gap-8 pb-12"
+        style="border-top:1px solid rgba(255,255,255,.1)">
+        <div class="pt-10">
+          <div class="flex items-baseline gap-3 mb-3">
+            <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
+          </div>
+          <p class="t-body-sm" style="color:rgba(255,255,255,.5)">Pincéis para base líquida, montados à mão.<br>Centro ·
+            Brusque, SC</p>
         </div>
-        <p class="t-body-sm" style="color:rgba(255,255,255,.5)">Pincéis para base líquida, montados à mão.<br>Centro · Brusque, SC</p>
+        <nav class="flex flex-wrap items-center gap-x-7 gap-y-3 md:pb-1">
+          <a href="#hero" class="link-ghost fin-link">Início</a>
+          <a href="#anatomia" class="link-ghost fin-link">Anatomia</a>
+          <a href="#ritual" class="link-ghost fin-link">Ritual</a>
+          <a href="#fecho" class="link-ghost fin-link">Reserva</a>
+        </nav>
       </div>
-      <nav class="flex flex-wrap items-center gap-x-7 gap-y-3 md:pb-1">
-        <a href="#hero" class="link-ghost fin-link">Início</a>
-        <a href="#anatomia" class="link-ghost fin-link">Anatomia</a>
-        <a href="#ritual" class="link-ghost fin-link">Ritual</a>
-        <a href="#fecho" class="link-ghost fin-link">Reserva</a>
-      </nav>
-    </div>
 
-    <div class="wrap py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3" style="border-top:1px solid rgba(255,255,255,.08)">
-      <span class="t-label" style="color:rgba(255,255,255,.34)">© 2026 Andy · peças numeradas</span>
-      <a href="#hero" class="link-ghost fin-link">Voltar ao topo <svg class="ico" width="14" height="14" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
-    </div>
-  </footer>
+      <div class="wrap py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+        style="border-top:1px solid rgba(255,255,255,.08)">
+        <span class="t-label" style="color:rgba(255,255,255,.34)">© 2026 Andy · peças numeradas</span>
+        <a href="#hero" class="link-ghost fin-link">Voltar ao topo <svg class="ico" width="14" height="14"
+            aria-hidden="true">
+            <use href="#i-arrow-up"></use>
+          </svg></a>
+      </div>
+    </footer>
 
-</div><!-- /shell -->
+  </div><!-- /shell -->
 
-<!-- ============================================================
+  <!-- ============================================================
      MODAL + TOAST
      ============================================================ -->
-<div id="modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6">
-  <div id="modal-scrim" class="absolute inset-0" style="background:rgba(11,11,12,.35);backdrop-filter:blur(8px)" data-action="modal-close"></div>
-  <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" tabindex="-1" style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <button class="btn-icon modal-x" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20" height="20" aria-hidden="true"><use href="#i-close-circle"></use></svg></button>
-    <span class="t-label text-mist block mb-5">Lote 02 · 200 peças</span>
-    <h3 id="modal-title" class="t-h3 mb-4">Pincel N°02</h3>
-    <p class="t-body text-graphite mb-8">Cúpula chanfrada a 12°, férula em latão escovado e cabo em faia FSC. Pronta em até três dias úteis.</p>
-    <div class="flex items-center justify-between mb-8 py-5" style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
-      <span class="t-body-sm text-graphite">Total</span>
-      <span class="t-h4">R$ 120</span>
-    </div>
-    <div class="flex gap-3">
-      <button class="btn-base btn-primary btn-fill flex-1" data-action="reservar"><span class="fill"></span>Confirmar</button>
-      <button class="btn-base btn-outline" data-action="modal-close">Agora não</button>
+  <div id="modal" class="fixed inset-0 z-[70] hidden items-center justify-center p-6">
+    <div id="modal-scrim" class="absolute inset-0" style="background:rgba(11,11,12,.35);backdrop-filter:blur(8px)"
+      data-action="modal-close"></div>
+    <div id="modal-card" class="relative w-full max-w-[520px] rounded-3xl p-10 bg-white border hairline" tabindex="-1"
+      style="box-shadow:0 60px 120px -60px rgba(11,11,12,.6)" role="dialog" aria-modal="true"
+      aria-labelledby="modal-title">
+      <button class="btn-icon modal-x" data-action="modal-close" aria-label="Fechar"><svg class="ico" width="20"
+          height="20" aria-hidden="true">
+          <use href="#i-close-circle"></use>
+        </svg></button>
+      <span class="t-label text-mist block mb-5">Lote 02 · 200 peças</span>
+      <h3 id="modal-title" class="t-h3 mb-4">Pincel N°02</h3>
+      <p class="t-body text-graphite mb-8">Cúpula chanfrada a 12°, férula em latão escovado e cabo em faia FSC. Pronta
+        em até três dias úteis.</p>
+      <div class="flex items-center justify-between mb-8 py-5"
+        style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
+        <span class="t-body-sm text-graphite">Total</span>
+        <span class="t-h4">R$ 120</span>
+      </div>
+      <div class="flex gap-3">
+        <button class="btn-base btn-primary btn-fill flex-1" data-action="reservar"><span
+            class="fill"></span>Confirmar</button>
+        <button class="btn-base btn-outline" data-action="modal-close">Agora não</button>
+      </div>
     </div>
   </div>
-</div>
-<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[80] hidden items-center gap-3 px-5 py-3 rounded-xl" style="background:var(--ink);color:var(--white)">
-  <svg class="ico" width="18" height="18" aria-hidden="true"><use href="#i-check-circle"></use></svg>
-  <span id="toast-msg" class="t-body-sm"></span>
-</div>
+  <div id="toast" class="fixed bottom-6 z-[80] hidden items-center gap-3 px-5 py-3 rounded-xl"
+    style="background:var(--ink);color:var(--white)">
+    <svg class="ico" width="18" height="18" aria-hidden="true">
+      <use href="#i-check-circle"></use>
+    </svg>
+    <span id="toast-msg" class="t-body-sm"></span>
+  </div>
 
-<script src="assets/js/andy.js?v=20260925" defer onerror="document.documentElement.classList.add('no-js')"></script>
+  <script src="assets/js/andy.js?v=20260925f" defer onerror="document.documentElement.classList.add('no-js')"></script>
 </body>
+
 </html>

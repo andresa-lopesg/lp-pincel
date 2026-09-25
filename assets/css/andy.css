@@ -272,13 +272,18 @@ body{
 /* link fantasma com sublinhado que cresce */
 .link-ghost{ position:relative; display:inline-flex; align-items:center; gap:.4rem; font-size:.8125rem; font-weight:500; color:var(--ink); padding-bottom:2px; }
 .link-ghost::after{ content:''; position:absolute; left:0; bottom:0; height:1px; width:0; background:var(--accent-deep); transition:width var(--d-base) var(--ease-silk), background-color .9s var(--ease-veil); }
-.link-ghost:hover::after{ width:100%; }
-.link-ghost:hover{ color:var(--accent-deep); }
+/* hover só onde existe mouse: no iPhone, um hover que muda o link faz o Safari gastar
+   o primeiro toque "passando o mouse" e só navegar no segundo */
+@media (hover:hover){
+  .link-ghost:hover::after{ width:100%; }
+  .link-ghost:hover{ color:var(--accent-deep); }
+  .link-ghost:hover .ico{ transform:translateX(4px); }
+  .fin-link:hover{ color:var(--accent-deep); }
+}
 .link-ghost{ transition:color var(--d-base) ease; }
 /* o link da dobra em que se está fica aceso */
 .link-ghost.is-current{ color:var(--accent-deep); }
 .link-ghost .ico{ transition:transform var(--d-base) var(--ease-silk); }
-.link-ghost:hover .ico{ transform:translateX(4px); }
 
 /* botão de ícone com ripple */
 .btn-icon{ position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; width:3rem; height:3rem; border-radius:9999px; border:1px solid var(--hairline); background:var(--white); transition:border-color var(--d-base) ease, transform var(--d-fast) var(--ease-bounce); }
@@ -336,7 +341,8 @@ body{
   transition:transform .3s var(--ease-silk);
 }
 .skip-link:focus{ transform:translate(-50%,0); outline:2px solid var(--champagne); outline-offset:-4px; }
-#conteudo:focus{ outline:none; }
+/* dobras recebem o foco ao fim da rolagem por âncora (andy.js · 3): sem contorno em volta da seção */
+#conteudo:focus, [tabindex="-1"]:focus{ outline:none; }
 
 .shell{ position:relative; width:100%; background:var(--white); }
 .wrap{ position:relative; width:100%; max-width:var(--wrap-max); margin-inline:auto; padding-inline:var(--wrap-pad); }
@@ -348,7 +354,6 @@ body{
    hero · componentes da primeira dobra
    ============================================================ */
 /* seletor de acabamento */
-.chip{ transition:transform var(--d-slow) var(--ease-silk); }
 
 /* o palco do vídeo */
 .video-frame{
@@ -575,9 +580,10 @@ body{
   .anat-grid.has-active .anat-note.is-in:not(.is-active){ opacity:1; }
   .anat-anchor{ display:none; }
   .anat-grid{ gap:.75rem; }
-  .anat-hint .hint-hover{ display:none; }
-  .anat-hint .hint-touch{ display:inline; }
+  /* sem mouse não há o que passar o cursor: a dica sai inteira, com o ícone */
+  .anat-hint{ display:none !important; }
 }
+@media (hover:none){ .anat-hint{ display:none !important; } }
 .anat-card{ display:flex; align-items:center; gap:.875rem; }
 .anat-thumb{
   position:relative; flex:none; width:68px; height:68px; border-radius:1rem; overflow:hidden;
@@ -766,7 +772,10 @@ body{
 .fin-cta .ico{ transition:transform var(--d-base) var(--ease-silk); }
 .fin-cta:hover .ico{ transform:translateX(4px); }
 .fin-link{ color:rgba(255,255,255,.72); }
-.fin-link:hover{ color:var(--accent-deep); }
+/* o link só tinha a altura do texto (22px) e 28px mortos entre um e outro: no celular
+   o toque caía no vazio e parecia exigir 2 ou mais. A área invisível leva cada link
+   a 44px de altura e encosta na do vizinho, sem mexer no desenho */
+.fin-link::before{ content:''; position:absolute; inset:-11px -14px; }
 
 /* a peça, deitada sobre o preto */
 /* ---------- a peça exposta ----------
@@ -826,6 +835,9 @@ body{
 #modal.is-open #modal-card{ animation:modal-in .5s var(--ease-silk) forwards; }
 #modal-scrim{ opacity:0; transition:opacity var(--d-base) ease; }
 #modal.is-open #modal-scrim{ opacity:1; }
+/* centrado por margem, não por translate: o toast-in termina em transform:none e
+   apagava o -translate-x-1/2, deixando o aviso com a borda esquerda no meio da tela */
+#toast{ left:0; right:0; margin-inline:auto; width:max-content; max-width:calc(100% - 2rem); }
 #toast.is-open{ display:flex; animation:toast-in .5s var(--ease-silk) forwards; }
 
 /* drawer */

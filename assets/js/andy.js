@@ -201,6 +201,89 @@
     if (fn){ e.preventDefault(); fn(host, e); }
   });
 
+  /* âncoras internas (#hero, #anatomia, …). O smooth nativo calcula o destino
+     uma vez só, no clique, e no Safari cruza a página inteira em ~0,3 s. Aqui a
+     duração acompanha o trajeto e a dobra é remirada a cada quadro: se algo
+     acima mudar de altura no caminho (a barra do Safari no iOS recolhendo, uma
+     imagem chegando), a rolagem ainda para no lugar certo. */
+  const root = document.documentElement;
+  let anchorRun = null;
+  function anchorTop(el){
+    const m = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+    const y = el.getBoundingClientRect().top + window.scrollY - m;
+    return Math.max(0, Math.min(y, root.scrollHeight - window.innerHeight));
+  }
+  function stopAnchor(){
+    if (!anchorRun) return;
+    ticker.remove(anchorRun);
+    anchorRun = null;
+    root.style.scrollBehavior = '';
+  }
+  function scrollToAnchor(el){
+    stopAnchor();
+    const from = window.scrollY;
+    const dist = Math.abs(anchorTop(el) - from);
+    // o scroll-behavior:smooth do CSS transformaria cada passo numa animação própria
+    root.style.scrollBehavior = 'auto';
+    if (motion.reduced || dist < 2){ window.scrollTo(0, anchorTop(el)); root.style.scrollBehavior = ''; return; }
+    // trajetos curtos (Ver o ritual, ~600px) também ganham tempo para assentar
+    const dur = Math.min(1600, 1000 + dist * .07);
+    const t0 = performance.now();
+    anchorRun = function(t){
+      const k = Math.min(1, Math.max(0, (t - t0) / dur));
+      // easeInOutSine no começo e no fim: sai e chega devagar, sem tranco
+      const e = -(Math.cos(Math.PI * k) - 1) / 2;
+      window.scrollTo(0, from + (anchorTop(el) - from) * e);
+      if (k >= 1) stopAnchor();
+    };
+    ticker.add(anchorRun);
+  }
+  // o dedo, a roda do mouse ou o teclado retomam o controle na hora
+  ['wheel', 'touchstart', 'keydown'].forEach(function(type){
+    window.addEventListener(type, stopAnchor, { passive:true });
+  });
+
+  function anchorTarget(node){
+    const a = node && node.closest ? node.closest('a[href^="#"]') : null;
+    const id = a ? a.getAttribute('href').slice(1) : '';
+    return (id && document.getElementById(id)) || null;
+  }
+  function goAnchor(el){
+    history.pushState(null, '', '#' + el.id);
+    scrollToAnchor(el);
+    // o foco acompanha o destino (teclado e leitor de tela) sem provocar outro salto
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+    el.focus({ preventScroll:true });
+  }
+  document.addEventListener('click', function(e){
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const el = anchorTarget(e.target);
+    if (!el) return;
+    e.preventDefault();
+    goAnchor(el);
+  });
+
+  /* no iOS, se a página ainda desliza por inércia ou quica no fim (o rodapé
+     mora no fim), o primeiro toque só freia a rolagem e o Safari não gera o
+     clique: o link parecia pedir dois toques. O touchend chega mesmo assim,
+     então um toque curto e parado num link de âncora navega por aqui, e o
+     preventDefault impede o clique sintético de repetir o trajeto. */
+  let tap = null;
+  document.addEventListener('touchstart', function(e){
+    const t = e.touches[0];
+    tap = e.touches.length === 1 && anchorTarget(e.target) ? { x:t.clientX, y:t.clientY, t:performance.now() } : null;
+  }, { passive:true });
+  document.addEventListener('touchend', function(e){
+    const start = tap; tap = null;
+    if (!start || e.cancelable === false) return;
+    const t = e.changedTouches[0];
+    if (Math.abs(t.clientX - start.x) > 10 || Math.abs(t.clientY - start.y) > 10 || performance.now() - start.t > 600) return;
+    const el = anchorTarget(document.elementFromPoint(t.clientX, t.clientY));
+    if (!el || el !== anchorTarget(e.target)) return;
+    e.preventDefault();
+    goAnchor(el);
+  }, { passive:false });
+
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape'){
       closeModal();
@@ -290,7 +373,7 @@
     setTimeout(function(){
       if (line) line.classList.add('is-sweeping');
       setTimeout(function(){ if (paint) paint.classList.add('is-painted'); }, 260);
-    }, 1300);
+    }, 740);   // a pintura de "de seda." começa em 1s (740 + 260), com o "Toque" ainda assentando
   });
 
   /* ==========================================================================
@@ -330,16 +413,13 @@
      rotateX/rotateY faz o compositor rasterizar a camada em resolução menor e
      reamostrá-la, e o vídeo dentro dela perde 75% da definição enquanto o
      cursor estiver no palco. O ângulo não muda nada — basta a rotação existir.
-     Deslocar não rasteriza, então a profundidade vem do paralaxe: o chip de
-     vidro anda mais que o painel, e é essa diferença que o olho lê como
-     relevo. */
+     Deslocar não rasteriza, então o painel só desliza alguns pixels atrás do
+     cursor. */
   const stage = document.getElementById('stage');
   const stageInner = document.getElementById('stage-inner');
-  const stageChip = stageInner && stageInner.querySelector('.chip');
 
   if (stage && stageInner && !motion.reduced){
     const PAINEL = 7;    // px no canto
-    const CHIP   = 17;   // px no canto: anda mais, por estar "à frente"
     const PUXA   = .045; // quanto do caminho até o alvo ele anda por quadro
     let alvoX = 0, alvoY = 0, atualX = 0, atualY = 0, parado = true;
 
@@ -363,14 +443,11 @@
       if (parado && atualX === 0 && atualY === 0){
         stageInner.style.transform = '';
         stageInner.style.willChange = '';
-        if (stageChip) stageChip.style.transform = '';
         return;
       }
 
       stageInner.style.transform =
         'translate3d(' + trava(atualX * PAINEL) + 'px,' + trava(atualY * PAINEL) + 'px,0)';
-      if (stageChip) stageChip.style.transform =
-        'translate3d(' + trava(atualX * CHIP) + 'px,' + trava(atualY * CHIP) + 'px,0)';
     }
 
     function acorda(){
