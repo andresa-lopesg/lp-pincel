@@ -230,9 +230,10 @@
     card.style.setProperty('--x', x + 'px');
     card.style.setProperty('--y', y + 'px');
   }
-  if (!motion.touch){
+  const lightCards = Array.prototype.slice.call(document.querySelectorAll('.glow-card, .flashlight-card'));
+  if (!motion.touch && lightCards.length){
     document.addEventListener('mousemove', function(e){
-      document.querySelectorAll('.glow-card, .flashlight-card').forEach(function(card){
+      lightCards.forEach(function(card){
         const r = card.getBoundingClientRect();
         if (e.clientX < r.left - 60 || e.clientX > r.right + 60 || e.clientY < r.top - 60 || e.clientY > r.bottom + 60) return;
         paintFlashlight(e, card);
@@ -297,12 +298,16 @@
      O scroll só marca sujeira; quem pinta é o relógio compartilhado.
      ========================================================================== */
   const bar = document.getElementById('scroll-progress');
+  // a altura rolável só muda quando o conteúdo ou a janela mudam: medir ali, não a cada quadro
+  let scrollable = 0;
+  function measureScroll(){ scrollable = document.documentElement.scrollHeight - window.innerHeight; }
+  measureScroll();
+  if ('ResizeObserver' in window) new ResizeObserver(function(){ measureScroll(); ticker.add(paintScrollTick); }).observe(document.body);
+  window.addEventListener('resize', measureScroll, { passive:true });
   function paintScroll(){
     const y = window.scrollY;
-    if (bar){
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
-    }
+    // scaleX só compõe; animar width refazia o layout a cada quadro
+    if (bar) bar.style.transform = 'scaleX(' + (scrollable > 0 ? Math.min(1, y / scrollable) : 0) + ')';
     if (!motion.reduced){
       const title = document.getElementById('hero-title');
       if (title && y < window.innerHeight) title.style.transform = 'translateY(' + (y * 0.1) + 'px)';
@@ -496,16 +501,33 @@
       lines[note.dataset.hs] = p;
     });
 
-    function drawLines(){
-      if (!motion.wide) return;
+    // medir e desenhar em fases separadas: todas as leituras de geometria antes
+    // de qualquer escrita, para o navegador não refazer o layout no meio do quadro
+    const pairs = notes.map(function(note){
+      return {
+        a: note.querySelector('.anat-anchor'),
+        h: grid.querySelector('.hs[data-hs="' + note.dataset.hs + '"]'),
+        line: lines[note.dataset.hs],
+        d: ''
+      };
+    });
+    function measureLines(){
+      if (!motion.wide) return false;
       const box = svg.getBoundingClientRect();
-      notes.forEach(function(note){
-        const a = note.querySelector('.anat-anchor').getBoundingClientRect();
-        const h = grid.querySelector('.hs[data-hs="' + note.dataset.hs + '"]').getBoundingClientRect();
+      pairs.forEach(function(pr){
+        const a = pr.a.getBoundingClientRect(), h = pr.h.getBoundingClientRect();
         const ax = a.left + a.width / 2 - box.left, ay = a.top + a.height / 2 - box.top;
         const hx = h.left + h.width / 2 - box.left, hy = h.top + h.height / 2 - box.top;
         const mx = ax + (hx - ax) * .42;
-        lines[note.dataset.hs].setAttribute('d', 'M' + ax + ' ' + ay + ' H' + mx + ' L' + hx + ' ' + hy);
+        pr.next = 'M' + ax.toFixed(1) + ' ' + ay.toFixed(1) + ' H' + mx.toFixed(1) + ' L' + hx.toFixed(1) + ' ' + hy.toFixed(1);
+      });
+      return true;
+    }
+    function paintLines(){
+      pairs.forEach(function(pr){
+        if (pr.next === pr.d) return;
+        pr.d = pr.next;
+        pr.line.setAttribute('d', pr.d);
       });
     }
 
@@ -572,13 +594,17 @@
     });
 
     // laço de quadro só enquanto a dobra está visível: scroll → --p, linhas seguem o pincel
+    let lastP = '';
     function anatFrame(){
+      // leituras
       const r = anat.getBoundingClientRect(), vh = window.innerHeight;
+      const hasLines = measureLines();
+      // escritas
       if (!motion.reduced){
-        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
-        anat.style.setProperty('--p', p.toFixed(4));
+        const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height))).toFixed(4);
+        if (p !== lastP){ lastP = p; anat.style.setProperty('--p', p); }
       }
-      drawLines();
+      if (hasLines) paintLines();
     }
     onView(anat,
       function(){ ticker.add(anatFrame); },
@@ -665,11 +691,11 @@
         { threshold:0, rootMargin:'0px 0px -12% 0px' });
     }
 
-    // a placa: o número sobe até a próxima peça e a luz atravessa a gravação
+    // a placa: o valor sobe até o preço da próxima peça e a luz atravessa a gravação
     const plate = fin.querySelector('.fin-plate');
     const count = document.getElementById('fin-count');
-    const NEXT  = 147;
-    const pad   = function(n){ return String(n).padStart(3, '0'); };
+    const NEXT  = 99.90;
+    const pad   = function(n){ return n.toFixed(2).replace('.', ','); };
     const num   = fin.querySelector('.fin-num');
 
     function shine(){
@@ -682,7 +708,7 @@
       if (!count) return;
       if (motion.reduced){ count.textContent = pad(NEXT); return; }
       tween(1500, function(k){
-        count.textContent = pad(Math.round(NEXT * (1 - Math.pow(1 - k, 3))));
+        count.textContent = pad(NEXT * (1 - Math.pow(1 - k, 3)));
       });
     }
 
@@ -704,22 +730,12 @@
       }
     }
 
-    /* a peça exposta: a luz corre por ela uma vez, e depois a cada passada do
-       cursor. O deslocamento vertical é pequeno de propósito — parallax em
-       cima de uma foto de produto vende profundidade até uns 12 px; mais que
+    /* a peça exposta. O deslocamento vertical é pequeno de propósito — parallax
+       em cima de uma foto de produto vende profundidade até uns 12 px; mais que
        isso e a peça descola da sombra. */
-    const peca  = fin.querySelector('.fin-piece');
-    const gloss = peca && peca.querySelector('.fin-gloss');
+    const peca = fin.querySelector('.fin-piece');
 
     if (peca && !motion.reduced){
-      function acende(){
-        peca.classList.remove('is-lit');
-        void peca.offsetWidth;
-        peca.classList.add('is-lit');
-      }
-      onEnterOnce(peca, acende, { threshold:.4 });
-      if (!motion.touch) peca.addEventListener('mouseenter', acende);
-
       // o parallax só roda enquanto a cena está na tela
       function pecaFrame(){
         const r = peca.getBoundingClientRect();
@@ -730,22 +746,35 @@
         function(){ ticker.add(pecaFrame); },
         function(){ ticker.remove(pecaFrame); },
         { threshold:0, rootMargin:'20% 0px 20% 0px' });
-    } else if (gloss){
-      gloss.remove();
     }
   }
 
   /* ==========================================================================
      15 · trilha de pó do cursor
-     Desenha no mesmo relógio e para quando a aba sai de vista.
+     Desenha no mesmo relógio só enquanto há partículas vivas; parada, a
+     página não pede quadro nenhum.
      ========================================================================== */
   const canvas = document.getElementById('dust-canvas');
   if (canvas && !motion.reduced && !motion.touch){
     const ctx = canvas.getContext('2d');
     let particles = [];
+    let running = false;
+    let glow = '234,215,209';
     function resize(){ canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resize();
     window.addEventListener('resize', resize, { passive:true });
+    // o laço só existe enquanto há pó no ar: sem partículas, nenhum quadro é pedido
+    function start(){
+      if (running) return;
+      running = true;
+      glow = getComputedStyle(document.documentElement).getPropertyValue('--glow').trim() || glow;
+      ticker.add(dustFrame);
+    }
+    function stop(){
+      running = false;
+      ticker.remove(dustFrame);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
     window.addEventListener('mousemove', function(e){
       for (let i = 0; i < 2; i++){
         particles.push({
@@ -758,11 +787,11 @@
         });
       }
       if (particles.length > 220) particles = particles.slice(-220);
+      if (!document.hidden) start();
     }, { passive:true });
 
     function dustFrame(){
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const glow = getComputedStyle(document.documentElement).getPropertyValue('--glow').trim() || '234,215,209';
       particles = particles.filter(function(p){
         p.x += p.vx; p.y += p.vy; p.life -= .016;
         if (p.life <= 0) return false;
@@ -772,11 +801,10 @@
         ctx.fill();
         return true;
       });
+      if (!particles.length) stop();
     }
-    ticker.add(dustFrame);
     document.addEventListener('visibilitychange', function(){
-      if (document.visibilityState === 'visible') ticker.add(dustFrame);
-      else ticker.remove(dustFrame);
+      if (document.hidden){ particles = []; stop(); }
     });
   }
 
@@ -817,6 +845,16 @@
       entries.forEach(function(en){ if (en.isIntersecting) marcaDobra(en.target.id); });
     }, { rootMargin:'-45% 0px -45% 0px' });
     dobras.forEach(function(sec){ tomObs.observe(sec); });
+
+    // dobra fora da tela congela as animações contínuas (auras, anéis, brilhos):
+    // ninguém vê, e o compositor deixa de repintá-las
+    const marquee = document.querySelector('.animate-marquee');
+    const vivas = dobras.concat(Array.prototype.slice.call(document.querySelectorAll('.shell footer')));
+    if (marquee) vivas.push(marquee.parentElement);
+    const offObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ en.target.classList.toggle('is-offscreen', !en.isIntersecting); });
+    }, { rootMargin:'200px 0px' });
+    vivas.forEach(function(el){ offObs.observe(el); });
     window.addEventListener('resize', function(){
       moveIndicador(elos.filter(function(a){ return a.classList.contains('is-current'); })[0]);
     }, { passive:true });

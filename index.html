@@ -56,7 +56,7 @@
   "offers": {
     "@type": "Offer",
     "url": "https://illustrious-ganache-89e735.netlify.app/#fecho",
-    "price": "420.00",
+    "price": "120.00",
     "priceCurrency": "BRL",
     "availability": "https://schema.org/InStock",
     "itemCondition": "https://schema.org/NewCondition",
@@ -211,7 +211,7 @@
     </div>
     <!-- progresso de leitura -->
     <div class="absolute bottom-0 left-0 h-[2px] w-full" style="background:transparent">
-      <div id="scroll-progress" class="h-full w-0" style="background:linear-gradient(90deg,var(--accent),var(--accent-deep))"></div>
+      <div id="scroll-progress" class="h-full w-full" style="background:linear-gradient(90deg,var(--accent),var(--accent-deep)); transform:scaleX(0); transform-origin:0 50%"></div>
     </div>
   </header>
 
@@ -284,7 +284,7 @@
 
           <!-- orbe que respira atrás do painel -->
           <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full animate-breathe pointer-events-none"
-               style="width:86%;aspect-ratio:1;background:radial-gradient(circle, rgba(var(--glow),.9) 0%, rgba(var(--glow),.3) 45%, transparent 70%); filter:blur(22px)"></div>
+               style="width:86%;aspect-ratio:1;background:radial-gradient(circle, rgba(var(--glow),.9) 0%, rgba(var(--glow),.3) 45%, rgba(var(--glow),.08) 62%, transparent 76%)"></div>
 
           <div id="stage-inner" class="relative" style="transform-style:preserve-3d">
 
@@ -430,7 +430,7 @@
             <div class="animate-levitate h-full w-full flex items-center justify-center" style="animation-duration:7s">
               <div class="anat-sway h-full w-full flex items-center justify-center">
               <div id="anat-brush" class="anat-brush">
-                <img src="assets/img/andy-n02-anatomia.webp" alt="Pincel Andy N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com Andy gravado e cabo afunilado." width="259" height="1259" decoding="async" draggable="false">
+                <img src="assets/img/andy-n02-anatomia.webp" alt="Pincel Andy N°02 em pé: cúpula chanfrada de fibras pretas, férula laqueada com Andy gravado e cabo afunilado com Liquid foundation." width="259" height="1259" decoding="async" draggable="false">
                 <span class="anat-sheen" aria-hidden="true"></span>
                 <button type="button" class="hs" data-hs="1" style="--x:60%;--y:3.5%;--i:0" aria-label="01 · Chanfro de 12°"><span class="hs-num">01</span></button>
                 <button type="button" class="hs" data-hs="2" style="--x:30%;--y:8.5%;--i:1" aria-label="02 · Fibra taklon de 0,02 mm"><span class="hs-num">02</span></button>
@@ -824,7 +824,7 @@
 
         <div class="anx mt-10 flex items-baseline gap-4" style="--i:2">
           <span class="t-serif text-2xl md:text-3xl" style="color:rgba(255,255,255,.9)">Um fio de cada vez.</span>
-          <span class="t-label" style="color:rgba(255,255,255,.35)">Andy · São Paulo</span>
+          <span class="t-label" style="color:rgba(255,255,255,.35)">Andy · Brusque, SC</span>
         </div>
       </div>
 
@@ -834,7 +834,7 @@
           <div class="flex items-start justify-between gap-6 mb-7">
             <div>
               <span class="t-label block mb-4" style="color:rgba(255,255,255,.42)">A próxima peça</span>
-              <span class="fin-num"><span class="pre">N°</span><span id="fin-count">000</span></span>
+              <span class="fin-num"><span class="pre">R$</span><span id="fin-count">99,90</span></span>
               <span class="t-label block mt-4" style="color:rgba(255,255,255,.38)">de 200 · lote 02</span>
             </div>
             <div class="fin-seal" aria-hidden="true">
@@ -875,9 +875,9 @@
           <div class="fin-spec items-end mt-2 mb-7" style="border-top-color:rgba(255,255,255,.22)">
             <div>
               <span class="t-label block mb-2" style="color:rgba(255,255,255,.42)">À vista</span>
-              <span class="t-h3">R$ 420</span>
+              <span class="t-h3">R$ 120</span>
             </div>
-            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">ou 6× de R$ 70</span>
+            <span class="t-body-sm" style="color:rgba(255,255,255,.56)">ou 6× de R$ 20</span>
           </div>
 
           <button type="button" class="fin-cta" data-ripple data-action="modal-open">
@@ -890,16 +890,12 @@
       </div>
     </div>
 
-    <!-- a última linha: a peça exposta, como numa vitrine -->
+    <!-- a última linha: a peça pousada na própria página, sem vitrine -->
     <div class="relative wrap mt-20 md:mt-28">
       <figure class="fin-scene anx mb-12 md:mb-16" data-anx="scale">
-        <div class="fin-case">
-          <span class="fin-marks" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-          <div class="fin-piece">
-            <span class="fin-pedestal" aria-hidden="true"></span>
-            <img src="assets/img/andy-n02-horizontal.webp" alt="O pincel Andy N°02 deitado, com Andy gravado na férula e N°02 · base líquida no cabo." width="1259" height="259" loading="lazy" decoding="async" draggable="false">
-            <span class="fin-gloss" aria-hidden="true"></span>
-          </div>
+        <div class="fin-piece">
+          <span class="fin-pedestal" aria-hidden="true"></span>
+          <img src="assets/img/andy-n02-fecho.webp" alt="O pincel Andy N°02 deitado na penumbra, com Andy gravado na férula e Liquid foundation no cabo." width="1460" height="520" loading="lazy" decoding="async" draggable="false">
         </div>
         <figcaption class="fin-plaque t-label">
           <span>Andy</span><i aria-hidden="true"></i><span>N°02</span><i aria-hidden="true"></i><span>Lote 02</span>
@@ -921,7 +917,7 @@
         <div class="flex items-baseline gap-3 mb-3">
           <span class="font-display text-[1.35rem] tracking-[-.04em]" style="font-weight:600">Andy</span>
         </div>
-        <p class="t-body-sm" style="color:rgba(255,255,255,.5)">Pincéis para base líquida, montados à mão.<br>Rua Fidalga 452, Vila Madalena · São Paulo</p>
+        <p class="t-body-sm" style="color:rgba(255,255,255,.5)">Pincéis para base líquida, montados à mão.<br>Centro · Brusque, SC</p>
       </div>
       <nav class="flex flex-wrap items-center gap-x-7 gap-y-3 md:pb-1">
         <a href="#hero" class="link-ghost fin-link">Início</a>
@@ -951,7 +947,7 @@
     <p class="t-body text-graphite mb-8">Cúpula chanfrada a 12°, férula em latão escovado e cabo em faia FSC. Pronta em até três dias úteis.</p>
     <div class="flex items-center justify-between mb-8 py-5" style="border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)">
       <span class="t-body-sm text-graphite">Total</span>
-      <span class="t-h4">R$ 420</span>
+      <span class="t-h4">R$ 120</span>
     </div>
     <div class="flex gap-3">
       <button class="btn-base btn-primary btn-fill flex-1" data-action="reservar"><span class="fill"></span>Confirmar</button>
