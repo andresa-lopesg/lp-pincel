@@ -278,6 +278,9 @@ body{
 /* botão de ícone com ripple */
 .btn-icon{ position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; width:3rem; height:3rem; border-radius:9999px; border:1px solid var(--hairline); background:var(--white); transition:border-color var(--d-base) ease, transform var(--d-fast) var(--ease-bounce); }
 .btn-icon:hover{ border-color:var(--accent-deep); color:var(--accent-deep); transform:translateY(-2px); }
+/* o menu sanduíche é só do mobile: no desktop os links já estão no header.
+   .btn-icon vem depois do tailwind e vencia o lg:hidden do HTML */
+@media (min-width:1024px){ #menu-btn{ display:none; } }
 .ripple{ position:absolute; border-radius:9999px; background:color-mix(in srgb, var(--accent) 45%, transparent); transform:scale(0); animation:ripple .7s var(--ease-silk) forwards; pointer-events:none; }
 .magnetic{ transition:transform .35s var(--ease-silk); }
 
