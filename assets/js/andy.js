@@ -249,7 +249,7 @@
     return (id && document.getElementById(id)) || null;
   }
   function goAnchor(el){
-    history.pushState(null, '', '#' + el.id);
+    // o endereço não ganha #âncora: copiado e compartilhado, ele abriria a página no meio
     scrollToAnchor(el);
     // o foco acompanha o destino (teclado e leitor de tela) sem provocar outro salto
     if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');

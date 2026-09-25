@@ -7,7 +7,11 @@
   <!-- Quase tudo na página entra por animação, ou seja: nasce invisível. A classe
      no-js deixa esse conteúdo à mostra; a linha abaixo a retira assim que o
      JavaScript prova que roda, antes da primeira pintura. -->
-  <script>document.documentElement.classList.remove('no-js');</script>
+  <script>document.documentElement.classList.remove('no-js');
+    /* a página sempre abre no topo: um link compartilhado com #fecho, ou a
+       posição guardada pelo navegador, não leva ninguém direto ao rodapé */
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);</script>
   <title>Andy · Pincéis feitos à mão · Toque de seda</title>
   <meta name="description"
     content="Pincel de base líquida N°02. Fibras de 0,02 mm montadas à mão, uma por vez. A base assenta em camada única, sem marcas.">
@@ -88,15 +92,15 @@
 </script>
 
   <!-- Tailwind: folha estática gerada em build/ (npm run css) -->
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=20260925f">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=20260925g">
   <!-- Fontes: quatro famílias servidas daqui, com display=swap nas @font-face.
      O que a primeira dobra escreve vem de Inter Tight, então esse arquivo é pedido antes. -->
   <!-- pré-carga da fonte dos títulos só por http(s): aberto como arquivo (file://) o CORS barra o
      preload e o Safari reaproveita a falha, deixando os títulos na fonte do sistema -->
   <script>if (location.protocol !== 'file:') { var l = document.createElement('link'); l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous'; l.href = 'assets/fonts/inter-tight-var-latin.woff2'; document.head.appendChild(l); }</script>
-  <link rel="stylesheet" href="assets/css/fonts.css?v=20260925f">
+  <link rel="stylesheet" href="assets/css/fonts.css?v=20260925g">
 
-  <link rel="stylesheet" href="assets/css/andy.css?v=20260925f">
+  <link rel="stylesheet" href="assets/css/andy.css?v=20260925g">
 </head>
 
 <body class="antialiased">
@@ -1191,7 +1195,7 @@
     <span id="toast-msg" class="t-body-sm"></span>
   </div>
 
-  <script src="assets/js/andy.js?v=20260925f" defer onerror="document.documentElement.classList.add('no-js')"></script>
+  <script src="assets/js/andy.js?v=20260925g" defer onerror="document.documentElement.classList.add('no-js')"></script>
 </body>
 
 </html>
