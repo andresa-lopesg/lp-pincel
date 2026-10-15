@@ -1,5 +1,11 @@
 # Andy · Pincéis feitos à mão
 
+Site no ar em [illustrious-ganache-89e735.netlify.app](https://illustrious-ganache-89e735.netlify.app/).
+
+![Primeira dobra, com o vídeo do pincel](docs/screenshots/hero.jpg)
+
+![Segunda dobra, com a anatomia do pincel](docs/screenshots/anatomia.jpg)
+
 Landing page do pincel Andy N°02. HTML estático: para ver, basta servir a pasta.
 O único passo de build é o Tailwind, e a folha gerada está versionada, então dá
 para abrir a página sem rodar nada.
